@@ -3,23 +3,23 @@
   --card: #fff3e0;
   --text: #222222;
   --text-light: #444444;
-  --primary: #d35400; /* Darker orange for better contrast */
+  --primary: #d35400;
   --primary-light: #f97316;
   --secondary: #ffda77;
-  --success: #27ae60; /* Darker green */
+  --success: #27ae60;
   --warning: #f39c12;
   --danger: #c0392b;
   --border-radius: 20px;
   --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* DARK MODE - Improved Contrast */
+/* DARK MODE */
 body.dark {
-  --bg: #0a0a14; /* Darker background */
+  --bg: #0a0a14;
   --card: #1a1a2e;
   --text: #ffffff;
   --text-light: #e0e0e0;
-  --primary: #ff8c42; /* Brighter orange for dark mode */
+  --primary: #ff8c42;
   --primary-light: #ffa75e;
   --secondary: #2d3748;
   --success: #2ecc71;
@@ -38,7 +38,7 @@ body {
   line-height: 1.6;
 }
 
-/* Improved text contrast for all elements */
+/* Improved text contrast */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text);
   font-weight: 700;
@@ -75,7 +75,7 @@ p, li, span {
   100% { transform: translateY(-100px) rotate(360deg); }
 }
 
-/* NAVBAR - Improved Contrast */
+/* NAVBAR */
 .navbar-cartoon {
   background-color: var(--secondary) !important;
   border-bottom: 3px solid var(--primary);
@@ -128,7 +128,7 @@ body:not(.dark) .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* Theme Toggle Button - Better Contrast */
+/* Theme Toggle Button */
 .btn-theme {
   background-color: var(--primary);
   color: #ffffff !important;
@@ -147,7 +147,7 @@ body:not(.dark) .navbar-toggler-icon {
   transform: scale(1.1);
 }
 
-/* HERO SECTION - Better Contrast */
+/* HERO SECTION */
 .hero {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-light) 100%);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -187,7 +187,7 @@ body.dark .hero p {
   50% { transform: translateY(-10px); }
 }
 
-/* CARDS - Improved Readability */
+/* CARDS */
 .cartoon-card {
   background-color: var(--card);
   border: 3px solid var(--primary);
@@ -210,7 +210,7 @@ body.dark .hero p {
   color: var(--primary);
 }
 
-/* INPUTS - Better Visibility */
+/* INPUTS */
 .cartoon-input {
   background-color: #ffffff;
   border: 3px solid var(--primary);
@@ -233,7 +233,7 @@ body.dark .cartoon-input {
   outline: none;
 }
 
-/* BUTTONS - Better Contrast */
+/* BUTTONS */
 .cartoon-btn {
   background-color: var(--primary);
   color: #ffffff !important;
@@ -271,7 +271,7 @@ body.dark .cartoon-input {
   color: #ffffff !important;
 }
 
-/* SHARE BUTTONS - Better Labels */
+/* SHARE BUTTONS */
 .btn-share {
   border-radius: 12px;
   padding: 0.75rem 0.5rem;
@@ -284,6 +284,9 @@ body.dark .cartoon-input {
   align-items: center;
   gap: 0.25rem;
 }
+.btn-share:hover{
+    background-color: #d35400 !important;
+}
 
 .btn-share i {
   font-size: 1.25rem;
@@ -291,25 +294,19 @@ body.dark .cartoon-input {
 
 .btn-share:hover {
   transform: scale(1.1);
-  color: brown !important;
-  border-color: brown;
 }
 
 .whatsapp { 
   background-color: #25D366; 
-  color: #ffffff !important;
 }
 .instagram { 
   background-color: #E4405F; 
-  color: #ffffff !important;
 }
 .twitter { 
   background-color: #1DA1F2; 
-  color: #ffffff !important;
 }
 .facebook { 
   background-color: #1877F2; 
-  color: #ffffff !important;
 }
 .snapchat { 
   background-color: #FFFC00; 
@@ -317,7 +314,6 @@ body.dark .cartoon-input {
 }
 .copy-link { 
   background-color: #718096; 
-  color: #ffffff !important;
 }
 
 /* FEATURE CARDS */
@@ -378,7 +374,7 @@ body.dark .cartoon-input {
   border-radius: 2px;
 }
 
-/* ACCORDION - Better Readability */
+/* ACCORDION */
 .cartoon-accordion .accordion-button {
   background-color: var(--card);
   color: var(--text) !important;
@@ -417,7 +413,7 @@ body.dark .cartoon-input {
   padding: 1rem 2rem;
 }
 
-/* FOOTER - Better Contrast */
+/* FOOTER */
 .footer {
   background-color: var(--secondary);
   border-top: 4px solid var(--primary);
@@ -450,6 +446,8 @@ body.dark .cartoon-input {
   padding: 10px;
   background-color: #ffffff;
   border-radius: 12px;
+  max-width: 250px;
+  height: auto;
 }
 
 body.dark #qrImage {
@@ -485,6 +483,60 @@ a:not(.btn) {
 a:not(.btn):hover {
   color: var(--primary-light);
   text-decoration: underline;
+}
+
+/* Simple QR Button */
+.btn-outline-success {
+  border: 2px solid #28a745;
+  color:#28a745 !important;
+  background: transparent;
+  transition: all 0.3s;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+  transform: scale(1.02);
+}
+
+/* Shape Preview Buttons */
+.shape-preview-btn {
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  min-width: 100px;
+}
+
+.shape-preview-btn.active {
+  border-color: var(--primary);
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* Alerts */
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  border: 2px solid #28a745;
+}
+
+.alert-info {
+  background-color: rgba(23, 162, 184, 0.15);
+  border: 2px solid #17a2b8;
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.15);
+  border: 2px solid #ffc107;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
 }
 
 /* RESPONSIVE DESIGN */
@@ -526,6 +578,12 @@ a:not(.btn):hover {
   .btn-share i {
     font-size: 1rem;
   }
+  
+  .shape-preview-btn {
+    min-width: 80px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -556,6 +614,10 @@ a:not(.btn):hover {
   .feature-icon {
     font-size: 2rem;
   }
+  
+  #qrImage {
+    max-width: 200px !important;
+  }
 }
 
 /* DARK MODE SPECIFIC IMPROVEMENTS */
@@ -585,148 +647,22 @@ body.dark .accordion-button::after {
   outline-offset: 2px;
 }
 
-/* SKIP TO MAIN CONTENT LINK (Accessibility) */
-.skip-to-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary);
-  color: white;
-  padding: 8px;
-  z-index: 1001;
-  text-decoration: none;
+/* Custom Toast Animations */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-.skip-to-content:focus {
-  top: 0;
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
 }
 
-/* PRINT STYLES */
-@media print {
-  .navbar,
-  .footer,
-  .btn,
-  .stars-container {
-    display: none !important;
-  }
-  
-  body {
-    padding-top: 0;
-    color: #000000 !important;
-    background: #ffffff !important;
-  }
-  
-  .cartoon-card {
-    border: 1px solid #000000;
-    box-shadow: none;
-  }
+.custom-toast {
+  animation: slideIn 0.3s ease;
 }
 
-
-/* Add these styles to your existing CSS file */
-
-/* Shape Preview Buttons */
-.shape-preview-btn {
-    flex: 1;
-    min-width: 120px;
-    margin: 0.25rem;
-    transition: all 0.3s ease;
-    border-radius: 12px !important;
-    border-width: 2px !important;
-}
-
-.shape-preview-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.shape-preview-btn.active {
-    border-color: var(--primary);
-    background-color: var(--primary) !important;
-    color: white !important;
-}
-
-/* Color Picker Styling */
-.form-control-color {
-    width: 100%;
-    height: 45px;
-    border-radius: 12px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.form-control-color::-webkit-color-swatch {
-    border-radius: 8px;
-    border: 3px solid var(--primary);
-}
-
-.form-control-color::-moz-color-swatch {
-    border-radius: 8px;
-    border: 3px solid var(--primary);
-}
-
-/* QR Code Style Info */
-#currentShape {
-    font-weight: bold;
-    color: var(--primary);
-}
-
-#currentColor {
-    font-weight: bold;
-    display: inline-block;
-    padding: 2px 8px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    margin-left: 5px;
-}
-
-/* Shape Icons in Select */
-#qrShape option {
-    padding: 10px;
-    font-size: 16px;
-}
-
-/* Responsive Shape Preview */
-@media (max-width: 768px) {
-    .shape-preview-btn {
-        min-width: 100px;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
-
-@media (max-width: 576px) {
-    .shape-preview-btn {
-        min-width: 80px;
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-    
-    #qrShape option {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-/* Animation for shape changes */
-@keyframes shapeChange {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-#qrImage {
-    animation: shapeChange 0.5s ease-out;
-}
-
-/* Dark mode adjustments for color picker */
-body.dark .form-control-color {
-    background-color: #2d3748;
-}
-
-body.dark .form-control-color::-webkit-color-swatch {
-    border-color: var(--primary-light);
-}
-
-body.dark .form-control-color::-moz-color-swatch {
-    border-color: var(--primary-light);
+/* QR Code Loading */
+.loading-qr {
+  animation: pulse 1.5s infinite;
 }

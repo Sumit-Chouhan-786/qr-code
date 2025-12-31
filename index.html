@@ -71,7 +71,6 @@
 </section>
 
 <!-- QR Generator Tool -->
-<!-- QR Generator Tool Section में ये changes करें -->
 <main class="container cartoon py-5" id="tool">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10">
@@ -88,61 +87,90 @@
           ></textarea>
         </div>
         
-        <!-- NEW: Shape Selection -->
+        <!-- Color Selection -->
         <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <label for="qrShape" class="form-label">QR Code Shape</label>
-            <select class="form-select cartoon-input" id="qrShape">
-              <option value="square">🔲 Square (Default)</option>
-              <option value="circle">⭕ Circle</option>
-              <option value="heart">❤️ Heart</option>
-              <option value="star">⭐ Star</option>
-              <option value="rounded">🔵 Rounded</option>
-              <option value="diamond">💎 Diamond</option>
-              <option value="flower">🌼 Flower</option>
-              <option value="cloud">☁️ Cloud</option>
-              <option value="triangle">🔺 Triangle</option>
-              <option value="butterfly">🦋 Butterfly</option>
-            </select>
-          </div>
-          
-          <div class="col-md-6">
+          <div class="col-md-12">
             <label for="qrColor" class="form-label">QR Color</label>
-            <input type="color" class="form-control form-control-color cartoon-input" id="qrColor" value="#d35400" title="Choose QR code color">
+            <div class="input-group">
+              <input type="color" class="form-control form-control-color cartoon-input" id="qrColor" value="#d35400" title="Choose QR code color">
+              <span class="input-group-text">#</span>
+              <input type="text" class="form-control cartoon-input" id="qrColorHex" value="d35400" maxlength="7" placeholder="Hex color">
+            </div>
           </div>
         </div>
         
-        <!-- NEW: Shape Preview -->
-        <div class="mb-3">
-          <label class="form-label">Shape Preview</label>
-          <div class="d-flex flex-wrap gap-2" id="shapePreview">
-            <!-- Shapes will be dynamically added here -->
-          </div>
+        <!-- Buttons -->
+        <div class="d-grid gap-2">
+          <button aria-label="generate qr" class="btn btn-primary cartoon-btn py-3" onclick="generateQR()">
+            <i class="bi bi-magic me-2"></i>Generate QR Code
+          </button>
+          
+          <button aria-label="generate simple qr" class="btn btn-outline-success cartoon-btn py-3" onclick="generateSimpleQR()">
+            <i class="bi bi-check-circle me-2"></i>Generate Simple QR (100% Scannable)
+          </button>
         </div>
-        
-        <button aria-label="generate qr" class="btn btn-primary w-100 cartoon-btn py-3" onclick="generateQR()">
-          <i class="bi bi-magic me-2"></i>Generate QR Code
-        </button>
         
         <!-- QR Result -->
         <div id="qrResult" class="card cartoon-card mt-4 p-4 text-center" style="display: none;">
           <h4 class="mb-3">Your QR Code</h4>
-          <div class="mb-3">
-            <canvas id="qrCanvas" style="display: none;"></canvas>
-            <img id="qrImage" class="img-fluid rounded" style="max-width: 250px;" />
+          
+          <!-- Test Scan Alert -->
+          <div class="alert alert-warning cartoon-card py-2 px-3 mb-3">
+            <i class="bi bi-phone me-2"></i>
+            <span>Scan with your phone's camera to test</span>
           </div>
           
-          <!-- NEW: Style Info -->
+          <div class="mb-3">
+            <img id="qrImage" class="img-fluid rounded" style="max-width: 250px;" alt="Generated QR Code" />
+          </div>
+          
+          <!-- Style Info -->
           <div class="alert alert-info cartoon-card py-2 px-3 mb-3">
             <i class="bi bi-info-circle me-2"></i>
-            Shape: <span id="currentShape">Square</span> | Color: <span id="currentColor">#d35400</span>
+            Color: <span id="currentColor">#d35400</span>
           </div>
           
-          <a id="downloadBtn" download="qr-code.png" class="btn btn-success mb-3 cartoon-btn">
-            <i class="bi bi-download me-2"></i>Download QR
-          </a>
+          <!-- Download Button -->
+          <div class="d-grid gap-2">
+            <a id="downloadBtn" download="qr-code.png" class="btn btn-success cartoon-btn">
+              <i class="bi bi-download me-2"></i>Download QR Code
+            </a>
+          </div>
           
-          <!-- Rest of the share buttons remain same -->
+          <!-- Share Section -->
+          <h5 class="mt-4 mb-3">Share QR Code:</h5>
+          <div class="row g-2 justify-content-center">
+            <div class="col-4 col-sm-3 col-md-2">
+              <a id="whatsapp" class="btn btn-share w-100 whatsapp">
+                <i class="bi bi-whatsapp"></i>
+                <small>WhatsApp</small>
+              </a>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2">
+              <a id="instagram" class="btn btn-share w-100 instagram">
+                <i class="bi bi-instagram"></i>
+                <small>Instagram</small>
+              </a>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2">
+              <a id="twitter" class="btn btn-share w-100 twitter">
+                <i class="bi bi-twitter"></i>
+                <small>Twitter</small>
+              </a>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2">
+              <a id="facebook" class="btn btn-share w-100 facebook">
+                <i class="bi bi-facebook"></i>
+                <small>Facebook</small>
+              </a>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2">
+              <a id="copyBtn" class="btn btn-share w-100 copy-link">
+                <i class="bi bi-link-45deg"></i>
+                <small>Copy</small>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,47 +183,46 @@
     <h2 class="text-center mb-5 section-title">Fun Features</h2>
     
     <div class="row g-4">
-  <div class="col-md-3 col-sm-6">
-    <div class="card cartoon-card h-100 text-center p-4 feature-card">
-      <div class="feature-icon mb-3">
-        <i class="bi bi-stars"></i>
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h4>Dynamic Backgrounds</h4>
+          <p>Engaging animated backgrounds to make your QR codes stand out.</p>
+        </div>
       </div>
-      <h4>Dynamic Backgrounds</h4>
-      <p>Engaging animated backgrounds to make your QR codes stand out.</p>
-    </div>
-  </div>
-  
-  <div class="col-md-3 col-sm-6">
-    <div class="card cartoon-card h-100 text-center p-4 feature-card">
-      <div class="feature-icon mb-3">
-        <i class="bi bi-palette"></i>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-palette"></i>
+          </div>
+          <h4>Vibrant Themes</h4>
+          <p>Colorful and creative cartoon-inspired designs for every project.</p>
+        </div>
       </div>
-      <h4>Vibrant Themes</h4>
-      <p>Colorful and creative cartoon-inspired designs for every project.</p>
-    </div>
-  </div>
-  
-  <div class="col-md-3 col-sm-6">
-    <div class="card cartoon-card h-100 text-center p-4 feature-card">
-      <div class="feature-icon mb-3">
-        <i class="bi bi-lightning-charge"></i>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <h4>Instant QR Generation</h4>
+          <p>Create fully functional QR codes in just a few seconds.</p>
+        </div>
       </div>
-      <h4>Instant QR Generation</h4>
-      <p>Create fully functional QR codes in just a few seconds.</p>
-    </div>
-  </div>
-  
-  <div class="col-md-3 col-sm-6">
-    <div class="card cartoon-card h-100 text-center p-4 feature-card">
-      <div class="feature-icon mb-3">
-        <i class="bi bi-shield-check"></i>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h4>Secure & Private</h4>
+          <p>Your data remains private; nothing is stored on our servers.</p>
+        </div>
       </div>
-      <h4>Secure & Private</h4>
-      <p>Your data remains private; nothing is stored on our servers.</p>
     </div>
-  </div>
-</div>
-
   </div>
 </section>
 
