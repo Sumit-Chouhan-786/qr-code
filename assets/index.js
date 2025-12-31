@@ -631,16 +631,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add example QR codes
     setTimeout(() => {
         const examples = [
-           [
-  { text: 'https://www.google.com', label: '🌐 Website' },
+          { text: 'https://www.google.com', label: '🌐 Website' },
   { text: 'Hello from QRGen!', label: '👋 Text Message' },
   { text: 'tel:+1234567890', label: '📞 Call' },
   { text: 'mailto:hello@example.com', label: '✉️ Email' },
   { text: 'https://wa.me/1234567890', label: '💬 WhatsApp' },
   { text: 'https://maps.google.com/?q=New+Delhi,India', label: '📍 Location' },
   { text: 'Happy New Year! 🎉 Wishing you success and happiness.', label: '🎊 Wishes' }
-]
-
         ];
         
         const container = document.querySelector('.cartoon-card');
