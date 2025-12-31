@@ -269,16 +269,50 @@ function setupShareLinks(text, qrURL) {
     const shareMessage = `Check out this QR code I created!\n\nContent: ${text}\n\nScan it to see what's inside!`;
     
     // WhatsApp - Share text and QR code image
-    whatsapp.onclick = (e) => {
-        e.preventDefault();
+// Replace the existing whatsapp.onclick code with this:
+
+// WhatsApp - Share QR code image via download
+whatsapp.onclick = (e) => {
+    e.preventDefault();
+    try {
+        // First download the QR code
+        downloadQRCode(qrURL, `qr-code-${Date.now()}.png`);
+        
+        // Create a WhatsApp message
+        const whatsappMessage = `Here's a QR code I generated:\n\nContent: ${text}\n\nI've downloaded it for you! Scan it to see what's inside.`;
+        
+        // Show instructions to user
+        showAlert(`
+            QR Code downloaded! 
+            Now open WhatsApp and:
+            1. Go to a chat
+            2. Attach the downloaded QR code image
+            3. Send it with this message:
+            "${whatsappMessage}"
+        `, "info");
+        
+        // Optionally, try to open WhatsApp with just the text (fallback)
+        setTimeout(() => {
+            const confirmOpen = confirm("QR code downloaded! Would you like to open WhatsApp to share the text?");
+            if (confirmOpen) {
+                const whatsappURL = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+            }
+        }, 1500);
+        
+    } catch (error) {
+        console.error("WhatsApp share error:", error);
+        
+        // Fallback: Share just the text
         try {
-            const whatsappURL = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
+            const whatsappMessage = `Check out this QR code I created!\n\nContent: ${text}\n\nGenerate your own at: ${window.location.href}`;
+            const whatsappURL = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappURL, '_blank', 'noopener,noreferrer');
-        } catch (error) {
-            showAlert("Failed to open WhatsApp. Please try again.", "warning");
+        } catch (fallbackError) {
+            showAlert("Failed to share on WhatsApp. Please download the QR code and share manually.", "warning");
         }
-    };
-    
+    }
+};
     // Twitter - Share with image URL
     twitter.onclick = (e) => {
         e.preventDefault();
