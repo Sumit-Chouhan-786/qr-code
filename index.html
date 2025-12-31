@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QRGen – Cartoon QR Code Generator</title>
+  <meta name="description" content="Create cartoon-themed QR codes instantly. Free, secure, fun and colorful!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+
+<!-- Floating stars container -->
+<div class="stars-container"></div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-cartoon fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3" href="#">
+      QR<span>Gen</span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#tool">Generate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item ms-2">
+          <button id="themeToggle" class="btn btn-sm btn-theme">
+            <i class="bi bi-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero cartoon py-sm-5 py-4 mt-5">
+  <div class="container py-md-5">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold mb-3 animate-bounce">
+          <i class="bi bi-palette-fill me-3"></i>Cartoon QR Fun!
+        </h1>
+        <p class="lead mb-0">Generate colorful QR codes instantly <i class="bi bi-stars"></i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR Generator Tool -->
+<main class="container cartoon py-5" id="tool">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card cartoon-card p-4">
+        <h2 class="mb-4 text-center"><i class="bi bi-qr-code me-2"></i>QR Generator</h2>
+        
+        <div class="mb-3">
+          <label for="qrText" class="form-label">Enter Text or URL</label>
+          <textarea 
+            class="form-control cartoon-input" 
+            id="qrText" 
+            rows="3" 
+            placeholder="https://example.com or any text..."
+          ></textarea>
+        </div>
+        
+        <button class="btn btn-primary w-100 cartoon-btn py-3" onclick="generateQR()">
+          <i class="bi bi-magic me-2"></i>Generate QR Code
+        </button>
+        
+        <!-- QR Result -->
+        <div id="qrResult" class="card cartoon-card mt-4 p-4 text-center" style="display: none;">
+          <h4 class="mb-3">Your QR Code</h4>
+          <div class="mb-3">
+            <img id="qrImage" class="img-fluid rounded" style="max-width: 250px;" />
+          </div>
+          
+          <a id="downloadBtn" download="qr-code.png" class="btn btn-success mb-3 cartoon-btn">
+            <i class="bi bi-download me-2"></i>Download QR
+          </a>
+          
+          <h5 class="mt-4 mb-3">Share QR Code:</h5>
+          <div class="row g-2">
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="whatsapp" class="btn btn-share w-100 whatsapp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="instagram" class="btn btn-share w-100 instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="twitter" class="btn btn-share w-100 twitter">
+                <i class="bi bi-twitter"></i>
+              </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="facebook" class="btn btn-share w-100 facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="snapchat" class="btn btn-share w-100 snapchat">
+                <i class="bi bi-snapchat"></i>
+              </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2">
+              <a id="copyBtn" class="btn btn-share w-100 copy-link">
+                <i class="bi bi-link-45deg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Features Section -->
+<section id="features" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Fun Features</h2>
+    
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h5>Floating Stars</h5>
+          <p>Animated background with floating stars</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-palette"></i>
+          </div>
+          <h5>Cartoon Theme</h5>
+          <p>Colorful, fun cartoon-themed UI</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <h5>Instant Generation</h5>
+          <p>Generate QR codes in seconds</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="card cartoon-card h-100 text-center p-4 feature-card">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h5>Privacy Safe</h5>
+          <p>No data stored, completely private</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5 cartoon-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card cartoon-card p-4">
+          <h2 class="text-center mb-4"><i class="bi bi-info-circle me-2"></i>About QRGen</h2>
+          <p class="lead">
+            QRGen is a free cartoon-themed QR code generator designed for fun and creativity. 
+            Perfect for social media, gifts, school projects, or sharing unique QR codes with friends. 
+            We focus on speed, security, and entertainment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion cartoon-accordion" id="faqAccordion">
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <i class="bi bi-question-circle me-2"></i> Is QRGen free to use?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes! QRGen is completely free for everyone. No hidden fees, no subscriptions.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <i class="bi bi-shield-check me-2"></i> Do you track or store my data?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                No! All QR codes are generated directly in your browser. We never see, store, or track your data.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <i class="bi bi-share me-2"></i> Can I share QR codes on social media?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Absolutely! Download your QR code and share it on Instagram, WhatsApp, Facebook, Snapchat, and more.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                <i class="bi bi-phone me-2"></i> Is QRGen mobile-friendly?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes! QRGen works perfectly on all devices - phones, tablets, and desktops.
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Section -->
+<section id="privacy" class="py-5 cartoon-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card cartoon-card p-4">
+          <h2 class="text-center mb-4"><i class="bi bi-lock me-2"></i>Privacy Policy</h2>
+          <p>
+            QRGen does not collect, store, or share any user data. All QR codes are generated 
+            directly in your browser, ensuring your information remains private and secure.
+          </p>
+          <div class="text-center mt-3">
+            <div class="d-inline-block p-3 rounded privacy-badge">
+              <i class="bi bi-check-circle-fill fs-1"></i>
+              <p class="mb-0 mt-2">100% Private</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card cartoon-card p-4">
+          <h2 class="text-center mb-4"><i class="bi bi-envelope me-2"></i>Contact Us</h2>
+          <div class="text-center">
+            <p class="lead">Have questions or suggestions?</p>
+            <a href="mailto:support@qrgen.com" class="btn btn-primary cartoon-btn">
+              <i class="bi bi-envelope-paper me-2"></i>support@qrgen.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer cartoon py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div class="d-flex align-items-center">
+          <div class="navbar-brand fw-bold fs-4 me-3">QR<span>Gen</span></div>
+          <span class="text-muted">Free Cartoon QR Generator</span>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="d-flex flex-wrap justify-content-md-end">
+          <a href="#about" class="btn btn-link text-decoration-none me-3">About</a>
+          <a href="#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
+          <a href="#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
+          <a href="#contact" class="btn btn-link text-decoration-none">Contact</a>
+        </div>
+      </div>
+    </div>
+    
+    <hr class="my-3">
+    
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0">&copy; 2025 QRGen Cartoon Fun • Made with <i class="bi bi-heart-fill text-danger"></i> for everyone</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="./assets/index.js"></script>
+</body>
+</html>
