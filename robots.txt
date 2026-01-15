@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block admin or private paths (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.onlineqrs.com/sitemap.xml
