@@ -29,7 +29,7 @@ body.dark {
 
 /* BASE STYLES */
 body {
-  font-family: 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
+  font-family: 'Comic Neue', 'Segoe UI', cursive, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
