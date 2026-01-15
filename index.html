@@ -2,12 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Free QR Code Generator Online – Create QR Codes Instantly</title>
-  <meta name="description" content="Generate free QR codes online for URL, text, WhatsApp, WiFi & more.
-No signup required. Fast & secure QR code generator.
-">
+  <title>Free QR Code Generator Online - Create Custom QR Codes Instantly | QRGen</title>
+  <meta name="description" content="QRGen: Free online QR code generator. Create custom QR codes for URLs, WhatsApp, WiFi, contact info, payments & more. No signup. Download high-quality QR codes instantly.">
+  <meta name="keywords" content="free qr code generator, online qr code maker, create qr code, qr code generator, whatsapp qr code, wifi qr code, business qr codes, qr code creator">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="QRGen">
+  <link rel="canonical" href="https://onlineqrs.com/">
   
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Free QR Code Generator Online - Create Custom QR Codes Instantly">
+  <meta property="og:description" content="Generate free QR codes for business & personal use. No signup required. Instant download.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onlineqrs.com/">
+  <meta property="og:image" content="https://onlineqrs.com/assets/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free QR Code Generator Online">
+  <meta name="twitter:description" content="Create custom QR codes instantly. No registration. 100% free.">
+  
+  <link rel="icon" type="image/x-icon" href="./assets/logo.png">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -15,23 +29,32 @@ No signup required. Fast & secure QR code generator.
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "QRGen Free QR Code Generator",
-  "operatingSystem": "All",
-  "applicationCategory": "Utility",
-  "description": "Generate free QR codes online for URL, text, WhatsApp, WiFi and more. No signup required.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "QRGen - Free QR Code Generator",
+    "description": "Generate custom QR codes for URLs, text, WhatsApp, WiFi, and more. No registration required.",
+    "url": "https://onlineqrs.com/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "features": ["Free QR Code Generation", "Custom Colors", "Instant Download", "No Registration"],
+    "creator": {
+      "@type": "Organization",
+      "name": "QRGen"
+    },
+    "sameAs": ["https://twitter.com/yourprofile", "https://facebook.com/yourpage"]
   }
-}
-</script>
+  </script>
 
 </head>
 <body>
@@ -42,176 +65,162 @@ No signup required. Fast & secure QR code generator.
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-cartoon fixed-top">
   <div class="container">
-    <a class="navbar-brand fw-bold fs-3" href="#">
-      QR<span>Gen</span>
+    <a class="navbar-brand fw-bold fs-3" href="/" aria-label="QRGen Home">
+      <img src="./assets/logo.png" alt="QRGen Logo - Free QR Code Generator" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top me-2">
     </a>
     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     
-   <div class="collapse navbar-collapse" id="navbarNav">
-  <ul class="navbar-nav ms-auto align-items-center">
-
-    <li class="nav-item">
-      <a aria-current="page" class="nav-link" href="#tool" title="Free QR Code Generator Tool">
-        QR Generator
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="#features" title="QR Code Generator Features">
-        Features
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="#about" title="About QRGen QR Code Generator">
-        About QRGen
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="#faq" title="QR Code Generator Frequently Asked Questions">
-        FAQ
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="#contact" title="Contact QRGen Support">
-        Contact
-      </a>
-    </li>
-
-    <li class="nav-item ms-2">
-      <button
-        aria-label="Toggle dark mode"
-        id="themeToggle"
-        class="btn btn-sm btn-theme"
-      >
-        <i class="bi bi-moon"></i>
-      </button>
-    </li>
-
-  </ul>
-</div>
-
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#tool" title="Free QR Code Generator Tool">QR Generator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features" title="QR Code Generator Features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#usecases" title="QR Code Use Cases">Use Cases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faq" title="QR Code FAQ">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact" title="Contact QRGen">Contact</a>
+        </li>
+        <li class="nav-item ms-2">
+          <button aria-label="Toggle dark mode" id="themeToggle" class="btn btn-sm btn-theme">
+            <i class="bi bi-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="hero cartoon py-sm-5 py-4 mt-5">
+<header class="hero cartoon py-sm-5 py-4 mt-5">
   <div class="container py-md-5">
     <div class="row justify-content-center text-center">
       <div class="col-lg-8">
         <h1 class="display-4 fw-bold mb-3 animate-bounce">
-          <i class="bi bi-palette-fill me-3"></i>Free QR Code Generator Online
+          <i class="bi bi-qr-code-scan me-3"></i>Free QR Code Generator Online
         </h1>
-        <p class="lead mb-0">Create custom QR codes for your business or personal needs—make payments, share messages, or send wishes in a fun and colorful way that everyone will love to scan.<i class="bi bi-stars"></i></p>
+        <p class="lead mb-0">Create custom QR codes instantly for business cards, marketing materials, payments, WhatsApp, WiFi, and more. No signup required. Download high-quality QR codes in seconds.</p>
+        <div class="mt-4">
+          <a href="#tool" class="btn btn-primary btn-lg cartoon-btn">
+            <i class="bi bi-lightning-charge me-2"></i>Generate QR Code Now
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</header>
 
-<!-- QR Generator Tool -->
+<!-- Main Content - QR Generator Tool -->
 <main class="container cartoon py-5" id="tool">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10">
       <div class="card cartoon-card p-4">
-        <h2 class="mb-4 text-center"><i class="bi bi-qr-code me-2"></i>Create QR Codes for URL, Text, WhatsApp & More</h2>
+        <h2 class="mb-4 text-center"><i class="bi bi-qr-code me-2"></i>Create Custom QR Codes Instantly</h2>
+        <p class="text-center text-muted mb-4">Generate QR codes for websites, contact information, WhatsApp messages, WiFi credentials, and more.</p>
         
         <div class="mb-3">
-          <label for="qrText" class="form-label">Enter Text or URL</label>
+          <label for="qrText" class="form-label fw-bold">Enter Content for QR Code</label>
           <textarea 
             class="form-control cartoon-input" 
             id="qrText" 
             rows="3" 
-            placeholder="https://example.com or any text..."
-          ></textarea>
+            placeholder="Enter URL, text, phone number, or any content..."
+            aria-describedby="qrHelp"
+          >https://example.com</textarea>
+          <div id="qrHelp" class="form-text">Examples: https://yourwebsite.com, +1234567890 (WhatsApp), WIFI:S:NetworkName;T:WPA;P:Password;</div>
         </div>
         
         <!-- Color Selection -->
         <div class="row g-3 mb-4">
           <div class="col-md-12">
-            <label for="qrColor" class="form-label">QR Color</label>
+            <label for="qrColor" class="form-label fw-bold">Customize QR Code Color</label>
             <div class="input-group">
               <input type="color" class="form-control form-control-color cartoon-input" id="qrColor" value="#d35400" title="Choose QR code color">
               <span class="input-group-text">#</span>
-              <input type="text" class="form-control cartoon-input" id="qrColorHex" value="d35400" maxlength="7" placeholder="Hex color">
+              <input type="text" class="form-control cartoon-input" id="qrColorHex" value="d35400" maxlength="7" placeholder="Hex color code">
             </div>
           </div>
         </div>
         
         <!-- Buttons -->
         <div class="d-grid gap-2">
-          <button aria-label="generate qr" class="btn btn-primary cartoon-btn py-3" onclick="generateQR()">
-            <i class="bi bi-magic me-2"></i>Generate QR Code
+          <button aria-label="Generate custom QR code" class="btn btn-primary cartoon-btn py-3" onclick="generateQR()">
+            <i class="bi bi-magic me-2"></i>Generate Custom QR Code
           </button>
           
-          <button aria-label="generate simple qr" class="btn btn-outline-success cartoon-btn py-3" onclick="generateSimpleQR()">
-            <i class="bi bi-check-circle me-2"></i>Generate Simple QR (100% Scannable)
+          <button aria-label="Generate simple QR code" class="btn btn-outline-success cartoon-btn py-3" onclick="generateSimpleQR()">
+            <i class="bi bi-check-circle me-2"></i>Generate Standard QR Code (Maximum Scannability)
           </button>
         </div>
         
         <!-- QR Result -->
         <div id="qrResult" class="card cartoon-card mt-4 p-4 text-center" style="display: none;">
-          <h4 class="mb-3">Your QR Code</h4>
+          <h3 class="mb-3">Your QR Code is Ready!</h3>
           
           <!-- Test Scan Alert -->
           <div class="alert alert-warning cartoon-card py-2 px-3 mb-3">
             <i class="bi bi-phone me-2"></i>
-            <span>Scan with your phone's camera to test</span>
+            <span>Test your QR code: Scan with smartphone camera</span>
           </div>
           
           <div class="mb-3">
-            <img id="qrImage" class="img-fluid rounded" style="max-width: 250px;" alt="Generated QR Code" />
+            <img id="qrImage" class="img-fluid rounded border" style="max-width: 250px;" alt="Generated QR Code - Scan to access content" />
           </div>
           
           <!-- Style Info -->
           <div class="alert alert-info cartoon-card py-2 px-3 mb-3">
-            <i class="bi bi-info-circle me-2"></i>
-            Color: <span id="currentColor">#d35400</span>
+            <i class="bi bi-palette me-2"></i>
+            Color: <span id="currentColor" class="fw-bold">#d35400</span>
           </div>
           
           <!-- Download Button -->
           <div class="d-grid gap-2">
-            <a id="downloadBtn" download="qr-code.png" class="btn btn-success cartoon-btn">
-              <i class="bi bi-download me-2"></i>Download QR Code
+            <a id="downloadBtn" download="qrgen-qr-code.png" class="btn btn-success cartoon-btn">
+              <i class="bi bi-download me-2"></i>Download QR Code (PNG)
             </a>
           </div>
           
           <!-- Share Section -->
-          <h5 class="mt-4 mb-3">Share QR Code:</h5>
+          <h4 class="mt-4 mb-3">Share QR Code:</h4>
           <div class="row g-2 justify-content-center">
             <div class="col-4 col-sm-3 col-md-2">
-              <a id="whatsapp" class="btn btn-share w-100 whatsapp">
+              <a id="whatsapp" class="btn btn-share w-100 whatsapp" aria-label="Share on WhatsApp">
                 <i class="bi bi-whatsapp"></i>
                 <small>WhatsApp</small>
               </a>
             </div>
             <div class="col-4 col-sm-3 col-md-2">
-              <a id="instagram" class="btn btn-share w-100 instagram">
+              <a id="instagram" class="btn btn-share w-100 instagram" aria-label="Share on Instagram">
                 <i class="bi bi-instagram"></i>
                 <small>Instagram</small>
               </a>
             </div>
             <div class="col-4 col-sm-3 col-md-2">
-              <a id="twitter" class="btn btn-share w-100 twitter">
+              <a id="twitter" class="btn btn-share w-100 twitter" aria-label="Share on Twitter">
                 <i class="bi bi-twitter"></i>
                 <small>Twitter</small>
               </a>
             </div>
             <div class="col-4 col-sm-3 col-md-2">
-              <a id="facebook" class="btn btn-share w-100 facebook">
+              <a id="facebook" class="btn btn-share w-100 facebook" aria-label="Share on Facebook">
                 <i class="bi bi-facebook"></i>
                 <small>Facebook</small>
               </a>
             </div>
             <div class="col-4 col-sm-3 col-md-2">
-              <a id="copyBtn" class="btn btn-share w-100 copy-link">
+              <button id="copyBtn" class="btn btn-share w-100 copy-link" aria-label="Copy QR code link">
                 <i class="bi bi-link-45deg"></i>
-                <small>Copy</small>
-              </a>
+                <small>Copy Link</small>
+              </button>
             </div>
           </div>
         </div>
@@ -221,48 +230,285 @@ No signup required. Fast & secure QR code generator.
 </main>
 
 <!-- Features Section -->
-<section id="features" class="py-5">
+<section id="features" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Features of Our Free QR Code Generator</h2>
+    <h2 class="text-center mb-5">Why Choose QRGen QR Code Generator?</h2>
     
     <div class="row g-4">
       <div class="col-md-3 col-sm-6">
         <div class="card cartoon-card h-100 text-center p-4 feature-card">
           <div class="feature-icon mb-3">
-            <i class="bi bi-stars"></i>
+            <i class="bi bi-currency-dollar"></i>
           </div>
-          <h4>Attractive Design</h4>
-          <p>Animated and visually appealing layouts that make your QR codes stand out.</p>
+          <h3>Completely Free</h3>
+          <p>Generate unlimited QR codes at no cost. No subscriptions, no watermarks, no hidden fees.</p>
         </div>
       </div>
       
       <div class="col-md-3 col-sm-6">
         <div class="card cartoon-card h-100 text-center p-4 feature-card">
           <div class="feature-icon mb-3">
-            <i class="bi bi-palette"></i>
+            <i class="bi bi-shield-lock"></i>
           </div>
-          <h4>Custom Styles</h4>
-          <p>Choose from vibrant themes and styles suitable for business and personal use.</p>
+          <h3>Private & Secure</h3>
+          <p>Your data stays in your browser. We don't store, track, or share any information.</p>
         </div>
       </div>
       
       <div class="col-md-3 col-sm-6">
         <div class="card cartoon-card h-100 text-center p-4 feature-card">
           <div class="feature-icon mb-3">
-            <i class="bi bi-lightning-charge"></i>
+            <i class="bi bi-lightning"></i>
           </div>
-          <h4>Instant Creation</h4>
-          <p>Generate high-quality QR codes instantly with just one click.</p>
+          <h3>Instant Generation</h3>
+          <p>Create QR codes in seconds. No registration or waiting required.</p>
         </div>
       </div>
       
       <div class="col-md-3 col-sm-6">
         <div class="card cartoon-card h-100 text-center p-4 feature-card">
           <div class="feature-icon mb-3">
-            <i class="bi bi-shield-check"></i>
+            <i class="bi bi-download"></i>
           </div>
-          <h4>100% Secure</h4>
-          <p>No tracking or data storage. Your information always stays private.</p>
+          <h3>High-Quality Download</h3>
+          <p>Download crisp, high-resolution QR codes in PNG format for any use case.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR Code Types Section -->
+<section id="qr-types" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Create QR Codes for Multiple Purposes</h2>
+    
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-link-45deg fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">Website & URL QR Codes</h3>
+          <p>Generate QR codes that link to your website, landing pages, or specific URLs. Perfect for marketing materials.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-whatsapp fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">WhatsApp QR Codes</h3>
+          <p>Create QR codes that open WhatsApp chats directly. Great for customer service and personal contact sharing.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-wifi fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">WiFi QR Codes</h3>
+          <p>Generate QR codes that automatically connect devices to WiFi networks. Ideal for offices, cafes, and events.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4 mt-3">
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-telephone fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">Contact QR Codes</h3>
+          <p>Create vCard QR codes with contact information. Scan to save directly to phone contacts.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-text-paragraph fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">Text QR Codes</h3>
+          <p>Generate QR codes containing plain text, messages, instructions, or any textual information.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card cartoon-card h-100 p-4">
+          <div class="text-center mb-3">
+            <i class="bi bi-envelope fs-1"></i>
+          </div>
+          <h3 class="h4 text-center">Email QR Codes</h3>
+          <p>Create QR codes that open pre-filled emails. Useful for feedback, inquiries, and contact forms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases Section -->
+<section id="usecases" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Practical Applications of QR Codes</h2>
+    
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card cartoon-card h-100 p-4">
+          <h3 class="h4"><i class="bi bi-briefcase me-2"></i>Business & Marketing</h3>
+          <ul class="mt-3">
+            <li>Business cards with contact QR codes</li>
+            <li>Product packaging with link to manuals</li>
+            <li>Restaurant menus with digital versions</li>
+            <li>Real estate signs with property details</li>
+            <li>Event posters with registration links</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card cartoon-card h-100 p-4">
+          <h3 class="h4"><i class="bi bi-phone me-2"></i>Digital & Mobile</h3>
+          <ul class="mt-3">
+            <li>WhatsApp business contact sharing</li>
+            <li>App store download links</li>
+            <li>Social media profile connections</li>
+            <li>Digital business card exchange</li>
+            <li>Mobile payment initiation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4 mt-4">
+      <div class="col-md-6">
+        <div class="card cartoon-card h-100 p-4">
+          <h3 class="h4"><i class="bi bi-house-door me-2"></i>Personal & Home</h3>
+          <ul class="mt-3">
+            <li>WiFi access for guests</li>
+            <li>Emergency contact information</li>
+            <li>Personal website or portfolio</li>
+            <li>Gift messages and wishes</li>
+            <li>Recipe or instruction sharing</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card cartoon-card h-100 p-4">
+          <h3 class="h4"><i class="bi bi-mortarboard me-2"></i>Education & Events</h3>
+          <ul class="mt-3">
+            <li>Classroom resource access</li>
+            <li>Event registration and tickets</li>
+            <li>Survey and feedback forms</li>
+            <li>Conference materials</li>
+            <li>Workshop resources</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion cartoon-accordion" id="faqAccordion">
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Is QRGen really free to use?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <strong>Yes, QRGen is 100% free.</strong> You can generate unlimited QR codes without any charges, subscriptions, or watermarks. There are no hidden fees or premium features.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Do I need to create an account?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <strong>No account required.</strong> QRGen works completely without registration. Just enter your content, customize if needed, and generate your QR code instantly.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                What types of QR codes can I create?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                You can create QR codes for:
+                <ul class="mt-2">
+                  <li>Website URLs and links</li>
+                  <li>WhatsApp messages and contacts</li>
+                  <li>WiFi network credentials</li>
+                  <li>Contact information (vCard)</li>
+                  <li>Plain text and messages</li>
+                  <li>Email addresses with pre-filled content</li>
+                  <li>Phone numbers</li>
+                  <li>SMS messages</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Is my data secure with QRGen?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <strong>Yes, completely secure.</strong> All QR code generation happens locally in your browser. We don't store, track, or transmit your data to any servers. Your privacy is guaranteed.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                What file format are the QR codes?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                QR codes are generated as <strong>high-resolution PNG images</strong> with transparent backgrounds. This format maintains quality for both digital use and printing.
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item cartoon-card">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                Can I use QR codes for commercial purposes?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <strong>Yes, absolutely.</strong> QR codes generated with QRGen can be used for both personal and commercial purposes without any restrictions or attribution requirements.
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -275,131 +521,19 @@ No signup required. Fast & secure QR code generator.
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="card cartoon-card p-4">
-    <h2 class="text-center mb-5">About QRGen – Free Online QR Code Generator</h2>
-
-          <p class="lead">
-            QRGen is a free and easy-to-use QR code generator designed to combine creativity with simplicity. 
-            Create custom QR codes for business, payments, messages, events, greetings, or everyday sharing. 
-            Our platform focuses on speed, privacy, and a fun user experience—without storing any user data.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- use case section start here -->
-<section id="usecases" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-5">
-      How You Can Use Our Free QR Code Generator
-    </h2>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card cartoon-card h-100 p-4 text-center">
-          <i class="bi bi-shop fs-1 mb-3"></i>
-          <h3 class="h5">QR Codes for Business</h3>
-          <p>
-            Use QR codes on visiting cards, posters, menus, and product packaging
-            to share websites, payment links, or contact details instantly.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card cartoon-card h-100 p-4 text-center">
-          <i class="bi bi-whatsapp fs-1 mb-3"></i>
-          <h3 class="h5">WhatsApp & Social Sharing</h3>
-          <p>
-            Create WhatsApp QR codes to start chats instantly. Perfect for customer
-            support, promotions, and personal sharing.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card cartoon-card h-100 p-4 text-center">
-          <i class="bi bi-calendar-event fs-1 mb-3"></i>
-          <h3 class="h5">Events, Education & Payments</h3>
-          <p>
-            Share event details, notes, Google Forms, or payment links using
-            QR codes that work on all devices.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- FAQ Section -->
-<section id="faq" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-5">QR Code Generator – Frequently Asked Questions</h2>
-  <p class="text-center text-muted mb-4">
-  QRGen is a free online QR code generator designed for everyday use.
-  Whether you need a QR code for business, payments, WhatsApp, or personal sharing,
-  our tool helps you create scannable QR codes instantly without registration.
-</p>
-
-    
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="accordion cartoon-accordion" id="faqAccordion">
+          <h2 class="text-center mb-4">About QRGen</h2>
+          <p class="lead">QRGen is a free, user-friendly QR code generator designed to make QR code creation accessible to everyone.</p>
           
-          <div class="accordion-item cartoon-card mb-3">
-            <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                <i class="bi bi-question-circle me-2"></i> Is QRGen free to use?
-              </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Yes, QRGen is 100% free to use. There are no hidden charges, subscriptions, or limitations.
-              </div>
-            </div>
-          </div>
+          <p>Founded with the mission to simplify digital sharing, QRGen provides a secure, private, and efficient platform for generating QR codes. Whether you're a business owner, marketer, educator, or individual, our tool helps you create professional QR codes in seconds.</p>
           
-          <div class="accordion-item cartoon-card mb-3">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                <i class="bi bi-shield-check me-2"></i> Is my data safe and private?
-              </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Absolutely. All QR codes are generated directly in your browser. We do not collect, store, or track any user data.
-              </div>
-            </div>
-          </div>
-          
-          <div class="accordion-item cartoon-card mb-3">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                <i class="bi bi-share me-2"></i> Can I share my QR codes anywhere?
-              </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Yes! You can easily download and share your QR codes on WhatsApp, Instagram, Facebook, Snapchat, or any platform.
-              </div>
-            </div>
-          </div>
-          
-          <div class="accordion-item cartoon-card">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                <i class="bi bi-phone me-2"></i> Does QRGen work on mobile devices?
-              </button>
-            </h2>
-            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Yes, QRGen is fully responsive and works smoothly on mobile phones, tablets, and desktop devices.
-              </div>
-            </div>
-          </div>
-          
+          <h3 class="h5 mt-4">Our Values:</h3>
+          <ul>
+            <li><strong>Free Access:</strong> No charges, ever</li>
+            <li><strong>Privacy First:</strong> Your data stays with you</li>
+            <li><strong>Simplicity:</strong> Easy to use for everyone</li>
+            <li><strong>Quality:</strong> High-resolution, scannable QR codes</li>
+            <li><strong>Innovation:</strong> Regular updates and improvements</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -407,43 +541,54 @@ No signup required. Fast & secure QR code generator.
 </section>
 
 <!-- Privacy Section -->
-<section id="privacy" class="py-5 cartoon-section">
+<section id="privacy" class="py-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="card cartoon-card p-4">
           <h2 class="text-center mb-4">
-            <i class="bi bi-lock me-2"></i>Privacy Policy – QRGen QR Code Generator
+            <i class="bi bi-shield-check me-2"></i>Privacy & Security
           </h2>
-          <p>
-            Your privacy is important to us. QRGen does not collect, store, or share any personal data. 
-            All QR codes are generated securely within your browser, ensuring complete privacy and data protection at all times.
-          </p>
-          <div class="text-center mt-3">
-            <div class="d-inline-block p-3 rounded privacy-badge">
-              <i class="bi bi-check-circle-fill fs-1"></i>
-              <p class="mb-0 mt-2">100% Private & Secure</p>
-            </div>
+          
+          <div class="alert alert-success cartoon-card mb-4">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            <strong>No Data Collection:</strong> QRGen operates entirely client-side. We don't collect, store, or process your personal information.
           </div>
+          
+          <h3 class="h5">How We Protect Your Privacy:</h3>
+          <ul class="mt-3">
+            <li><strong>Client-Side Generation:</strong> All QR codes are generated in your browser</li>
+            <li><strong>No Server Storage:</strong> Your data never leaves your device</li>
+            <li><strong>No Tracking:</strong> We don't use analytics or tracking cookies</li>
+            <li><strong>No Registration:</strong> Use without providing any personal information</li>
+            <li><strong>Transparent Process:</strong> Open about our technology and methods</li>
+          </ul>
+          
+          <p class="mt-4">QRGen is committed to maintaining the highest standards of privacy and security. Our platform is designed to be completely transparent about how it works and how it protects your data.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- Contact Section -->
-<section id="contact" class="py-5">
+<section id="contact" class="py-5 cartoon-section">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="card cartoon-card p-4">
-          <h2 class="text-center mb-4"><i class="bi bi-envelope me-2"></i>Contact QRGen Support</h2>
+          <h2 class="text-center mb-4">Contact Us</h2>
+          
+          <p class="text-center mb-4">Have questions, suggestions, or need support? We're here to help!</p>
+          
           <div class="text-center">
-            <p class="lead">Have questions or suggestions?</p>
-            <a href="mailto:support@qrgen.com" class="btn btn-primary cartoon-btn">
-              <i class="bi bi-envelope-paper me-2"></i>support@qrgen.com
+            <a href="mailto:support@qrgen.com" class="btn btn-primary cartoon-btn btn-lg mb-3">
+              <i class="bi bi-envelope me-2"></i>Email Support
             </a>
+            
+            <div class="mt-4">
+              <p class="small text-muted">Response time: Typically within 24 hours</p>
+            </div>
           </div>
         </div>
       </div>
@@ -457,14 +602,18 @@ No signup required. Fast & secure QR code generator.
     <div class="row align-items-center">
       <div class="col-md-6 mb-3 mb-md-0">
         <div class="d-flex align-items-center">
-          <div class="navbar-brand fw-bold fs-4 me-3">QR<span>Gen</span></div>
-          <span class="text-muted">Free Cartoon QR Generator</span>
+          <div class="navbar-brand fw-bold fs-4 me-3">
+            <img src="./assets/logo.png" alt="QRGen Logo" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top">
+          </div>
+          <span class="text-muted">Free QR Code Generator</span>
         </div>
       </div>
       
       <div class="col-md-6">
         <div class="d-flex flex-wrap justify-content-md-end">
-          <a href="#about" class="btn btn-link text-decoration-none me-3">About</a>
+          <a href="#tool" class="btn btn-link text-decoration-none me-3">Generator</a>
+          <a href="#features" class="btn btn-link text-decoration-none me-3">Features</a>
+          <a href="#usecases" class="btn btn-link text-decoration-none me-3">Use Cases</a>
           <a href="#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
           <a href="#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
           <a href="#contact" class="btn btn-link text-decoration-none">Contact</a>
@@ -476,7 +625,8 @@ No signup required. Fast & secure QR code generator.
     
     <div class="row">
       <div class="col-12 text-center">
-        <p class="mb-0">&copy; 2025 QRGen Cartoon Fun • Made with <i class="bi bi-heart-fill text-danger"></i> for everyone</p>
+        <p class="mb-1">&copy; 2025 QRGen. All rights reserved.</p>
+        <p class="small text-muted mb-0">QRGen is a free QR code generator. QR is a registered trademark of DENSO WAVE.</p>
       </div>
     </div>
   </div>
@@ -484,6 +634,8 @@ No signup required. Fast & secure QR code generator.
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 <script src="./assets/index.js" defer></script>
+
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -494,31 +646,31 @@ No signup required. Fast & secure QR code generator.
       "name": "Is QRGen free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, QRGen is completely free to use with no signup, subscriptions, or hidden charges."
+        "text": "Yes, QRGen is completely free with no hidden charges, subscriptions, or watermarks."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my data safe when using QRGen?",
+      "name": "Do I need an account to use QRGen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. All QR codes are generated directly in your browser and no data is stored or tracked."
+        "text": "No account or registration is required. QRGen works completely without signup."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I share my QR codes on social media?",
+      "name": "What types of QR codes can I create?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, you can download and share QR codes on WhatsApp, Instagram, Facebook, and other platforms."
+        "text": "You can create QR codes for URLs, WhatsApp, WiFi networks, contact information, text messages, emails, and phone numbers."
       }
     },
     {
       "@type": "Question",
-      "name": "Does QRGen work on mobile devices?",
+      "name": "Is my data secure with QRGen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, QRGen is fully responsive and works on mobile phones, tablets, and desktops."
+        "text": "Yes. All QR code generation happens locally in your browser. We don't store, track, or transmit your data."
       }
     }
   ]
