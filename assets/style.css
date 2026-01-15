@@ -638,6 +638,15 @@ body.dark .accordion-button::after {
   filter: brightness(0) invert(1);
 }
 
+body.dark .alert.cartoon-card {
+  background-color: #333 !important; /* Dark background */
+  color: #ffffff !important;          /* White text */
+  border-color: #555 !important;      /* Optional border */
+}
+
+body.dark .alert.cartoon-card i {
+  color: #0f0 !important; /* Adjust icon color if needed */
+}
 /* ACCESSIBILITY FOCUS STATES */
 .btn:focus,
 .nav-link:focus,
