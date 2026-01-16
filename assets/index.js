@@ -676,3 +676,14 @@ window.generateQR = generateQR;
 window.generateSimpleQR = generateSimpleQR;
 window.downloadQRCode = downloadQRCode;
 window.copyQRCodeToClipboard = copyQRCodeToClipboard;
+
+// footer popup
+function showDisclaimer() {
+    const modal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
+    modal.show();
+}
+
+function showTerms() {
+    const modal = new bootstrap.Modal(document.getElementById('termsModal'));
+    modal.show();
+}

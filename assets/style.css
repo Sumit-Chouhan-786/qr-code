@@ -675,3 +675,61 @@ body.dark .alert.cartoon-card i {
 .loading-qr {
   animation: pulse 1.5s infinite;
 }
+
+/* blog section */
+/* Blog Cards */
+.blog-card {
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.blog-card img {
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Blog Post Styles */
+.article-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.article-content h2 {
+  color: var(--primary-color);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Modal Styles */
+.modal-content.cartoon-card {
+  border: 3px solid var(--border-color);
+  border-radius: 15px;
+}
+
+.modal-header {
+  border-bottom: 2px solid var(--border-color);
+  background: var(--card-bg);
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-body ul {
+  padding-left: 1.5rem;
+}
+
+.modal-body li {
+  margin-bottom: 0.5rem;
+}
