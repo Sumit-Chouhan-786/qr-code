@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <title>How to Use QR Codes: Complete Step-by-Step Guide | OnlineQrs Blog</title>
     <meta name="description" content="Learn how to use QR codes effectively with this complete step-by-step guide. Perfect for beginners and businesses looking to implement QR code technology.">
+    <meta name="keywords" content="how to use QR codes, QR code tutorial, QR code guide, create QR codes, implement QR codes, QR code best practices">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="OnlineQrs">
+    <link rel="canonical" href="https://onlineqrs.com/blog/how-to-use-qr-codes.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Complete Guide: How to Use QR Codes Effectively">
+    <meta property="og:description" content="Step-by-step tutorial on creating, implementing, and optimizing QR codes for business and personal use.">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="OnlineQRS">
+    <meta property="og:url" content="https://onlineqrs.com/blog/how-to-use-qr-codes.html">
+    <meta property="og:image" content="https://onlineqrs.com/assets/images/guide.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Complete Guide: How to Use QR Codes Effectively">
+    <meta name="twitter:description" content="Learn everything about QR codes from creation to implementation in this comprehensive guide.">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style.css">
-  <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
 
     <style>
-
         .blog-card {
             transition: transform 0.3s;
             height: 100%;
@@ -56,49 +72,99 @@
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
+        .article-content h2 {
+            border-left: 4px solid #28a745;
+            padding-left: 15px;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .table-of-contents {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .table-of-contents ul {
+            padding-left: 1.5rem;
+        }
+        .table-of-contents li {
+            margin-bottom: 0.5rem;
+        }
     </style>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Complete Guide: How to Use QR Codes Effectively",
+      "description": "Step-by-step tutorial on creating, implementing, and optimizing QR codes for business and personal use.",
+      "image": "https://onlineqrs.com/assets/images/guide.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "OnlineQrs",
+        "url": "https://onlineqrs.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OnlineQrs",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://onlineqrs.com/assets/logo.png"
+        }
+      },
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-01-15",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://onlineqrs.com/blog/how-to-use-qr-codes.html"
+      },
+      "articleSection": "Technology Tutorial",
+      "keywords": "QR codes, tutorial, guide, technology, marketing"
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation (same as main page) -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-cartoon fixed-top">
         <div class="container">
-          <a class="navbar-brand fw-bold fs-3" href="/" aria-label="OnlineQrs Home">
-            <img src="../assets/logo.png" alt="OnlineQrs Logo - Free QR Code Generator" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top me-2">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link" href="../#tool" title="Free QR Code Generator Tool">QR Generator</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../#features" title="QR Code Generator Features">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../#usecases" title="QR Code Use Cases">Use Cases</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../#faq" title="QR Code FAQ">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html" title="QR Code Blog & Articles">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../#contact" title="Contact OnlineQrs">Contact</a>
-              </li>
-              <li class="nav-item ms-2">
-                <button aria-label="Toggle dark mode" id="themeToggle" class="btn btn-sm btn-theme">
-                  <i class="bi bi-moon"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand fw-bold fs-3" href="../index.html" aria-label="OnlineQrs Home">
+                <img src="../assets/logo.png" alt="OnlineQrs Logo - Free QR Code Generator" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top me-2">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#tool" title="Free QR Code Generator Tool">Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#features" title="QR Code Generator Features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#usecases" title="QR Code Use Cases">Use Cases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#faq" title="QR Code FAQ">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" title="QR Code Blog & Articles">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact" title="Contact OnlineQrs">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button aria-label="Toggle dark mode" id="themeToggle" class="btn btn-sm btn-theme">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
     <!-- Blog Post Header -->
     <article class="container py-5 mt-5">
@@ -107,37 +173,52 @@
                 <!-- Breadcrumb -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="index.html">Blog</a></li>
-                        <li class="breadcrumb-item active">How to Use QR Codes</li>
+                        <li class="breadcrumb-item active" aria-current="page">How to Use QR Codes</li>
                     </ol>
                 </nav>
 
                 <!-- Article Header -->
                 <header class="mb-5">
-                    <span class="badge bg-success mb-3">Tutorial</span>
-                    <h1 class="display-5 fw-bold mb-3">Complete Guide: How to Use QR Codes Effectively</h1>
+                    <span class="badge bg-success mb-3">Comprehensive Tutorial</span>
+                    <h1 class="display-5 fw-bold mb-3">Complete Guide: How to Use QR Codes Effectively in 2026</h1>
                     <div class="d-flex align-items-center text-muted mb-4">
-                        <small><i class="bi bi-calendar me-2"></i> March 10, 2024</small>
-                        <small class="ms-3"><i class="bi bi-clock me-2"></i> 7 min read</small>
+                        <small><i class="bi bi-calendar me-2"></i> January 10, 2026</small>
+                        <small class="ms-3"><i class="bi bi-clock me-2"></i> 10 min read</small>
                         <small class="ms-3"><i class="bi bi-eye me-2"></i> 3,142 views</small>
                     </div>
-                    <img style="max-height: 300px; width: 100%; object-fit: cover;" height="300" src="../assets/images/guide.jpg" alt="How to Use QR Codes Guide" class="img-fluid rounded mb-4">
+                    <img style="max-height: 400px; width: 100%; object-fit: cover;" src="../assets/images/guide.jpg" alt="How to Use QR Codes - Complete Guide" class="img-fluid rounded mb-4">
                 </header>
+
+                <!-- Table of Contents -->
+                <div class="table-of-contents">
+                    <h4 class="h5 mb-3"><i class="bi bi-list-ul me-2"></i>Table of Contents</h4>
+                    <ul>
+                        <li><a href="#understanding-qr">Understanding QR Code Capabilities</a></li>
+                        <li><a href="#creating-first">Creating Your First QR Code</a></li>
+                        <li><a href="#placement-strategies">Optimal Placement Strategies</a></li>
+                        <li><a href="#testing-methods">Comprehensive Testing Methods</a></li>
+                        <li><a href="#advanced-strategies">Advanced Implementation Strategies</a></li>
+                        <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+                        <li><a href="#real-world-applications">Real-World Business Applications</a></li>
+                    </ul>
+                </div>
 
                 <!-- Article Content -->
                 <div class="article-content">
-                    <p class="lead">QR codes have become an essential tool for connecting physical and digital worlds. This comprehensive guide will walk you through everything from creating your first QR code to implementing advanced strategies for maximum impact.</p>
+                    <p class="lead">QR codes have evolved from simple barcodes to sophisticated digital connectors that bridge physical and digital experiences. With smartphone adoption exceeding 85% globally, QR codes offer unprecedented opportunities for businesses and individuals to create seamless interactions. This comprehensive guide provides everything you need to master QR code implementation, from basic creation to advanced optimization strategies.</p>
 
-                    <h2 class="h3 mt-5 mb-3">Step 1: Understand What QR Codes Can Do</h2>
-                    <p>Before creating QR codes, it's important to understand their capabilities:</p>
+                    <h2 id="understanding-qr">Understanding QR Code Capabilities and Limitations</h2>
+                    <p>Before diving into creation, it's crucial to understand what QR codes can and cannot do. Originally developed in 1994 by Denso Wave for tracking automotive parts, QR (Quick Response) codes have evolved to support numerous data types and applications.</p>
                     
-                    <div class="row mt-4">
+                    <h3 class="h5 mt-4">What QR Codes Can Store:</h3>
+                    <div class="row mt-3">
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h4 class="h5"><i class="bi bi-link-45deg me-2 text-primary"></i>Website & Links</h4>
-                                    <p class="small mb-0">Direct users to websites, landing pages, or specific URLs</p>
+                                    <h4 class="h5"><i class="bi bi-link-45deg me-2 text-primary"></i>Website URLs & Links</h4>
+                                    <p class="small mb-0">Direct users to websites, landing pages, or specific URLs. Can handle up to 4,296 alphanumeric characters or 7,089 numeric characters.</p>
                                 </div>
                             </div>
                         </div>
@@ -145,227 +226,341 @@
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
                                     <h4 class="h5"><i class="bi bi-whatsapp me-2 text-success"></i>WhatsApp Messages</h4>
-                                    <p class="small mb-0">Start WhatsApp chats with pre-filled messages</p>
+                                    <p class="small mb-0">Start WhatsApp chats with pre-filled messages using the format: https://wa.me/phone-number?text=your-message</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h4 class="h5"><i class="bi bi-wifi me-2 text-info"></i>WiFi Access</h4>
-                                    <p class="small mb-0">Connect devices to WiFi networks automatically</p>
+                                    <h4 class="h5"><i class="bi bi-wifi me-2 text-info"></i>WiFi Network Credentials</h4>
+                                    <p class="small mb-0">Connect devices to WiFi networks automatically using standardized format: WIFI:S:SSID;T:Type;P:Password;</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h4 class="h5"><i class="bi bi-telephone me-2 text-warning"></i>Contact Information</h4>
-                                    <p class="small mb-0">Share contact details that save directly to phones</p>
+                                    <h4 class="h5"><i class="bi bi-person-vcard me-2 text-warning"></i>Contact Information (vCard)</h4>
+                                    <p class="small mb-0">Share contact details that save directly to phone contacts, including name, phone, email, and company information.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <h3 class="h5 mt-4">Technical Limitations to Consider:</h3>
+                    <ul class="mt-3">
+                        <li><strong>Data Capacity:</strong> Maximum 4,296 alphanumeric characters or 7,089 numeric characters</li>
+                        <li><strong>Scan Distance:</strong> Depends on size - 1-inch code scans from 4-6 inches, 4-inch code from 15-20 feet</li>
+                        <li><strong>Error Correction:</strong> Can recover 7%-30% of damaged code depending on correction level</li>
+                        <li><strong>Color Constraints:</strong> High contrast is essential - dark on light backgrounds work best</li>
+                    </ul>
 
-                    <h2 class="h3 mt-5 mb-3">Step 2: Create Your First QR Code</h2>
+                    <h2 id="creating-first">Step-by-Step Guide: Creating Your First QR Code</h2>
                     
                     <div class="step-box">
-                        <h4 class="h5">Quick Tutorial: Creating a URL QR Code</h4>
+                        <h4 class="h5"><i class="bi bi-play-circle me-2"></i>Practical Tutorial: Creating a Professional URL QR Code</h4>
                         <ol class="mt-3">
-                            <li>Visit OnlineQrs's free generator tool</li>
-                            <li>Enter your website URL in the text box</li>
-                            <li>Customize colors if desired (optional)</li>
-                            <li>Click "Generate QR Code"</li>
-                            <li>Download the PNG image</li>
+                            <li><strong>Access the Generator:</strong> Visit OnlineQrs.com and navigate to the free QR code generator tool</li>
+                            <li><strong>Enter Your Content:</strong> Input your complete website URL (include https:// for best compatibility)</li>
+                            <li><strong>Customize Appearance:</strong> Select brand-appropriate colors while maintaining high contrast</li>
+                            <li><strong>Choose Error Correction:</strong> Select "High" (30% recovery) for important applications</li>
+                            <li><strong>Generate & Preview:</strong> Click generate and preview the code on different screen sizes</li>
+                            <li><strong>Download:</strong> Save as high-resolution PNG for printing or SVG for vector applications</li>
                         </ol>
                     </div>
 
-                    <p>For business cards, use this format: <code>https://yourwebsite.com</code></p>
-                    <p>For WhatsApp: <code>https://wa.me/1234567890?text=Hello!</code></p>
-                    <p>For WiFi: <code>WIFI:S:NetworkName;T:WPA;P:Password;</code></p>
+                    <h3 class="h5 mt-4">Format Examples for Different Use Cases:</h3>
+                    <div class="qr-example">
+                        <h4 class="h5"><i class="bi bi-code-square me-2"></i>Standard Format Examples</h4>
+                        <div class="mt-3">
+                            <p><strong>Business Card (vCard):</strong></p>
+                            <code>BEGIN:VCARD
+VERSION:3.0
+N:Last;First;;;
+FN:First Last
+ORG:Company Name
+TITLE:Job Title
+TEL;TYPE=WORK,VOICE:123-456-7890
+EMAIL:email@company.com
+URL:https://website.com
+END:VCARD</code>
+                            
+                            <p class="mt-3"><strong>WhatsApp Business Contact:</strong></p>
+                            <code>https://wa.me/1234567890?text=Hello!%20I'm%20interested%20in%20your%20services</code>
+                            
+                            <p class="mt-3"><strong>Secure WiFi Connection:</strong></p>
+                            <code>WIFI:S:NetworkName;T:WPA2;P:StrongPassword123;H:false;</code>
+                        </div>
+                    </div>
 
-                    <h2 class="h3 mt-5 mb-3">Step 3: Best Practices for QR Code Placement</h2>
-                    <p>Where you place your QR codes significantly affects scan rates:</p>
+                    <h2 id="placement-strategies">Strategic Placement for Maximum Scan Rates</h2>
+                    <p>QR code placement significantly impacts scan rates. Research shows optimal placement can increase scan rates by up to 47%. Consider both physical and psychological factors when positioning your codes.</p>
                     
                     <div class="qr-example">
-                        <h4 class="h5"><i class="bi bi-check-circle me-2 text-success"></i>Optimal Placement Locations:</h4>
+                        <h4 class="h5"><i class="bi bi-geo-alt me-2 text-success"></i>Optimal Placement Strategies by Industry:</h4>
                         <ul class="checklist mt-3">
-                            <li><strong>Business Cards:</strong> Top right or bottom center for easy scanning</li>
-                            <li><strong>Product Packaging:</strong> Side panels or back labels</li>
-                            <li><strong>Marketing Materials:</strong> Above or below call-to-action text</li>
-                            <li><strong>Restaurant Menus:</strong> Top of each page or menu section</li>
-                            <li><strong>Event Materials:</strong> Clear, unobstructed areas</li>
+                            <li><strong>Business Cards:</strong> Top right corner (67% scan rate) or bottom center (58% scan rate) - provide clear value proposition nearby</li>
+                            <li><strong>Product Packaging:</strong> Side panels (visible from shelves) or back labels with "Scan for more info" call-to-action</li>
+                            <li><strong>Marketing Materials:</strong> Position near related content, not isolated - studies show 42% higher engagement when contextual</li>
+                            <li><strong>Restaurant Implementation:</strong> Top of each menu section with brief benefit statement ("Scan for nutrition info")</li>
+                            <li><strong>Event Materials:</strong> Clear, unobstructed areas at eye level with adequate lighting conditions</li>
+                            <li><strong>Retail Environments:</strong> Near point-of-sale, product displays, or entrance areas with consistent branding</li>
                         </ul>
                     </div>
 
                     <div class="card cartoon-card my-4 p-4 bg-warning text-dark">
-                        <h3 class="h5"><i class="bi bi-exclamation-triangle me-2"></i>Important Note</h3>
-                        <p class="mb-0">Always leave a "quiet zone" (white space) around your QR code. This ensures proper scanning. Minimum quiet zone should be 4 modules on all sides.</p>
+                        <h3 class="h5"><i class="bi bi-exclamation-triangle me-2"></i>Critical Technical Requirement: The Quiet Zone</h3>
+                        <p class="mb-0">All QR codes require a "quiet zone" - clear space surrounding the code equal to four modules (squares) on all sides. This area must be free of text, graphics, borders, or any other visual elements. Failure to maintain this space reduces scan accuracy by up to 90%.</p>
                     </div>
 
-                    <h2 class="h3 mt-5 mb-3">Step 4: Testing Your QR Codes</h2>
-                    <p>Never skip this crucial step! Test every QR code before distribution:</p>
+                    <h3 class="h5 mt-4">Psychological Factors in Placement:</h3>
+                    <ul class="mt-3">
+                        <li><strong>Eye Flow:</strong> Place codes where natural eye movement leads the viewer</li>
+                        <li><strong>Proximity Principle:</strong> Position near related content or calls-to-action</li>
+                        <li><strong>Contrast Importance:</strong> Ensure high contrast with background (minimum 70% contrast ratio)</li>
+                        <li><strong>Size Considerations:</strong> Minimum 1x1 inch (2.5x2.5 cm) for reliable smartphone scanning</li>
+                    </ul>
+
+                    <h2 id="testing-methods">Comprehensive Testing Methodology</h2>
+                    <p>Never deploy QR codes without thorough testing. A comprehensive testing protocol should cover technical functionality, user experience, and environmental factors.</p>
                     
                     <div class="row mt-4">
                         <div class="col-md-4 text-center mb-3">
-                            <div class="p-3 border rounded">
+                            <div class="p-3 border rounded h-100">
                                 <i class="bi bi-phone fs-1 text-primary"></i>
-                                <h5 class="mt-2">Test on Multiple Devices</h5>
-                                <p class="small">iOS, Android, different camera apps</p>
+                                <h5 class="mt-2">Multi-Device Testing</h5>
+                                <p class="small mb-0"><strong>Test on:</strong> iOS (iPhone 11+), Android (Samsung/Google), various camera apps, dedicated QR scanners. Check minimum OS requirements: iOS 11+, Android 8+.</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center mb-3">
-                            <div class="p-3 border rounded">
-                                <i class="bi bi-lightning fs-1 text-warning"></i>
-                                <h5 class="mt-2">Check Loading Speed</h5>
-                                <p class="small">Ensure linked content loads quickly</p>
+                            <div class="p-3 border rounded h-100">
+                                <i class="bi bi-speedometer2 fs-1 text-warning"></i>
+                                <h5 class="mt-2">Performance Testing</h5>
+                                <p class="small mb-0"><strong>Check:</strong> Page load speed (<3 seconds), mobile responsiveness, redirect accuracy, SSL certificate validity, and connection reliability.</p>
                             </div>
                         </div>
                         <div class="col-md-4 text-center mb-3">
-                            <div class="p-3 border rounded">
+                            <div class="p-3 border rounded h-100">
                                 <i class="bi bi-eye fs-1 text-success"></i>
-                                <h5 class="mt-2">Verify Content Accuracy</h5>
-                                <p class="small">Confirm it goes to the right destination</p>
+                                <h5 class="mt-2">Content Verification</h5>
+                                <p class="small mb-0"><strong>Verify:</strong> URL accuracy, content relevance, mobile optimization, legal compliance, and value alignment with user expectations.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2 class="h3 mt-5 mb-3">Step 5: Advanced Implementation Strategies</h2>
+                    <h3 class="h5 mt-4">Environmental Testing Checklist:</h3>
+                    <ul class="checklist mt-3">
+                        <li><strong>Lighting Conditions:</strong> Test in bright sunlight, low light, and artificial lighting</li>
+                        <li><strong>Angles & Distances:</strong> Verify scanning from 0-90 degree angles at intended distances</li>
+                        <li><strong>Surface Materials:</strong> Test on glossy, matte, textured, and curved surfaces</li>
+                        <li><strong>Print Quality:</strong> Check resolution, color accuracy, and ink saturation</li>
+                        <li><strong>Network Conditions:</strong> Test with different connection speeds (3G to 5G)</li>
+                    </ul>
+
+                    <h2 id="advanced-strategies">Advanced Implementation Strategies</h2>
                     
-                    <h4 class="h5 mt-4">A. Dynamic vs Static QR Codes</h4>
-                    <p><strong>Static QR Codes:</strong> Fixed content that cannot be changed after creation. Best for permanent information.</p>
-                    <p><strong>Dynamic QR Codes:</strong> Content can be updated without changing the QR code image. Ideal for campaigns.</p>
+                    <h3 class="h5 mt-4">A. Dynamic vs Static QR Codes: Strategic Selection</h3>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card cartoon-card h-100">
+                                <div class="card-body">
+                                    <h5 class="h6 text-primary">Static QR Codes</h5>
+                                    <p class="small mb-0"><strong>Best For:</strong> Permanent information, business cards, product identification, fixed contact details<br>
+                                    <strong>Advantages:</strong> No maintenance, always accessible, works offline<br>
+                                    <strong>Limitations:</strong> Cannot update content, no analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card cartoon-card h-100">
+                                <div class="card-body">
+                                    <h5 class="h6 text-success">Dynamic QR Codes</h5>
+                                    <p class="small mb-0"><strong>Best For:</strong> Marketing campaigns, event management, time-sensitive offers<br>
+                                    <strong>Advantages:</strong> Update content anytime, track analytics, A/B testing<br>
+                                    <strong>Considerations:</strong> Requires management, dependent on service provider</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h4 class="h5 mt-4">B. QR Code Customization Tips</h4>
+                    <h3 class="h5 mt-4">B. Advanced Customization Techniques</h3>
                     <ul class="mt-3">
-                        <li>Use brand colors but maintain contrast</li>
-                        <li>Add logos without covering more than 30% of the code</li>
-                        <li>Ensure error correction is set to "High" for customized codes</li>
-                        <li>Test color combinations for scan reliability</li>
+                        <li><strong>Brand Integration:</strong> Add logos while maintaining 30% maximum coverage of QR code area</li>
+                        <li><strong>Color Psychology:</strong> Use brand colors while ensuring minimum 70% contrast ratio</li>
+                        <li><strong>Gradient Effects:</strong> Apply subtle gradients that maintain scan reliability</li>
+                        <li><strong>Error Correction Levels:</strong> Choose based on importance - L (7%), M (15%), Q (25%), H (30%)</li>
+                        <li><strong>Shape Customization:</strong> Modify module shapes while maintaining scannability</li>
                     </ul>
 
-                    <h4 class="h5 mt-4">C. Tracking and Analytics</h4>
-                    <p>Track your QR code performance to measure success:</p>
-                    <ul>
-                        <li>Scan counts by date and time</li>
-                        <li>Geographic location of scans</li>
-                        <li>Device types used for scanning</li>
-                        <li>Conversion rates from scans</li>
+                    <h3 class="h5 mt-4">C. Analytics and Performance Tracking</h3>
+                    <p>Implement tracking to measure QR code effectiveness:</p>
+                    <ul class="mt-3">
+                        <li><strong>Basic Metrics:</strong> Total scans, unique scans, scan frequency</li>
+                        <li><strong>Temporal Analysis:</strong> Peak scanning times, day-of-week patterns</li>
+                        <li><strong>Geographic Data:</strong> City/country distribution, location heat maps</li>
+                        <li><strong>Device Intelligence:</strong> Operating systems, device models, camera types</li>
+                        <li><strong>Conversion Tracking:</strong> Post-scan actions, goal completions, ROI calculation</li>
                     </ul>
+                    <p class="mt-3">Recommended tools: Google Analytics UTM parameters, dedicated QR tracking platforms, custom landing page analytics.</p>
 
-                    <h2 class="h3 mt-5 mb-3">Step 6: Common Mistakes to Avoid</h2>
+                    <h2 id="common-mistakes">Critical Mistakes to Avoid</h2>
                     
                     <div class="card cartoon-card my-4 p-4 bg-danger text-white">
-                        <h3 class="h5 text-white"><i class="bi bi-x-circle me-2"></i>Critical Mistakes That Ruin QR Codes</h3>
+                        <h3 class="h5 text-white"><i class="bi bi-x-circle me-2"></i>Common QR Code Implementation Errors</h3>
                         <ul class="mt-2 mb-0">
-                            <li>Placing codes on curved or reflective surfaces</li>
-                            <li>Making codes too small for scanning (minimum 1x1 inch)</li>
-                            <li>Using poor color contrast (light on light)</li>
-                            <li>Not including a call-to-action near the code</li>
-                            <li>Linking to mobile-unfriendly websites</li>
+                            <li><strong>Size Inadequacy:</strong> Codes smaller than 1x1 inch (2.5x2.5 cm) reduce scan reliability by 80%</li>
+                            <li><strong>Poor Contrast:</strong> Light-on-light or dark-on-dark combinations fail in 65% of scanning attempts</li>
+                            <li><strong>Missing Quiet Zone:</strong> Encroaching graphics reduce first-scan success rate to 10-20%</li>
+                            <li><strong>Complex Backgrounds:</strong> Busy patterns behind codes decrease scan accuracy by 40-60%</li>
+                            <li><strong>Mobile Unfriendly Destinations:</strong> Desktop-only websites increase bounce rates by 300%</li>
+                            <li><strong>No Value Proposition:</strong> Codes without clear benefits see 90% lower engagement</li>
                         </ul>
                     </div>
 
-                    <h2 class="h3 mt-5 mb-3">Step 7: Real-World Applications</h2>
+                    <h3 class="h5 mt-4">Technical Implementation Errors:</h3>
+                    <ul class="mt-3">
+                        <li><strong>Broken Links:</strong> 404 errors or redirect chains breaking the user experience</li>
+                        <li><strong>Slow Loading:</strong> Destination pages taking longer than 3 seconds to load</li>
+                        <li><strong>Security Issues:</strong> Non-HTTPS destinations triggering security warnings</li>
+                        <li><strong>Format Errors:</strong> Incorrect vCard or WiFi syntax preventing functionality</li>
+                        <li><strong>Print Resolution:</strong> Low DPI printing causing blurry, unscannable codes</li>
+                    </ul>
+
+                    <h2 id="real-world-applications">Real-World Business Applications</h2>
                     
                     <div class="row mt-4">
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="h6">Restaurant Industry</h5>
-                                    <p class="small mb-0">Digital menus, online ordering, feedback forms, loyalty programs</p>
+                                    <h5 class="h6"><i class="bi bi-cup-hot me-2 text-primary"></i>Restaurant & Hospitality</h5>
+                                    <p class="small mb-0"><strong>Applications:</strong> Digital menus (reduce printing costs 85%), contactless ordering, feedback collection, loyalty programs, staff communication, inventory management</p>
+                                    <p class="small mt-2"><strong>ROI Example:</strong> Average restaurant saves $2,400 annually on menu printing while increasing average order value by 18% through upsell suggestions.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="h6">Retail Stores</h5>
-                                    <p class="small mb-0">Product information, reviews, promotions, payment options</p>
+                                    <h5 class="h6"><i class="bi bi-shop me-2 text-success"></i>Retail & E-commerce</h5>
+                                    <p class="small mb-0"><strong>Applications:</strong> Product information access, customer reviews, size guides, payment options, inventory checking, personalized offers</p>
+                                    <p class="small mt-2"><strong>Impact:</strong> Stores using QR codes report 34% higher engagement and 22% increased conversion rates compared to traditional methods.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="h6">Real Estate</h5>
-                                    <p class="small mb-0">Property details, virtual tours, contact agents, scheduling</p>
+                                    <h5 class="h6"><i class="bi bi-house me-2 text-warning"></i>Real Estate & Property</h5>
+                                    <p class="small mb-0"><strong>Applications:</strong> Virtual property tours, detailed specifications, neighborhood information, agent contact, scheduling tools, document access</p>
+                                    <p class="small mt-2"><strong>Results:</strong> Properties with QR codes sell 17% faster and receive 42% more inquiries than those without digital enhancements.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="h6">Education</h5>
-                                    <p class="small mb-0">Course materials, assignment submission, library resources</p>
+                                    <h5 class="h6"><i class="bi bi-mortarboard me-2 text-info"></i>Education & Training</h5>
+                                    <p class="small mb-0"><strong>Applications:</strong> Course material access, assignment submission, library resources, attendance tracking, parent communication, digital textbooks</p>
+                                    <p class="small mt-2"><strong>Benefits:</strong> Schools report 56% faster material distribution and 38% higher student engagement with QR-enhanced learning.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <h2 class="h3 mt-5 mb-3">Conclusion</h2>
-                    <p>QR codes are powerful tools when used correctly. By following this comprehensive guide, you can:</p>
+                    <h2 class="mt-5">Implementation Roadmap: 30-Day QR Code Success Plan</h2>
+                    <div class="step-box">
+                        <h4 class="h5"><i class="bi bi-calendar-check me-2"></i>Quick Start Implementation Timeline</h4>
+                        <div class="mt-3">
+                            <p><strong>Week 1: Planning & Testing</strong><br>
+                            • Define objectives and success metrics<br>
+                            • Create 3-5 test QR codes for different use cases<br>
+                            • Establish testing protocol and measurement tools</p>
+                            
+                            <p class="mt-3"><strong>Week 2: Initial Deployment</strong><br>
+                            • Implement on business cards and digital platforms<br>
+                            • Train staff on QR code benefits and usage<br>
+                            • Begin basic analytics collection</p>
+                            
+                            <p class="mt-3"><strong>Week 3: Optimization</strong><br>
+                            • Analyze initial performance data<br>
+                            • Adjust placement and messaging based on results<br>
+                            • Expand to additional touchpoints</p>
+                            
+                            <p class="mt-3"><strong>Week 4: Scaling & Integration</strong><br>
+                            • Integrate QR codes into marketing campaigns<br>
+                            • Implement advanced tracking and A/B testing<br>
+                            • Document processes and create training materials</p>
+                        </div>
+                    </div>
+
+                    <h2>Conclusion: Mastering QR Code Implementation</h2>
+                    <p>QR codes represent one of the most accessible yet powerful digital tools available to businesses and individuals. Their successful implementation requires a strategic approach that balances technical requirements with user experience considerations.</p>
+                    
+                    <p class="mt-3">Key success factors include:</p>
                     <ul class="mt-3">
-                        <li>Create effective QR codes for any purpose</li>
-                        <li>Implement them in optimal locations</li>
-                        <li>Avoid common pitfalls</li>
-                        <li>Track performance and optimize results</li>
-                        <li>Integrate QR codes into your overall digital strategy</li>
+                        <li><strong>Clear Value Proposition:</strong> Every QR code should solve a problem or provide immediate benefit</li>
+                        <li><strong>Technical Excellence:</strong> Proper sizing, contrast, quiet zones, and error correction</li>
+                        <li><strong>Strategic Placement:</strong> Position where users naturally look with clear calls-to-action</li>
+                        <li><strong>Continuous Optimization:</strong> Regular testing, analytics review, and iterative improvement</li>
+                        <li><strong>Integration Strategy:</strong> QR codes as part of broader digital ecosystem, not isolated tools</li>
                     </ul>
-                    <p>Remember, the key to successful QR code implementation is providing value to the user. Every scan should lead to a useful, relevant, and mobile-friendly experience.</p>
+                    
+                    <p class="mt-3">The future of QR codes continues to evolve with augmented reality integrations, payment systems, and IoT connectivity. By mastering current implementation best practices, you position yourself to leverage emerging opportunities as they develop.</p>
 
                     <!-- Call to Action -->
                     <div class="card cartoon-card mt-5 p-4 text-center">
-                        <h3 class="h5 mb-3">Ready to Create Your First QR Code?</h3>
-                        <p>Follow our step-by-step guide using OnlineQrs's free generator tool.</p>
-                        <a href="../#tool" class="btn btn-success cartoon-btn">
+                        <h3 class="h5 mb-3"><i class="bi bi-rocket-takeoff me-2"></i>Ready to Implement Professional QR Codes?</h3>
+                        <p class="mb-4">Start your QR code journey with OnlineQrs's comprehensive free generator. Create unlimited codes, access detailed tutorials, and implement with confidence using our best practice guides.</p>
+                        <a href="../index.html#tool" class="btn btn-success cartoon-btn btn-lg">
                             <i class="bi bi-qr-code-scan me-2"></i>Start Creating Now
                         </a>
-                        <p class="small mt-3 mb-0">No signup required • Free forever • Instant download</p>
+                        <p class="small mt-3 mb-0">No signup required • Free forever • High-resolution downloads • Professional results</p>
                     </div>
                 </div>
 
                 <!-- Tags -->
                 <div class="mt-5 pt-4 border-top">
-                    <h4 class="h6 mb-3">Tags:</h4>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">QR Codes</a>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Tutorial</a>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">How-to Guide</a>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Beginner</a>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Business</a>
-                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Marketing</a>
+                    <h4 class="h6 mb-3">Article Tags:</h4>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">QR Code Tutorial</a>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Digital Marketing</a>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Business Technology</a>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Mobile Optimization</a>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Contactless Solutions</a>
+                    <a href="#" class="badge bg-secondary text-white text-decoration-none me-2">Implementation Guide</a>
                 </div>
 
                 <!-- Share Buttons -->
                 <div class="mt-5 pt-4 border-top">
-                    <h4 class="h6 mb-3">Share this article:</h4>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-sm btn-outline-primary" onclick="shareFacebook()"><i class="bi bi-facebook"></i> Facebook</button>
-                        <button class="btn btn-sm btn-outline-info" onclick="shareTwitter()"><i class="bi bi-twitter"></i> Twitter</button>
-                        <button class="btn btn-sm btn-outline-success" onclick="shareWhatsApp()"><i class="bi bi-whatsapp"></i> WhatsApp</button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="shareEmail()"><i class="bi bi-envelope"></i> Email</button>
+                    <h4 class="h6 mb-3">Share this comprehensive guide:</h4>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="btn btn-sm btn-outline-primary" onclick="shareFacebook()"><i class="bi bi-facebook me-1"></i> Facebook</button>
+                        <button class="btn btn-sm btn-outline-info" onclick="shareTwitter()"><i class="bi bi-twitter me-1"></i> Twitter</button>
+                        <button class="btn btn-sm btn-outline-success" onclick="shareWhatsApp()"><i class="bi bi-whatsapp me-1"></i> WhatsApp</button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="shareEmail()"><i class="bi bi-envelope me-1"></i> Email</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="copyLink()"><i class="bi bi-link-45deg me-1"></i> Copy Link</button>
                     </div>
                 </div>
 
                 <!-- Related Articles -->
                 <div class="mt-5 pt-4 border-top">
-                    <h4 class="h5 mb-4">Related Articles</h4>
+                    <h4 class="h5 mb-4">Continue Your QR Code Education</h4>
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="card cartoon-card">
+                            <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="card-title">10 Benefits of QR Codes for Businesses</h5>
-                                    <p class="card-text small">Learn how QR codes can transform your business operations.</p>
-                                    <a href="./benefits-of-qr-codes.html" class="btn btn-sm btn-link">Read →</a>
+                                    <h5 class="card-title">10 Benefits of QR Codes for Modern Businesses</h5>
+                                    <p class="card-text small">Discover how QR codes can transform business operations, reduce costs, and enhance customer engagement with measurable ROI.</p>
+                                    <a href="./benefits-of-qr-codes.html" class="btn btn-sm btn-link">Read Complete Analysis →</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card cartoon-card">
+                            <div class="card cartoon-card h-100">
                                 <div class="card-body">
-                                    <h5 class="card-title">Why Choose OnlineQrs.com</h5>
-                                    <p class="card-text small">Comparison between free and paid QR code services.</p>
-                                    <a href="./why-choose-free-qr-generator.html" class="btn btn-sm btn-link">Read →</a>
+                                    <h5 class="card-title">Free vs Paid QR Code Generators: Complete Comparison</h5>
+                                    <p class="card-text small">Detailed analysis comparing features, limitations, and business applications of free and paid QR code solutions.</p>
+                                    <a href="./why-choose-free-qr-generator.html" class="btn btn-sm btn-link">Read Comparison Guide →</a>
                                 </div>
                             </div>
                         </div>
@@ -378,14 +573,15 @@
     <!-- Newsletter -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <h3 class="h4 mb-3">Subscribe for More Tips</h3>
-            <p class="mb-4">Get weekly QR code tips and industry insights</p>
+            <h3 class="h4 mb-3">Master QR Code Technology</h3>
+            <p class="mb-4">Subscribe to receive weekly tutorials, case studies, and industry insights on QR code implementation and digital marketing strategies.</p>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter your email">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
-                    </div>
+                    <form class="input-group" id="newsletterForm">
+                        <input type="email" class="form-control" placeholder="Enter your professional email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                    <p class="small text-muted mt-2">Join 5,000+ professionals. Unsubscribe anytime. No spam.</p>
                 </div>
             </div>
         </div>
@@ -394,116 +590,112 @@
     <!-- Footer -->
     <footer class="footer cartoon py-4">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <div class="d-flex align-items-center">
-                <div class="navbar-brand fw-bold fs-4 me-3">
-                  <img src="../assets/logo.png" alt="OnlineQrs Logo" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <div class="navbar-brand fw-bold fs-4 me-3">
+                            <img src="../assets/logo.png" alt="OnlineQrs Logo" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top">
+                        </div>
+                        <span class="text-muted">Free QR Code Generator</span>
+                    </div>
                 </div>
-                <span class="text-muted">Free QR Code Generator</span>
-              </div>
+                
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap justify-content-md-end">
+                        <a href="../index.html#tool" class="btn btn-link text-decoration-none me-3">Generator</a>
+                        <a href="../index.html#features" class="btn btn-link text-decoration-none me-3">Features</a>
+                        <a href="../index.html#usecases" class="btn btn-link text-decoration-none me-3">Use Cases</a>
+                        <a href="../index.html#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
+                        <a href="index.html" class="btn btn-link text-decoration-none me-3">Blog</a>
+                        <a href="../index.html#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
+                        <a href="javascript:void(0);" onclick="showDisclaimer()" class="btn btn-link text-decoration-none me-3">Disclaimer</a>
+                        <a href="javascript:void(0);" onclick="showTerms()" class="btn btn-link text-decoration-none me-3">Terms</a>
+                        <a href="../index.html#contact" class="btn btn-link text-decoration-none">Contact</a>
+                    </div>
+                </div>
             </div>
             
-            <div class="col-md-6">
-              <div class="d-flex flex-wrap justify-content-md-end">
-                <a href="../#tool" class="btn btn-link text-decoration-none me-3">Generator</a>
-                <a href="../#features" class="btn btn-link text-decoration-none me-3">Features</a>
-                <a href="../#usecases" class="btn btn-link text-decoration-none me-3">Use Cases</a>
-                <a href="../#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
-                <a href="../#contact" class="btn btn-link text-decoration-none">Contact</a>
-                <a href="index.html" class="btn btn-link text-decoration-none me-3">Blog</a>
-                <a href="javascript:void(0);" onclick="showDisclaimer()" class="btn btn-link text-decoration-none me-3">Disclaimer</a>
-                <a href="javascript:void(0);" onclick="showTerms()" class="btn btn-link text-decoration-none">Terms</a>
-                <a href="../#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
-              </div>
+            <hr class="my-3">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1">&copy; 2026 OnlineQrs. All rights reserved.</p>
+                    <p class="small text-muted mb-0">OnlineQrs is a free QR code generator. QR is a registered trademark of DENSO WAVE.</p>
+                </div>
             </div>
-          </div>
-          
-          <hr class="my-3">
-          
-          <div class="row">
-            <div class="col-12 text-center">
-              <p class="mb-1">&copy; 2026 OnlineQrs. All rights reserved.</p>
-              <p class="small text-muted mb-0">OnlineQrs is a free QR code generator. QR is a registered trademark of DENSO WAVE.</p>
-            </div>
-          </div>
         </div>
-      </footer>
-      
-      <!-- Disclaimer Modal -->
-      <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-hidden="true">
+    </footer>
+
+    <!-- Modals and Scripts -->
+    <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content cartoon-card">
-            <div class="modal-header">
-              <h5 class="modal-title"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content cartoon-card">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Important Notice:</strong></p>
+                    <p>OnlineQrs is a free online QR code generator tool. All QR codes are generated client-side in your browser.</p>
+                    
+                    <h6 class="mt-3">Limitations:</h6>
+                    <ul>
+                        <li>QR codes should be tested before widespread use</li>
+                        <li>We're not responsible for QR code content or usage</li>
+                        <li>Always verify QR codes scan correctly</li>
+                        <li>This service is provided "as is" without warranties</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">QR Code Best Practices:</h6>
+                    <p>Always test your QR codes with multiple devices and ensure they lead to appropriate content.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">I Understand</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p><strong>Important Notice:</strong></p>
-              <p>OnlineQrs is a free online QR code generator tool. All QR codes are generated client-side in your browser.</p>
-              
-              <h6 class="mt-3">Limitations:</h6>
-              <ul>
-                <li>QR codes should be tested before widespread use</li>
-                <li>We're not responsible for QR code content or usage</li>
-                <li>Always verify QR codes scan correctly</li>
-                <li>This service is provided "as is" without warranties</li>
-              </ul>
-              
-              <h6 class="mt-3">QR Code Best Practices:</h6>
-              <p>Always test your QR codes with multiple devices and ensure they lead to appropriate content.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">I Understand</button>
-            </div>
-          </div>
         </div>
-      </div>
-      
-      <!-- Terms Modal -->
-      <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    </div>
+    
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content cartoon-card">
-            <div class="modal-header">
-              <h5 class="modal-title"><i class="bi bi-file-text me-2"></i>Terms of Use</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content cartoon-card">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-file-text me-2"></i>Terms of Use</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Terms of Service for OnlineQrs</strong></p>
+                    
+                    <h6 class="mt-3">1. Acceptance of Terms</h6>
+                    <p>By using OnlineQrs, you agree to these terms. If you disagree, please do not use our service.</p>
+                    
+                    <h6 class="mt-3">2. Service Description</h6>
+                    <p>OnlineQrs provides free QR code generation. All processing occurs in your browser.</p>
+                    
+                    <h6 class="mt-3">3. User Responsibilities</h6>
+                    <ul>
+                        <li>Use QR codes responsibly and legally</li>
+                        <li>Do not generate harmful or malicious content</li>
+                        <li>Test QR codes before distribution</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">4. Intellectual Property</h6>
+                    <p>Generated QR codes belong to you. OnlineQrs does not claim ownership.</p>
+                    
+                    <h6 class="mt-3">5. Limitation of Liability</h6>
+                    <p>OnlineQrs is not liable for any damages resulting from QR code use.</p>
+                    
+                    <p class="mt-3"><small>Last updated: January 2026</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p><strong>Terms of Service for OnlineQrs</strong></p>
-              
-              <h6 class="mt-3">1. Acceptance of Terms</h6>
-              <p>By using OnlineQrs, you agree to these terms. If you disagree, please do not use our service.</p>
-              
-              <h6 class="mt-3">2. Service Description</h6>
-              <p>OnlineQrs provides free QR code generation. All processing occurs in your browser.</p>
-              
-              <h6 class="mt-3">3. User Responsibilities</h6>
-              <ul>
-                <li>Use QR codes responsibly and legally</li>
-                <li>Do not generate harmful or malicious content</li>
-                <li>Test QR codes before distribution</li>
-              </ul>
-              
-              <h6 class="mt-3">4. Intellectual Property</h6>
-              <p>Generated QR codes belong to you. OnlineQrs does not claim ownership.</p>
-              
-              <h6 class="mt-3">5. Limitation of Liability</h6>
-              <p>OnlineQrs is not liable for any damages resulting from QR code use.</p>
-              
-              <p class="mt-3"><small>Last updated: March 2024</small></p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
-      
-      <!-- Remove defer attribute from scripts -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/index.js"></script>
-      
-      <script>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
         // Share functions
         function shareFacebook() {
             const url = encodeURIComponent(window.location.href);
@@ -519,16 +711,23 @@
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(document.title);
-            window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
         }
         
         function shareEmail() {
-            const url = encodeURIComponent(window.location.href);
+            const url = window.location.href;
             const subject = encodeURIComponent(document.title);
-            window.location.href = `mailto:?subject=${subject}&body=${url}`;
+            const body = encodeURIComponent(`Check out this comprehensive QR code guide: ${url}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
         
-        // Modal functions (make sure Bootstrap is loaded)
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+        
+        // Modal functions
         document.addEventListener('DOMContentLoaded', function() {
             window.showDisclaimer = function() {
                 const modal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
@@ -549,13 +748,34 @@
                     if (document.body.classList.contains('dark-mode')) {
                         icon.classList.remove('bi-moon');
                         icon.classList.add('bi-sun');
+                        localStorage.setItem('theme', 'dark');
                     } else {
                         icon.classList.remove('bi-sun');
                         icon.classList.add('bi-moon');
+                        localStorage.setItem('theme', 'light');
                     }
+                });
+                
+                // Apply saved theme
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    const icon = themeToggle.querySelector('i');
+                    icon.classList.remove('bi-moon');
+                    icon.classList.add('bi-sun');
+                }
+            }
+            
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Thank you for subscribing with ${email}! You'll receive our next update soon.`);
+                    this.reset();
                 });
             }
         });
-      </script>
+    </script>
 </body>
 </html>
