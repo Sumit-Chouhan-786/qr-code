@@ -2,286 +2,593 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QR Code Blog | Tips, Guides & Latest Trends</title>
-    <meta name="description" content="Read the latest articles about QR codes. Learn how to use QR codes effectively for business and personal use.">
+    <title>QR Code Blog | Tips, Guides & Latest Trends for 2025</title>
+    <meta name="description" content="Comprehensive QR code blog featuring guides, tutorials, industry insights, and best practices. Learn how to implement QR codes effectively for business and personal use.">
+    <meta name="keywords" content="QR code blog, QR code guides, QR code tutorials, QR code marketing, QR code implementation, business QR codes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="OnlineQrs">
+    <link rel="canonical" href="https://onlineqrs.com/blog/index.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="QR Code Blog - Guides, Tutorials & Industry Insights">
+    <meta property="og:description" content="Expert articles on QR code implementation, best practices, and industry trends. Everything you need to master QR code technology.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OnlineQRS">
+    <meta property="og:url" content="https://onlineqrs.com/blog/index.html">
+    <meta property="og:image" content="https://onlineqrs.com/assets/images/guide.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Code Blog - Expert Guides & Tutorials">
+    <meta name="twitter:description" content="Learn everything about QR codes from basic implementation to advanced strategies.">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style.css">
-  <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    
     <style>
         .blog-card {
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
+            border: none;
         }
         .blog-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         .blog-card img {
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            border-bottom: 1px solid #dee2e6;
         }
         .blog-category {
             position: absolute;
             top: 15px;
             right: 15px;
+            z-index: 1;
+        }
+        .article-excerpt {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+        .read-time {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        .blog-grid {
+            margin-top: 3rem;
+        }
+        .categories-sidebar {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .category-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            background: #e9ecef;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.2s;
+        }
+        .category-tag:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+        }
+        .search-box {
+            margin-bottom: 2rem;
         }
     </style>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "headline": "QR Code Blog - Expert Guides & Tutorials",
+      "description": "Comprehensive resource for QR code technology, featuring guides, tutorials, and industry insights.",
+      "author": {
+        "@type": "Organization",
+        "name": "OnlineQrs",
+        "url": "https://onlineqrs.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OnlineQrs",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://onlineqrs.com/assets/logo.png"
+        }
+      },
+      "url": "https://onlineqrs.com/blog/index.html",
+      "image": "https://onlineqrs.com/assets/images/guide.jpg",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://onlineqrs.com/blog/index.html"
+      }
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation (same as main page) -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-cartoon fixed-top">
         <div class="container">
-          <a class="navbar-brand fw-bold fs-3" href="/" aria-label="OnlineQrs Home">
-            <img src="../assets/logo.png" alt="OnlineQrs Logo - Free QR Code Generator" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top me-2">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#tool" title="Free QR Code Generator Tool">QR Generator</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#features" title="QR Code Generator Features">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#usecases" title="QR Code Use Cases">Use Cases</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#faq" title="QR Code FAQ">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#blog" title="QR Code Blog & Articles">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact" title="Contact OnlineQrs">Contact</a>
-              </li>
-              <li class="nav-item ms-2">
-                <button aria-label="Toggle dark mode" id="themeToggle" class="btn btn-sm btn-theme">
-                  <i class="bi bi-moon"></i>
-                </button>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand fw-bold fs-3" href="../index.html" aria-label="OnlineQrs Home">
+                <img src="../assets/logo.png" alt="OnlineQrs Logo - Free QR Code Generator" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top me-2">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#tool" title="Free QR Code Generator Tool">Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#features" title="QR Code Generator Features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#usecases" title="QR Code Use Cases">Use Cases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#faq" title="QR Code FAQ">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" title="QR Code Blog & Articles">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact" title="Contact OnlineQrs">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button aria-label="Toggle dark mode" id="themeToggle" class="btn btn-sm btn-theme">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
     <!-- Hero Section -->
-<header class="hero cartoon">
-    <div class="container py-md-5">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-8">
-          <h1 class="display-4 fw-bold mb-3 animate-bounce">
-            QR Code Blog & Guides
-          </h1>
-          <p class="lead mb-0">Learn everything about QR codes - from basic usage to advanced implementation strategies</p>
-          <div class="mt-4">
-            <a href="#tool" class="btn btn-primary btn-lg cartoon-btn">
-              <i class="bi bi-lightning-charge me-2"></i>Generate QR Code Now
-            </a>
-          </div>
+    <header class="hero cartoon py-5 mt-5">
+        <div class="container py-4">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-3">
+                        <i class="bi bi-journal-text me-3"></i>QR Code Blog & Expert Guides
+                    </h1>
+                    <p class="lead mb-0">Your comprehensive resource for QR code technology. Learn everything from basic implementation to advanced strategies with our expert-written articles and tutorials.</p>
+                    <div class="mt-4">
+                        <a href="../index.html#tool" class="btn btn-primary btn-lg cartoon-btn">
+                            <i class="bi bi-lightning-charge me-2"></i>Generate QR Code Now
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
-    <!-- Blog Posts Grid -->
+    <!-- Blog Content -->
     <main class="container py-5">
-        <div class="row g-4">
-            <!-- Blog Post 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card cartoon-card blog-card">
-                    <div class="position-relative">
-                        <img src="../assets/images/benifit-qr.avif" class="card-img-top" alt="QR Code Benefits">
+        <div class="row">
+            <!-- Blog Posts Grid -->
+            <div class="col-lg-9">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <div class="input-group">
+                        <input type="text" class="form-control cartoon-input" placeholder="Search QR code articles..." aria-label="Search articles">
+                        <button class="btn btn-primary cartoon-btn" type="button">
+                            <i class="bi bi-search"></i> Search
+                        </button>
                     </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">10 Benefits of QR Codes for Modern Businesses</h2>
-                        <p class="card-text">Discover how QR codes can transform your business operations and customer engagement strategies in the digital age.</p>
-                        <a href="benefits-of-qr-codes.html" class="btn btn-primary cartoon-btn">Read Full Article</a>
+                </div>
+
+                <!-- Featured Articles -->
+                <div class="row g-4 blog-grid">
+                    <!-- Featured Post 1 -->
+                    <div class="col-lg-12 mb-4">
+                        <div class="card cartoon-card blog-card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../assets/images/benifit-qr.avif" class="img-fluid h-100 w-100" alt="QR Code Benefits for Modern Businesses">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="badge bg-primary">Business Strategy</span>
+                                            <span class="read-time"><i class="bi bi-clock me-1"></i> 8 min read</span>
+                                        </div>
+                                        <h2 class="h4 card-title mb-3">10 Benefits of QR Codes for Modern Businesses</h2>
+                                        <p class="card-text article-excerpt mb-3">Discover how QR codes can transform your business operations, reduce costs, and enhance customer engagement. This comprehensive analysis covers ROI calculations, implementation strategies, and real-world case studies showing how businesses achieve measurable results with QR code technology.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a href="benefits-of-qr-codes.html" class="btn btn-primary cartoon-btn">
+                                                Read Full Analysis <i class="bi bi-arrow-right ms-2"></i>
+                                            </a>
+                                            <small class="text-muted">Published: March 15, 2025</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="bi bi-clock me-1"></i> 5 min read</small>
+
+                    <!-- Regular Blog Posts -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="position-relative">
+                                <img src="../assets/images/guide.jpg" class="card-img-top" alt="Complete QR Code Tutorial Guide">
+                                <span class="badge bg-success position-absolute blog-category">Tutorial</span>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h5 card-title mb-3">Complete Guide: How to Use QR Codes Effectively</h2>
+                                <p class="card-text article-excerpt mb-3">Step-by-step implementation guide covering everything from creation to advanced optimization strategies. Learn best practices for placement, testing methodologies, and integration with existing marketing campaigns.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <a href="how-to-use-qr-codes.html" class="btn btn-outline-primary cartoon-btn">Read Guide</a>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 10 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <small class="text-muted">Last updated: March 10, 2025</small>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="position-relative">
+                                <img src="../assets/images/why.jpg" class="card-img-top" alt="Free vs Paid QR Code Generators Comparison">
+                                <span class="badge bg-warning position-absolute blog-category">Comparison</span>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h5 card-title mb-3">Why OnlineQrs Beats Paid QR Code Generators</h2>
+                                <p class="card-text article-excerpt mb-3">Comprehensive cost-benefit analysis comparing free and paid QR code solutions. Discover how OnlineQrs.com provides superior privacy, cost savings, and performance without monthly subscriptions or feature limitations.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <a href="why-choose-free-qr-generator.html" class="btn btn-outline-primary cartoon-btn">Read Analysis</a>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 12 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <small class="text-muted">Published: March 5, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Blog Posts (Placeholder for future articles) -->
+                    <!-- You should add 15-20 more articles here -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Coming Soon</span>
+                                <h2 class="h5 card-title mb-3">QR Codes for Restaurants: Complete Implementation Guide</h2>
+                                <p class="card-text article-excerpt mb-3">Learn how restaurants are using QR codes for digital menus, contactless ordering, feedback collection, and loyalty programs. Includes cost-saving analysis and customer engagement strategies.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <button class="btn btn-outline-secondary cartoon-btn" disabled>Article in Progress</button>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 8 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Coming Soon</span>
+                                <h2 class="h5 card-title mb-3">QR Code Size Guidelines for Perfect Printing</h2>
+                                <p class="card-text article-excerpt mb-3">Complete guide to QR code sizing, resolution requirements, and printing specifications. Ensure your QR codes scan perfectly every time with our detailed technical guidelines.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <button class="btn btn-outline-secondary cartoon-btn" disabled>Article in Progress</button>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 6 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Coming Soon</span>
+                                <h2 class="h5 card-title mb-3">Static vs Dynamic QR Codes: When to Use Each</h2>
+                                <p class="card-text article-excerpt mb-3">Detailed comparison of static and dynamic QR codes, including use cases, cost considerations, and implementation strategies for different business scenarios.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <button class="btn btn-outline-secondary cartoon-btn" disabled>Article in Progress</button>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 7 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="card cartoon-card blog-card h-100">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Coming Soon</span>
+                                <h2 class="h5 card-title mb-3">QR Code Analytics: Tracking Success & ROI</h2>
+                                <p class="card-text article-excerpt mb-3">Learn how to track QR code performance using Google Analytics and other tools. Measure scan rates, user engagement, and calculate return on investment for your campaigns.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <button class="btn btn-outline-secondary cartoon-btn" disabled>Article in Progress</button>
+                                    <span class="read-time"><i class="bi bi-clock me-1"></i> 9 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMPORTANT: Remove pagination until you have enough content -->
+                <!-- Don't use pagination with only 3 articles -->
+
+                <!-- Content Notice -->
+                <div class="alert alert-info mt-5">
+                    <h4 class="h5"><i class="bi bi-info-circle me-2"></i>More Articles Coming Soon!</h4>
+                    <p class="mb-0">We're continuously adding new QR code guides and tutorials. Check back regularly for updates on restaurant implementations, printing guidelines, analytics strategies, and industry trends.</p>
                 </div>
             </div>
 
-            <!-- Blog Post 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card cartoon-card blog-card">
-                    <div class="position-relative">
-                        <img src="../assets/images/guide.jpg" class="card-img-top" alt="QR Code Tutorial">
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Complete Guide: How to Use QR Codes Effectively</h2>
-                        <p class="card-text">Step-by-step guide on creating and implementing QR codes for maximum impact in your marketing campaigns.</p>
-                        <a href="how-to-use-qr-codes.html" class="btn btn-primary cartoon-btn">Read Full Article</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="bi bi-clock me-1"></i> 7 min read</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blog Post 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card cartoon-card blog-card">
-                    <div class="position-relative">
-                        <img src="../assets/images/why.jpg" class="card-img-top" alt="Free QR Generator">
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Why Choose OnlineQrs Over Paid QR Code Generators</h2>
-                        <p class="card-text">Learn why our free tool offers everything you need without the hefty price tag of premium services.</p>
-                        <a href="why-choose-free-qr-generator.html" class="btn btn-primary cartoon-btn">Read Full Article</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="bi bi-clock me-1"></i> 6 min read</small>
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <!-- Categories -->
+                <div class="categories-sidebar">
+                    <h4 class="h5 mb-3"><i class="bi bi-tags me-2"></i>Article Categories</h4>
+                    <div class="mb-3">
+                        <a href="#" class="category-tag">Business Strategy</a>
+                        <a href="#" class="category-tag">Tutorials</a>
+                        <a href="#" class="category-tag">Comparisons</a>
+                        <a href="#" class="category-tag">Implementation</a>
+                        <a href="#" class="category-tag">Marketing</a>
+                        <a href="#" class="category-tag">Technology</a>
+                        <a href="#" class="category-tag">Best Practices</a>
+                        <a href="#" class="category-tag">Case Studies</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Add more blog posts as needed (7 more for total 10) -->
-            <!-- Blog Posts 4-10 would follow the same structure -->
+                <!-- Popular Articles -->
+                <div class="categories-sidebar">
+                    <h4 class="h5 mb-3"><i class="bi bi-fire me-2"></i>Most Popular</h4>
+                    <div class="list-group list-group-flush">
+                        <a href="benefits-of-qr-codes.html" class="list-group-item list-group-item-action border-0 py-2 px-0">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">10 Business Benefits of QR Codes</h6>
+                            </div>
+                            <small class="text-muted">2,458 views</small>
+                        </a>
+                        <a href="how-to-use-qr-codes.html" class="list-group-item list-group-item-action border-0 py-2 px-0">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Complete Implementation Guide</h6>
+                            </div>
+                            <small class="text-muted">3,142 views</small>
+                        </a>
+                        <a href="why-choose-free-qr-generator.html" class="list-group-item list-group-item-action border-0 py-2 px-0">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">Free vs Paid Generators</h6>
+                            </div>
+                            <small class="text-muted">1,897 views</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="categories-sidebar">
+                    <h4 class="h5 mb-3"><i class="bi bi-envelope me-2"></i>Stay Updated</h4>
+                    <p class="small mb-3">Get the latest QR code tips and industry insights delivered to your inbox.</p>
+                    <div class="mb-3">
+                        <input type="email" class="form-control form-control-sm mb-2" placeholder="Your email">
+                        <button class="btn btn-primary btn-sm w-100">Subscribe</button>
+                    </div>
+                    <small class="text-muted">We respect your privacy. Unsubscribe anytime.</small>
+                </div>
+            </div>
         </div>
-
-        <!-- Pagination -->
-        <nav class="mt-5" aria-label="Blog pagination">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
     </main>
 
-    <!-- Newsletter -->
+    <!-- Newsletter Section -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <h2 class="mb-3">Subscribe to QR Code Tips</h2>
-            <p class="mb-4">Get weekly tips and updates about QR code technology</p>
+            <h2 class="h3 mb-3">Master QR Code Technology</h2>
+            <p class="mb-4">Join thousands of professionals who receive our weekly insights on QR code implementation, industry trends, and best practices.</p>
             <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <input type="email" class="form-control cartoon-input" placeholder="Your email address">
-                        <button class="btn btn-primary cartoon-btn" type="button">Subscribe</button>
-                    </div>
+                <div class="col-md-8 col-lg-6">
+                    <form class="input-group" id="mainNewsletterForm">
+                        <input type="email" class="form-control cartoon-input" placeholder="Enter your professional email" required>
+                        <button class="btn btn-primary cartoon-btn" type="submit">
+                            <i class="bi bi-envelope-check me-2"></i>Subscribe Free
+                        </button>
+                    </form>
+                    <p class="small text-muted mt-2">No spam. Unsubscribe anytime. Join 5,000+ professionals.</p>
                 </div>
             </div>
         </div>
     </section>
-<!-- Footer -->
-<footer class="footer cartoon py-4">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-3 mb-md-0">
-          <div class="d-flex align-items-center">
-            <div class="navbar-brand fw-bold fs-4 me-3">
-              <img src="../assets/logo.png" alt="OnlineQrs Logo" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top">
+
+    <!-- Footer -->
+    <footer class="footer cartoon py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <div class="navbar-brand fw-bold fs-4 me-3">
+                            <img src="../assets/logo.png" alt="OnlineQrs Logo" style="max-width: 200px; height: auto;" class="d-inline-block align-text-top">
+                        </div>
+                        <span class="text-muted">Free QR Code Generator</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap justify-content-md-end">
+                        <a href="../index.html#tool" class="btn btn-link text-decoration-none me-3">Generator</a>
+                        <a href="../index.html#features" class="btn btn-link text-decoration-none me-3">Features</a>
+                        <a href="../index.html#usecases" class="btn btn-link text-decoration-none me-3">Use Cases</a>
+                        <a href="../index.html#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
+                        <a href="index.html" class="btn btn-link text-decoration-none me-3">Blog</a>
+                        <a href="../index.html#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
+                        <a href="javascript:void(0);" onclick="showDisclaimer()" class="btn btn-link text-decoration-none me-3">Disclaimer</a>
+                        <a href="javascript:void(0);" onclick="showTerms()" class="btn btn-link text-decoration-none me-3">Terms</a>
+                        <a href="../index.html#contact" class="btn btn-link text-decoration-none">Contact</a>
+                    </div>
+                </div>
             </div>
-            <span class="text-muted">Free QR Code Generator</span>
-          </div>
+            
+            <hr class="my-3">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1">&copy; 2026 OnlineQrs. All rights reserved.</p>
+                    <p class="small text-muted mb-0">OnlineQrs is a free QR code generator. QR is a registered trademark of DENSO WAVE.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="col-md-6">
-          <div class="d-flex flex-wrap justify-content-md-end">
-            <a href="#tool" class="btn btn-link text-decoration-none me-3">Generator</a>
-            <a href="#features" class="btn btn-link text-decoration-none me-3">Features</a>
-            <a href="#usecases" class="btn btn-link text-decoration-none me-3">Use Cases</a>
-            <a href="#faq" class="btn btn-link text-decoration-none me-3">FAQ</a>
-            <a href="#contact" class="btn btn-link text-decoration-none">Contact</a>
-            <a href="#blog" class="btn btn-link text-decoration-none me-3">Blog</a>
-  <a href="javascript:void(0);" onclick="showDisclaimer()" class="btn btn-link text-decoration-none me-3">Disclaimer</a>
-  <a href="javascript:void(0);" onclick="showTerms()" class="btn btn-link text-decoration-none">Terms</a>
-            <a href="#privacy" class="btn btn-link text-decoration-none me-3">Privacy</a>
-          </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content cartoon-card">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Important Notice:</strong></p>
+                    <p>OnlineQrs is a free online QR code generator tool. All QR codes are generated client-side in your browser.</p>
+                    
+                    <h6 class="mt-3">Limitations:</h6>
+                    <ul>
+                        <li>QR codes should be tested before widespread use</li>
+                        <li>We're not responsible for QR code content or usage</li>
+                        <li>Always verify QR codes scan correctly</li>
+                        <li>This service is provided "as is" without warranties</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">QR Code Best Practices:</h6>
+                    <p>Always test your QR codes with multiple devices and ensure they lead to appropriate content.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <hr class="my-3">
-      
-      <div class="row">
-        <div class="col-12 text-center">
-          <p class="mb-1">&copy; 2026 OnlineQrs. All rights reserved.</p>
-          <p class="small text-muted mb-0">OnlineQrs is a free QR code generator. QR is a registered trademark of DENSO WAVE.</p>
-        </div>
-      </div>
     </div>
-  </footer>
-  <!-- Disclaimer Modal -->
-  <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content cartoon-card">
-        <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-exclamation-triangle me-2"></i>Disclaimer</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content cartoon-card">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-file-text me-2"></i>Terms of Use</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Terms of Service for OnlineQrs</strong></p>
+                    
+                    <h6 class="mt-3">1. Acceptance of Terms</h6>
+                    <p>By using OnlineQrs, you agree to these terms. If you disagree, please do not use our service.</p>
+                    
+                    <h6 class="mt-3">2. Service Description</h6>
+                    <p>OnlineQrs provides free QR code generation. All processing occurs in your browser.</p>
+                    
+                    <h6 class="mt-3">3. User Responsibilities</h6>
+                    <ul>
+                        <li>Use QR codes responsibly and legally</li>
+                        <li>Do not generate harmful or malicious content</li>
+                        <li>Test QR codes before distribution</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">4. Intellectual Property</h6>
+                    <p>Generated QR codes belong to you. OnlineQrs does not claim ownership.</p>
+                    
+                    <h6 class="mt-3">5. Limitation of Liability</h6>
+                    <p>OnlineQrs is not liable for any damages resulting from QR code use.</p>
+                    
+                    <p class="mt-3"><small>Last updated: March 2025</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <p><strong>Important Notice:</strong></p>
-          <p>OnlineQrs is a free online QR code generator tool. All QR codes are generated client-side in your browser.</p>
-          
-          <h6 class="mt-3">Limitations:</h6>
-          <ul>
-            <li>QR codes should be tested before widespread use</li>
-            <li>We're not responsible for QR code content or usage</li>
-            <li>Always verify QR codes scan correctly</li>
-            <li>This service is provided "as is" without warranties</li>
-          </ul>
-          
-          <h6 class="mt-3">QR Code Best Practices:</h6>
-          <p>Always test your QR codes with multiple devices and ensure they lead to appropriate content.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">I Understand</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <!-- Terms Modal -->
-  <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content cartoon-card">
-        <div class="modal-header">
-          <h5 class="modal-title"><i class="bi bi-file-text me-2"></i>Terms of Use</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Terms of Service for OnlineQrs</strong></p>
-          
-          <h6 class="mt-3">1. Acceptance of Terms</h6>
-          <p>By using OnlineQrs, you agree to these terms. If you disagree, please do not use our service.</p>
-          
-          <h6 class="mt-3">2. Service Description</h6>
-          <p>OnlineQrs provides free QR code generation. All processing occurs in your browser.</p>
-          
-          <h6 class="mt-3">3. User Responsibilities</h6>
-          <ul>
-            <li>Use QR codes responsibly and legally</li>
-            <li>Do not generate harmful or malicious content</li>
-            <li>Test QR codes before distribution</li>
-          </ul>
-          
-          <h6 class="mt-3">4. Intellectual Property</h6>
-          <p>Generated QR codes belong to you. OnlineQrs does not claim ownership.</p>
-          
-          <h6 class="mt-3">5. Limitation of Liability</h6>
-          <p>OnlineQrs is not liable for any damages resulting from QR code use.</p>
-          
-          <p class="mt-3"><small>Last updated: March 2024</small></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary cartoon-btn" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script src="./assets/index.js" defer></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal functions
+            window.showDisclaimer = function() {
+                const modal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
+                modal.show();
+            };
+            
+            window.showTerms = function() {
+                const modal = new bootstrap.Modal(document.getElementById('termsModal'));
+                modal.show();
+            };
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    const icon = this.querySelector('i');
+                    if (document.body.classList.contains('dark-mode')) {
+                        icon.classList.remove('bi-moon');
+                        icon.classList.add('bi-sun');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        icon.classList.remove('bi-sun');
+                        icon.classList.add('bi-moon');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+                
+                // Apply saved theme
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    const icon = themeToggle.querySelector('i');
+                    icon.classList.remove('bi-moon');
+                    icon.classList.add('bi-sun');
+                }
+            }
+            
+            // Newsletter forms
+            const newsletterForms = document.querySelectorAll('form');
+            newsletterForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    if (email) {
+                        alert(`Thank you for subscribing with ${email}! You'll receive our next update soon.`);
+                        this.reset();
+                    }
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('input[placeholder="Search QR code articles..."]');
+            const searchButton = searchInput?.nextElementSibling;
+            if (searchButton) {
+                searchButton.addEventListener('click', function() {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        alert(`Search functionality coming soon! You searched for: "${query}"`);
+                    }
+                });
+                
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const query = this.value.trim();
+                        if (query) {
+                            alert(`Search functionality coming soon! You searched for: "${query}"`);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
