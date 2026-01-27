@@ -1,32 +1,35 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/:path",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.onlineqrs.com"
-        }
-      ],
-      "destination": "/:path",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/sitemap.xml",
       "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
         }
       ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/sitemap\\.xml",
+      "dest": "/sitemap.xml",
+      "headers": {
+        "Content-Type": "application/xml"
+      }
     }
   ]
 }
