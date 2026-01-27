@@ -1,33 +1,32 @@
 {
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/:path",
       "has": [
         {
           "type": "host",
           "value": "www.onlineqrs.com"
         }
       ],
-      "destination": "https://onlineqrs.com/:path*",
+      "destination": "/:path",
       "permanent": true
-    },
+    }
+  ],
+  "headers": [
     {
-      "source": "/:path*",
-      "has": [
+      "source": "/(.*)",
+      "headers": [
         {
-          "type": "host",
-          "value": "onlineqrs.com"
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
-      ],
-      "missing": [
-        {
-          "type": "header",
-          "key": "x-forwarded-proto",
-          "value": "https"
-        }
-      ],
-      "destination": "https://onlineqrs.com/:path*",
-      "permanent": true
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://onlineqrs.com/sitemap.xml
+Sitemap: /sitemap.xml
