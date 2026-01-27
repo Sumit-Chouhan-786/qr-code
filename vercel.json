@@ -10,6 +10,24 @@
       ],
       "destination": "https://onlineqrs.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "onlineqrs.com"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "https"
+        }
+      ],
+      "destination": "https://onlineqrs.com/:path*",
+      "permanent": true
     }
   ]
 }
