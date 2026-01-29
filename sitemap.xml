@@ -10,14 +10,14 @@
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/about.html</loc>
+    <loc>https://onlineqrs.com/about</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/contact.html</loc>
+    <loc>https://onlineqrs.com/contact</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -25,21 +25,21 @@
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://onlineqrs.com/privacy.html</loc>
+    <loc>https://onlineqrs.com/privacy</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/terms.html</loc>
+    <loc>https://onlineqrs.com/terms</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/disclaimer.html</loc>
+    <loc>https://onlineqrs.com/disclaimer</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -47,21 +47,21 @@
 
   <!-- Blog Section -->
   <url>
-    <loc>https://onlineqrs.com/blog/benefits-of-qr-codes.html</loc>
+    <loc>https://onlineqrs.com/blog/benefits-of-qr-codes</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/blog/how-to-use-qr-codes.html</loc>
+    <loc>https://onlineqrs.com/blog/how-to-use-qr-codes</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://onlineqrs.com/blog/why-choose-free-qr-generator.html</loc>
+    <loc>https://onlineqrs.com/blog/why-choose-free-qr-generator</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
