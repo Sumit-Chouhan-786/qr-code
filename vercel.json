@@ -23,13 +23,18 @@
       ]
     }
   ],
-  "routes": [
+
+  "redirects": [
     {
-      "src": "/sitemap\\.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      }
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.onlineqrs.com"
+        }
+      ],
+      "destination": "https://onlineqrs.com/$1",
+      "permanent": true
     }
   ]
 }
