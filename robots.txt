@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
 Sitemap: https://onlineqrs.com/sitemap.xml
-
-# Crawl-delay: 10 (optional)
