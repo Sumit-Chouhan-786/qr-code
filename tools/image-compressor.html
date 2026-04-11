@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +39,7 @@ function loadImages(inp){
       +'<p class="text-muted small">Original: '+(f.size/1024).toFixed(1)+' KB</p>'
       +'<canvas id="c'+i+'" style="max-width:100%;border-radius:10px;"></canvas>'
       +'<p id="s'+i+'" class="text-success small mt-1"></p>'
-      +'<button class="btn btn-success cartoon-btn btn-sm mt-1" onclick="dl('+i+',''+f.name+'')"><i class="bi bi-download me-1"></i>Download</button></div>';
+      +'<button class="btn btn-success cartoon-btn btn-sm mt-1" onclick="dl('+i+',\''+f.name+'\')"><i class="bi bi-download me-1"></i>Download</button></div>';
     out.appendChild(col);
     var r=new FileReader();r.onload=function(e){
       var img=new Image();img.onload=function(){
