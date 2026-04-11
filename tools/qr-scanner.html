@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Scanner | OnlineQrs</title>
+<meta name="description" content="Camera se QR scan karo — koi app nahi chahiye">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-qr-code-scan" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">QR Code Scanner</h1>
+<p class="mb-0">Camera se QR scan karo — koi app nahi chahiye</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="text-center mb-3">
+<video id="vid" style="width:100%;max-width:460px;border-radius:14px;border:3px solid var(--primary);" playsinline></video>
+<canvas id="cvs" style="display:none;"></canvas>
+</div>
+<div class="d-grid gap-2 mb-3">
+<button class="btn cartoon-btn" onclick="startScan()"><i class="bi bi-camera me-2"></i>Start Camera Scan</button>
+<button class="btn btn-outline-success cartoon-btn" onclick="stopScan()"><i class="bi bi-stop-circle me-2"></i>Stop Camera</button>
+</div>
+<div class="mb-3">
+<label class="form-label fw-bold">Ya image upload karo:</label>
+<input type="file" class="form-control cartoon-input" id="imgFile" accept="image/*" onchange="scanImg(this)">
+</div>
+<div id="res" class="result-box" style="display:none;">
+<h5 class="text-success"><i class="bi bi-check-circle-fill me-2"></i>Result:</h5>
+<p id="resText" class="fw-bold mb-2" style="word-break:break-all;"></p>
+<button class="btn btn-sm btn-primary cartoon-btn" onclick="copyRes()"><i class="bi bi-copy me-1"></i>Copy</button>
+<a id="resLink" href="#" target="_blank" class="btn btn-sm btn-outline-success cartoon-btn ms-2" style="display:none;"><i class="bi bi-box-arrow-up-right me-1"></i>Open</a>
+</div>
+</div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+<script>
+var stream=null,scanning=false,raf=null;
+function startScan(){
+  navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}}).then(function(s){
+    stream=s;scanning=true;
+    var v=document.getElementById('vid');v.srcObject=s;v.play();loop();
+  }).catch(function(){alert('Camera access denied.');});
+}
+function loop(){
+  var v=document.getElementById('vid'),c=document.getElementById('cvs');
+  if(!scanning||v.readyState<2){raf=requestAnimationFrame(loop);return;}
+  c.width=v.videoWidth;c.height=v.videoHeight;
+  var ctx=c.getContext('2d');ctx.drawImage(v,0,0);
+  var d=ctx.getImageData(0,0,c.width,c.height);
+  var code=jsQR(d.data,d.width,d.height);
+  if(code){showRes(code.data);stopScan();}
+  else raf=requestAnimationFrame(loop);
+}
+function stopScan(){scanning=false;if(raf)cancelAnimationFrame(raf);if(stream)stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+function scanImg(inp){
+  var f=inp.files[0];if(!f)return;
+  var r=new FileReader();r.onload=function(e){
+    var img=new Image();img.onload=function(){
+      var c=document.getElementById('cvs');c.style.display='';c.width=img.width;c.height=img.height;
+      var ctx=c.getContext('2d');ctx.drawImage(img,0,0);
+      var d=ctx.getImageData(0,0,c.width,c.height);
+      var code=jsQR(d.data,d.width,d.height);
+      if(code)showRes(code.data);else alert('QR code nahi mila image mein.');
+      c.style.display='none';
+    };img.src=e.target.result;
+  };r.readAsDataURL(f);
+}
+function showRes(txt){
+  document.getElementById('resText').textContent=txt;
+  var l=document.getElementById('resLink');
+  if(txt.startsWith('http')){l.href=txt;l.style.display='';}else l.style.display='none';
+  document.getElementById('res').style.display='';
+}
+function copyRes(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('resText').textContent);}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

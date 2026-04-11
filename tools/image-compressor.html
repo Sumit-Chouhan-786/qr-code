@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor | OnlineQrs</title>
+<meta name="description" content="JPG/PNG images compress karo — browser mein, koi upload nahi">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-file-earmark-zip" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Image Compressor</h1>
+<p class="mb-0">JPG/PNG images compress karo — browser mein, koi upload nahi</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Image select karo (JPG/PNG/WebP):</label>
+<input type="file" class="form-control cartoon-input" id="imgIn" accept="image/*" multiple onchange="loadImages(this)"></div>
+<div class="mb-3"><label class="form-label fw-bold">Quality: <span id="qualVal">80</span>%</label>
+<input type="range" class="form-range" id="quality" min="10" max="100" value="80" oninput="document.getElementById('qualVal').textContent=this.value"></div>
+<div id="imgList" class="row g-3 mt-2"></div>
+</div></div></div>
+<script>
+function loadImages(inp){
+  var files=Array.from(inp.files);var out=document.getElementById('imgList');out.innerHTML='';
+  files.forEach(function(f,i){
+    var col=document.createElement('div');col.className='col-md-6';
+    col.innerHTML='<div class="cartoon-card p-3"><p class="fw-bold mb-1">'+f.name+'</p>'
+      +'<p class="text-muted small">Original: '+(f.size/1024).toFixed(1)+' KB</p>'
+      +'<canvas id="c'+i+'" style="max-width:100%;border-radius:10px;"></canvas>'
+      +'<p id="s'+i+'" class="text-success small mt-1"></p>'
+      +'<button class="btn btn-success cartoon-btn btn-sm mt-1" onclick="dl('+i+',''+f.name+'')"><i class="bi bi-download me-1"></i>Download</button></div>';
+    out.appendChild(col);
+    var r=new FileReader();r.onload=function(e){
+      var img=new Image();img.onload=function(){
+        var q=parseInt(document.getElementById('quality').value)/100;
+        var c=document.getElementById('c'+i);c.width=img.width;c.height=img.height;
+        var ctx=c.getContext('2d');ctx.drawImage(img,0,0);
+        var url=c.toDataURL('image/jpeg',q);
+        var kb=(url.length*(3/4)/1024).toFixed(1);
+        document.getElementById('s'+i).textContent='Compressed: ~'+kb+' KB';
+      };img.src=e.target.result;
+    };r.readAsDataURL(f);
+  });
+}
+function dl(i,name){
+  var c=document.getElementById('c'+i);if(!c)return;
+  var q=parseInt(document.getElementById('quality').value)/100;
+  var a=document.createElement('a');a.download='compressed-'+name;a.href=c.toDataURL('image/jpeg',q);a.click();
+}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

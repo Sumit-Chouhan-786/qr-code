@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator | OnlineQrs</title>
+<meta name="description" content="Date of birth se exact age calculate karo — years, months, days">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-calendar-date" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Age Calculator</h1>
+<p class="mb-0">Date of birth se exact age calculate karo — years, months, days</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Date of Birth:</label>
+<input type="date" class="form-control cartoon-input" id="dob" onchange="calcAge()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Age on Date:</label>
+<input type="date" class="form-control cartoon-input" id="ageOn" onchange="calcAge()"></div>
+<div id="ageResult" class="result-box" style="display:none;">
+<div class="row g-3 text-center mb-3">
+<div class="col-4"><div class="cartoon-card p-2"><div class="h3 mb-0" id="ageY" style="color:var(--primary);">0</div><small>Years</small></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><div class="h3 mb-0" id="ageM" style="color:var(--primary);">0</div><small>Months</small></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><div class="h3 mb-0" id="ageD" style="color:var(--primary);">0</div><small>Days</small></div></div>
+</div>
+<div class="row g-3 text-center">
+<div class="col-6"><div class="cartoon-card p-2"><div id="ageTotalD" class="h5 mb-0" style="color:var(--primary);">0</div><small>Total Days</small></div></div>
+<div class="col-6"><div class="cartoon-card p-2"><div id="ageNextBD" class="h5 mb-0" style="color:var(--success);">-</div><small>Next Birthday In</small></div></div>
+</div>
+</div>
+</div></div></div>
+<script>
+var today=new Date();today.setHours(0,0,0,0);
+document.getElementById('ageOn').valueAsDate=today;
+function calcAge(){
+  var dob=new Date(document.getElementById('dob').value);
+  var on=new Date(document.getElementById('ageOn').value);
+  if(!dob||!on||dob>=on){return;}
+  var y=on.getFullYear()-dob.getFullYear();
+  var m=on.getMonth()-dob.getMonth();
+  var d=on.getDate()-dob.getDate();
+  if(d<0){m--;var prev=new Date(on.getFullYear(),on.getMonth(),0);d+=prev.getDate();}
+  if(m<0){y--;m+=12;}
+  document.getElementById('ageY').textContent=y;
+  document.getElementById('ageM').textContent=m;
+  document.getElementById('ageD').textContent=d;
+  document.getElementById('ageTotalD').textContent=Math.floor((on-dob)/864e5);
+  var nextBD=new Date(on.getFullYear(),dob.getMonth(),dob.getDate());
+  if(nextBD<=on)nextBD.setFullYear(on.getFullYear()+1);
+  var diff=Math.floor((nextBD-on)/864e5);
+  document.getElementById('ageNextBD').textContent=diff+' days';
+  document.getElementById('ageResult').style.display='';
+}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

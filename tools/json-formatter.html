@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Formatter | OnlineQrs</title>
+<meta name="description" content="JSON beautify, minify aur validate karo instantly">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-braces" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">JSON Formatter</h1>
+<p class="mb-0">JSON beautify, minify aur validate karo instantly</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-9">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">JSON Input:</label>
+<textarea class="form-control cartoon-input" id="jsonIn" rows="8" placeholder='{"name":"OnlineQrs","free":true,"tools":24}'></textarea></div>
+<div class="d-flex flex-wrap gap-2 mb-3">
+<button class="btn cartoon-btn" onclick="fmtJSON()"><i class="bi bi-indent me-1"></i>Beautify</button>
+<button class="btn btn-outline-success cartoon-btn" onclick="minJSON()"><i class="bi bi-justify me-1"></i>Minify</button>
+<button class="btn cartoon-btn" onclick="valJSON()"><i class="bi bi-check-circle me-1"></i>Validate</button>
+<button class="btn btn-outline-success cartoon-btn" onclick="clearJSON()"><i class="bi bi-trash me-1"></i>Clear</button>
+</div>
+<div id="jsonMsg" class="mb-3" style="display:none;"></div>
+<div class="mb-3"><label class="form-label fw-bold">Output:</label>
+<textarea class="form-control cartoon-input" id="jsonOut" rows="12" readonly style="font-family:monospace;font-size:.88rem;"></textarea></div>
+<button class="btn btn-primary cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('jsonOut').value)"><i class="bi bi-copy me-1"></i>Copy Output</button>
+</div></div></div>
+<script>
+function fmtJSON(){try{var o=JSON.parse(document.getElementById('jsonIn').value);document.getElementById('jsonOut').value=JSON.stringify(o,null,2);showMsg('Valid JSON!','success');}catch(e){showMsg('Error: '+e.message,'danger');}}
+function minJSON(){try{var o=JSON.parse(document.getElementById('jsonIn').value);document.getElementById('jsonOut').value=JSON.stringify(o);showMsg('Minified!','success');}catch(e){showMsg('Error: '+e.message,'danger');}}
+function valJSON(){try{JSON.parse(document.getElementById('jsonIn').value);showMsg('Valid JSON! No errors found.','success');}catch(e){showMsg('Invalid JSON: '+e.message,'danger');}}
+function clearJSON(){document.getElementById('jsonIn').value='';document.getElementById('jsonOut').value='';document.getElementById('jsonMsg').style.display='none';}
+function showMsg(m,t){var el=document.getElementById('jsonMsg');el.className='alert alert-'+t;el.textContent=m;el.style.display='';}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>
