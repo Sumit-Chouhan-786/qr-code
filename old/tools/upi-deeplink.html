@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPI Deep Link Generator | OnlineQrs</title>
+<meta name="description" content="UPI payment link banao — share karo WhatsApp, email ya QR se">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-phone" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">UPI Deep Link Generator</h1>
+<p class="mb-0">UPI payment link banao — share karo WhatsApp, email ya QR se</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">UPI ID *</label><input type="text" class="form-control cartoon-input" id="upiId" placeholder="yourname@upi"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Payee Name *</label><input type="text" class="form-control cartoon-input" id="upiName" placeholder="Your Name"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Amount (₹) (optional)</label><input type="number" class="form-control cartoon-input" id="upiAmt" placeholder="500" min="0"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Note (optional)</label><input type="text" class="form-control cartoon-input" id="upiNote" placeholder="Payment for..."></div>
+</div>
+<button class="btn cartoon-btn w-100" onclick="genUPI()"><i class="bi bi-magic me-2"></i>Generate UPI Link + QR</button>
+<div id="upiResult" class="result-box" style="display:none;">
+<label class="form-label fw-bold">UPI Deep Link:</label>
+<div class="input-group mb-3">
+<input type="text" class="form-control cartoon-input" id="upiLink" readonly style="border-radius:15px 0 0 15px;">
+<button class="btn btn-primary cartoon-btn" onclick="copyUPI()" style="border-radius:0 15px 15px 0;"><i class="bi bi-copy"></i></button>
+</div>
+<div class="text-center"><div id="upiQR" class="d-inline-block mb-2"></div></div>
+<div class="d-flex gap-2 justify-content-center flex-wrap mt-2">
+<a id="upiWA" href="#" target="_blank" class="btn btn-success cartoon-btn btn-sm"><i class="bi bi-whatsapp me-1"></i>Share WhatsApp</a>
+<button class="btn btn-primary cartoon-btn btn-sm" onclick="dlUPIQR()"><i class="bi bi-download me-1"></i>Download QR</button>
+</div>
+</div>
+</div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function genUPI(){
+  var id=document.getElementById('upiId').value.trim();
+  var name=document.getElementById('upiName').value.trim();
+  if(!id||!name){alert('UPI ID aur Name required hain.');return;}
+  var url='upi://pay?pa='+encodeURIComponent(id)+'&pn='+encodeURIComponent(name);
+  var amt=document.getElementById('upiAmt').value.trim();
+  if(amt&&parseFloat(amt)>0)url+='&am='+amt+'&cu=INR';
+  var note=document.getElementById('upiNote').value.trim();
+  if(note)url+='&tn='+encodeURIComponent(note);
+  document.getElementById('upiLink').value=url;
+  var qDiv=document.getElementById('upiQR');qDiv.innerHTML='';
+  new QRCode(qDiv,{text:url,width:200,height:200,colorDark:'#d35400',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  document.getElementById('upiWA').href='https://wa.me/?text='+encodeURIComponent('Pay me via UPI: '+url);
+  document.getElementById('upiResult').style.display='';
+}
+function copyUPI(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('upiLink').value).then(function(){alert('Copied!');});}
+function dlUPIQR(){var c=document.querySelector('#upiQR canvas');if(!c)return;var a=document.createElement('a');a.download='upi-qr.png';a.href=c.toDataURL();a.click();}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

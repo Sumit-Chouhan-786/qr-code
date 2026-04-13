@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPF Calculator | OnlineQrs</title>
+<meta name="description" content="Public Provident Fund maturity amount calculate karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-piggy-bank" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">PPF Calculator</h1>
+<p class="mb-0">Public Provident Fund maturity amount calculate karo</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Yearly Investment (Rs.): <span id="av">Rs.1,50,000</span></label>
+<input type="range" class="form-range" id="ai" min="500" max="150000" value="150000" step="500" oninput="document.getElementById('av').textContent='Rs.'+parseInt(this.value).toLocaleString('en-IN');calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Tenure (Years): <span id="tv">15</span></label>
+<input type="range" class="form-range" id="ti" min="15" max="50" value="15" oninput="document.getElementById('tv').textContent=this.value;calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Interest Rate: <span id="rv">7.1%</span></label>
+<input type="range" class="form-range" id="ri" min="6" max="9" value="7.1" step="0.1" oninput="document.getElementById('rv').textContent=parseFloat(this.value).toFixed(1)+'%';calc()"></div>
+<div id="res" class="result-box" style="display:none;">
+<div class="row g-3 text-center">
+<div class="col-4"><div class="cartoon-card p-2"><small>Invested</small><div class="h5 mb-0" style="color:var(--primary);" id="ri2">Rs.0</div></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><small>Interest Earned</small><div class="h5 mb-0" style="color:var(--success);" id="rint">Rs.0</div></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><small>Maturity</small><div class="h5 mb-0" style="color:var(--primary);" id="rmat">Rs.0</div></div></div>
+</div>
+<p class="text-muted small mt-2 mb-0">PPF is EEE — Investment, Interest and Maturity all Tax Free!</p>
+</div>
+</div></div></div>
+<script>
+function calc(){
+  var P=parseFloat(document.getElementById('ai').value);
+  var r=parseFloat(document.getElementById('ri').value)/100;
+  var n=parseInt(document.getElementById('ti').value);
+  var mat=0;for(var i=0;i<n;i++)mat=(mat+P)*(1+r);
+  var inv=P*n;
+  document.getElementById('ri2').textContent='Rs.'+Math.round(inv).toLocaleString('en-IN');
+  document.getElementById('rint').textContent='Rs.'+Math.round(mat-inv).toLocaleString('en-IN');
+  document.getElementById('rmat').textContent='Rs.'+Math.round(mat).toLocaleString('en-IN');
+  document.getElementById('res').style.display='';
+}
+calc();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Tag Generator | OnlineQrs</title>
+<meta name="description" content="SEO ke liye perfect meta tags generate karo — OG + Twitter cards">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-code-slash" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Meta Tag Generator</h1>
+<p class="mb-0">SEO ke liye perfect meta tags generate karo — OG + Twitter cards</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Page Title * (50-60 chars)</label>
+<input type="text" class="form-control cartoon-input" id="mt" placeholder="Free QR Code Generator | OnlineQrs" oninput="gm();uc('mt','mtc',60)">
+<small>Chars: <span id="mtc" style="color:var(--success);">0</span>/60</small></div>
+<div class="mb-3"><label class="form-label fw-bold">Meta Description * (150-160 chars)</label>
+<textarea class="form-control cartoon-input" id="md" rows="3" placeholder="Create free QR codes online. No signup. 100% private." oninput="gm();uc('md','mdc',160)"></textarea>
+<small>Chars: <span id="mdc" style="color:var(--success);">0</span>/160</small></div>
+<div class="mb-3"><label class="form-label fw-bold">Keywords (comma separated)</label>
+<input type="text" class="form-control cartoon-input" id="mk" placeholder="qr code, free qr, online tool" oninput="gm()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Page URL</label>
+<input type="url" class="form-control cartoon-input" id="mu" placeholder="https://onlineqrs.com" oninput="gm()"></div>
+<div class="mb-3"><label class="form-label fw-bold">OG Image URL</label>
+<input type="url" class="form-control cartoon-input" id="mi" placeholder="https://onlineqrs.com/assets/og-image.png" oninput="gm()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Generated Meta Tags:</label>
+<textarea class="form-control cartoon-input" id="out" rows="14" readonly style="font-family:monospace;font-size:.8rem;"></textarea></div>
+<button class="btn cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('out').value).then(function(){alert('Copied!');})"><i class="bi bi-copy me-1"></i>Copy All Meta Tags</button>
+</div></div></div>
+<script>
+function uc(inId,outId,max){var v=document.getElementById(inId).value.length;var sp=document.getElementById(outId);sp.textContent=v;sp.style.color=v>max?'var(--danger)':v>max*.8?'var(--warning)':'var(--success)';}
+function gm(){
+  var t=document.getElementById('mt').value,d=document.getElementById('md').value,k=document.getElementById('mk').value;
+  var u=document.getElementById('mu').value,img=document.getElementById('mi').value;
+  var out='<!-- Primary Meta Tags -->
+<title>'+t+'</title>
+<meta name="title" content="'+t+'">
+';
+  if(d)out+='<meta name="description" content="'+d+'">
+';
+  if(k)out+='<meta name="keywords" content="'+k+'">
+';
+  out+='<meta name="robots" content="index, follow">
+';
+  if(u)out+='<link rel="canonical" href="'+u+'">
+
+';
+  out+='<!-- Open Graph -->
+<meta property="og:type" content="website">
+';
+  if(u)out+='<meta property="og:url" content="'+u+'">
+';
+  if(t)out+='<meta property="og:title" content="'+t+'">
+';
+  if(d)out+='<meta property="og:description" content="'+d+'">
+';
+  if(img)out+='<meta property="og:image" content="'+img+'">
+
+';
+  out+='<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+';
+  if(u)out+='<meta name="twitter:url" content="'+u+'">
+';
+  if(t)out+='<meta name="twitter:title" content="'+t+'">
+';
+  if(d)out+='<meta name="twitter:description" content="'+d+'">
+';
+  if(img)out+='<meta name="twitter:image" content="'+img+'">
+';
+  document.getElementById('out').value=out;
+}
+gm();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

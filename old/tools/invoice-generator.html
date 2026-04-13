@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Generator | OnlineQrs</title>
+<meta name="description" content="Professional PDF invoice banao — free mein, koi signup nahi">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-receipt" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Invoice Generator</h1>
+<p class="mb-0">Professional PDF invoice banao — free mein, koi signup nahi</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-9">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">Your Business Name:</label><input type="text" class="form-control cartoon-input" id="invFrom" placeholder="My Business"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Your Email/Phone:</label><input type="text" class="form-control cartoon-input" id="invFromContact" placeholder="you@email.com | +91..."></div>
+<div class="col-md-6"><label class="form-label fw-bold">Client Name:</label><input type="text" class="form-control cartoon-input" id="invTo" placeholder="Client Name"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Invoice Number:</label><input type="text" class="form-control cartoon-input" id="invNo" placeholder="INV-001"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Date:</label><input type="date" class="form-control cartoon-input" id="invDate"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Due Date:</label><input type="date" class="form-control cartoon-input" id="invDue"></div>
+</div>
+<h5 style="color:var(--primary);">Items</h5>
+<div id="invItems"></div>
+<button class="btn btn-outline-success cartoon-btn btn-sm mb-3" onclick="addItem()"><i class="bi bi-plus-circle me-1"></i>Add Item</button>
+<div class="row g-2 mb-3">
+<div class="col-md-4"><label class="form-label fw-bold">GST %:</label><input type="number" class="form-control cartoon-input" id="invGST" value="18" min="0" max="100" oninput="calcInvTotal()"></div>
+<div class="col-md-8"><label class="form-label fw-bold">Notes:</label><input type="text" class="form-control cartoon-input" id="invNotes" placeholder="Thank you for your business!"></div>
+</div>
+<div id="invTotal" class="result-box mb-3" style="display:none;"></div>
+<button class="btn cartoon-btn w-100" onclick="genInvoice()"><i class="bi bi-file-pdf me-2"></i>Download PDF Invoice</button>
+</div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script>
+var items=[];
+document.getElementById('invDate').valueAsDate=new Date();
+var due=new Date();due.setDate(due.getDate()+30);document.getElementById('invDue').valueAsDate=due;
+document.getElementById('invNo').value='INV-'+String(Date.now()).slice(-4);
+function addItem(){
+  var id=items.length;items.push({desc:'',qty:1,rate:0});
+  var div=document.createElement('div');div.className='row g-2 mb-2 align-items-center';div.id='item'+id;
+  div.innerHTML='<div class="col-5"><input type="text" class="form-control cartoon-input" placeholder="Description" oninput="items['+id+'].desc=this.value;calcInvTotal()"></div>'
+    +'<div class="col-2"><input type="number" class="form-control cartoon-input" placeholder="Qty" value="1" min="1" oninput="items['+id+'].qty=+this.value;calcInvTotal()"></div>'
+    +'<div class="col-3"><input type="number" class="form-control cartoon-input" placeholder="Rate ₹" oninput="items['+id+'].rate=+this.value;calcInvTotal()"></div>'
+    +'<div class="col-2"><button class="btn btn-danger btn-sm cartoon-btn" onclick="removeItem('+id+')"><i class="bi bi-trash"></i></button></div>';
+  document.getElementById('invItems').appendChild(div);
+  calcInvTotal();
+}
+function removeItem(id){var el=document.getElementById('item'+id);if(el)el.remove();items[id]={desc:'',qty:0,rate:0};calcInvTotal();}
+function calcInvTotal(){
+  var sub=items.reduce(function(s,i){return s+(i.qty*i.rate);},0);
+  var gst=sub*parseFloat(document.getElementById('invGST').value||0)/100;
+  var total=sub+gst;
+  document.getElementById('invTotal').style.display='';
+  document.getElementById('invTotal').innerHTML='<div class="d-flex justify-content-between fw-bold"><span>Subtotal:</span><span>₹'+sub.toFixed(2)+'</span></div>'
+    +'<div class="d-flex justify-content-between"><span>GST:</span><span>₹'+gst.toFixed(2)+'</span></div>'
+    +'<hr><div class="d-flex justify-content-between h5"><span>Total:</span><span style="color:var(--primary);">₹'+total.toFixed(2)+'</span></div>';
+}
+function genInvoice(){
+  var jsPDF=window.jspdf.jsPDF;var pdf=new jsPDF();
+  var y=20;
+  pdf.setFontSize(22);pdf.setTextColor(211,84,0);pdf.text('INVOICE',105,y,{align:'center'});
+  y+=12;pdf.setFontSize(10);pdf.setTextColor(0);
+  pdf.text('From: '+document.getElementById('invFrom').value,14,y);
+  pdf.text(document.getElementById('invFromContact').value,14,y+5);
+  pdf.text('To: '+document.getElementById('invTo').value,140,y);
+  pdf.text('Invoice #: '+document.getElementById('invNo').value,140,y+5);
+  pdf.text('Date: '+document.getElementById('invDate').value,140,y+10);
+  pdf.text('Due: '+document.getElementById('invDue').value,140,y+15);
+  y+=30;pdf.setFillColor(211,84,0);pdf.rect(14,y,182,8,'F');
+  pdf.setTextColor(255);pdf.setFontSize(10);pdf.text('Description',16,y+5.5);pdf.text('Qty',110,y+5.5);pdf.text('Rate',135,y+5.5);pdf.text('Amount',165,y+5.5);
+  y+=12;pdf.setTextColor(0);
+  items.forEach(function(it){
+    if(!it.desc&&!it.rate)return;
+    pdf.text(it.desc||'',16,y);pdf.text(String(it.qty),110,y);
+    pdf.text('₹'+it.rate.toFixed(2),135,y);pdf.text('₹'+(it.qty*it.rate).toFixed(2),165,y);y+=8;
+  });
+  var sub=items.reduce(function(s,i){return s+i.qty*i.rate;},0);
+  var gst=sub*parseFloat(document.getElementById('invGST').value||0)/100;
+  y+=5;pdf.line(14,y,196,y);y+=8;
+  pdf.text('Subtotal: ₹'+sub.toFixed(2),140,y);y+=6;
+  pdf.text('GST: ₹'+gst.toFixed(2),140,y);y+=6;
+  pdf.setFontSize(12);pdf.setTextColor(211,84,0);pdf.text('Total: ₹'+(sub+gst).toFixed(2),140,y);
+  y+=15;pdf.setFontSize(9);pdf.setTextColor(100);pdf.text(document.getElementById('invNotes').value,14,y);
+  pdf.save('invoice-'+document.getElementById('invNo').value+'.pdf');
+}
+addItem();
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

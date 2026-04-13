@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robots.txt Generator | OnlineQrs</title>
+<meta name="description" content="SEO ke liye robots.txt file banao — crawlers control karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-robot" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Robots.txt Generator</h1>
+<p class="mb-0">SEO ke liye robots.txt file banao — crawlers control karo</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Sitemap URL:</label>
+<input type="url" class="form-control cartoon-input" id="sm" placeholder="https://onlineqrs.com/sitemap.xml" oninput="gr()"></div>
+<h6 style="color:var(--primary);" class="mb-2">Rules</h6>
+<div id="rls"></div>
+<button class="btn btn-outline-success cartoon-btn btn-sm mb-3" onclick="add()"><i class="bi bi-plus-circle me-1"></i>Add Rule</button>
+<div class="mb-3"><label class="form-label fw-bold">Generated robots.txt:</label>
+<textarea class="form-control cartoon-input" id="out" rows="12" readonly style="font-family:monospace;font-size:.88rem;"></textarea></div>
+<div class="d-flex gap-2">
+<button class="btn cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('out').value)"><i class="bi bi-copy me-1"></i>Copy</button>
+<button class="btn btn-success cartoon-btn" onclick="dl()"><i class="bi bi-download me-1"></i>Download robots.txt</button>
+</div>
+</div></div></div>
+<script>
+var rules=[];
+function add(){
+  var id=rules.length;rules.push({agent:'*',disallow:[],allow:[]});
+  var div=document.createElement('div');div.className='cartoon-card p-3 mb-2';div.id='r'+id;
+  div.innerHTML='<div class="row g-2"><div class="col-md-4"><label class="form-label fw-bold">User-agent:</label><input type="text" class="form-control cartoon-input" value="*" oninput="rules['+id+'].agent=this.value;gr()"></div>'
+    +'<div class="col-md-4"><label class="form-label fw-bold">Disallow (comma):</label><input type="text" class="form-control cartoon-input" placeholder="/admin, /private" oninput="rules['+id+'].disallow=this.value.split(',').map(function(s){return s.trim();});gr()"></div>'
+    +'<div class="col-md-4"><label class="form-label fw-bold">Allow (comma):</label><input type="text" class="form-control cartoon-input" placeholder="/public" oninput="rules['+id+'].allow=this.value.split(',').map(function(s){return s.trim();});gr()"></div></div>';
+  document.getElementById('rls').appendChild(div);gr();
+}
+function gr(){
+  var out='# robots.txt by OnlineQrs.com
+# '+new Date().toLocaleDateString('en-IN')+'
+
+';
+  rules.forEach(function(r){
+    out+='User-agent: '+r.agent+'
+';
+    r.disallow.forEach(function(p){if(p)out+='Disallow: '+p+'
+';});
+    r.allow.forEach(function(p){if(p)out+='Allow: '+p+'
+';});
+    out+='
+';
+  });
+  var sm=document.getElementById('sm').value.trim();if(sm)out+='Sitemap: '+sm+'
+';
+  document.getElementById('out').value=out;
+}
+function dl(){var b=new Blob([document.getElementById('out').value],{type:'text/plain'});var a=document.createElement('a');a.download='robots.txt';a.href=URL.createObjectURL(b);a.click();}
+add();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

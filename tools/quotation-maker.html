@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotation / Estimate Maker | OnlineQrs</title>
+<meta name="description" content="Client ke liye professional quotation PDF banao instantly">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-file-earmark-ruled" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Quotation / Estimate Maker</h1>
+<p class="mb-0">Client ke liye professional quotation PDF banao instantly</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-9">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">Your Business *</label><input type="text" class="form-control cartoon-input" id="fr" placeholder="My Agency"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Contact</label><input type="text" class="form-control cartoon-input" id="frc" placeholder="+91 98765 | you@email.com"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Client Name *</label><input type="text" class="form-control cartoon-input" id="to" placeholder="Client Company"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Quote No.</label><input type="text" class="form-control cartoon-input" id="qno"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Valid Until</label><input type="date" class="form-control cartoon-input" id="val"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Currency</label>
+<select class="form-select cartoon-input" id="cur"><option value="Rs.">Rs. INR</option><option value="$">$ USD</option><option value="€">€ EUR</option></select></div>
+</div>
+<h6 style="color:var(--primary);">Items</h6>
+<div id="items"></div>
+<button class="btn btn-outline-success cartoon-btn btn-sm mb-3" onclick="addI()"><i class="bi bi-plus-circle me-1"></i>Add Item</button>
+<div class="row g-2 mb-3">
+<div class="col-md-4"><label class="form-label fw-bold">Discount (%)</label><input type="number" class="form-control cartoon-input" id="disc" value="0" oninput="calcT()"></div>
+<div class="col-md-4"><label class="form-label fw-bold">Tax (%)</label><input type="number" class="form-control cartoon-input" id="tax" value="18" oninput="calcT()"></div>
+</div>
+<div id="tot" class="result-box mb-3" style="display:none;"></div>
+<div class="mb-3"><label class="form-label fw-bold">Terms & Notes</label><textarea class="form-control cartoon-input" id="notes" rows="2" placeholder="50% advance, 50% on delivery..."></textarea></div>
+<button class="btn cartoon-btn w-100" onclick="gen()"><i class="bi bi-file-pdf me-2"></i>Download Quotation PDF</button>
+</div></div></div>
+<script>
+var its=[];
+var vd=new Date();vd.setDate(vd.getDate()+30);document.getElementById('val').valueAsDate=vd;
+document.getElementById('qno').value='QT-'+String(Date.now()).slice(-4);
+function addI(){
+  var id=its.length;its.push({desc:'',qty:1,rate:0});
+  var div=document.createElement('div');div.className='row g-2 mb-2 align-items-center';div.id='it'+id;
+  div.innerHTML='<div class="col-5"><input type="text" class="form-control cartoon-input" placeholder="Service description" oninput="its['+id+'].desc=this.value"></div>'
+    +'<div class="col-2"><input type="number" class="form-control cartoon-input" placeholder="Qty" value="1" oninput="its['+id+'].qty=+this.value;calcT()"></div>'
+    +'<div class="col-3"><input type="number" class="form-control cartoon-input" placeholder="Rate" oninput="its['+id+'].rate=+this.value;calcT()"></div>'
+    +'<div class="col-2"><button class="btn btn-danger btn-sm cartoon-btn" onclick="document.getElementById('it'+id+'').remove();its['+id+']={qty:0,rate:0};calcT()"><i class="bi bi-trash"></i></button></div>';
+  document.getElementById('items').appendChild(div);
+}
+function calcT(){
+  var c=document.getElementById('cur').value;
+  var sub=its.reduce(function(s,i){return s+i.qty*i.rate;},0);
+  var disc=sub*parseFloat(document.getElementById('disc').value||0)/100;
+  var tax=(sub-disc)*parseFloat(document.getElementById('tax').value||0)/100;
+  var total=sub-disc+tax;
+  document.getElementById('tot').innerHTML='<div class="d-flex justify-content-between"><span>Subtotal:</span><span>'+c+sub.toFixed(2)+'</span></div><div class="d-flex justify-content-between"><span>Discount:</span><span>-'+c+disc.toFixed(2)+'</span></div><div class="d-flex justify-content-between"><span>Tax:</span><span>'+c+tax.toFixed(2)+'</span></div><hr><div class="d-flex justify-content-between h5 fw-bold"><span>Total:</span><span style="color:var(--primary);">'+c+total.toFixed(2)+'</span></div>';
+  document.getElementById('tot').style.display='';
+}
+function gen(){
+  var fr=document.getElementById('fr').value.trim(),to=document.getElementById('to').value.trim();
+  if(!fr||!to){alert('Business aur client name required.');return;}
+  var c=document.getElementById('cur').value;
+  var jsPDF=window.jspdf.jsPDF,pdf=new jsPDF();
+  pdf.setFillColor(211,84,0);pdf.rect(0,0,210,20,'F');
+  pdf.setTextColor(255);pdf.setFontSize(14);pdf.setFont(undefined,'bold');pdf.text('QUOTATION / ESTIMATE',105,13,{align:'center'});
+  pdf.setTextColor(0);pdf.setFontSize(10);pdf.setFont(undefined,'normal');
+  var y=28;
+  pdf.setFont(undefined,'bold');pdf.text(fr,14,y);pdf.text('Quote No: '+document.getElementById('qno').value,196,y,{align:'right'});y+=6;
+  pdf.setFont(undefined,'normal');pdf.text(document.getElementById('frc').value,14,y);pdf.text('Valid: '+document.getElementById('val').value,196,y,{align:'right'});y+=6;
+  pdf.text('To: '+to,14,y);pdf.text('Date: '+new Date().toLocaleDateString('en-IN'),196,y,{align:'right'});y+=10;
+  pdf.setFillColor(211,84,0);pdf.rect(14,y,182,7,'F');pdf.setTextColor(255);pdf.setFont(undefined,'bold');
+  pdf.text('Description',16,y+5);pdf.text('Qty',110,y+5);pdf.text('Rate',140,y+5);pdf.text('Amount',175,y+5);y+=11;
+  pdf.setTextColor(0);pdf.setFont(undefined,'normal');
+  var sub=0,d2=parseFloat(document.getElementById('disc').value||0),tx=parseFloat(document.getElementById('tax').value||0);
+  its.forEach(function(it){
+    if(!it.rate&&!it.qty)return;var amt=it.qty*it.rate;sub+=amt;
+    pdf.text((it.desc||'').substring(0,28),16,y);pdf.text(String(it.qty),110,y);
+    pdf.text(c+it.rate.toFixed(2),140,y);pdf.text(c+amt.toFixed(2),175,y);y+=7;
+  });
+  var disc2=sub*d2/100,tax2=(sub-disc2)*tx/100,tot=sub-disc2+tax2;
+  y+=5;pdf.line(14,y,196,y);y+=7;
+  pdf.text('Subtotal: '+c+sub.toFixed(2),130,y);y+=6;
+  if(disc2>0){pdf.text('Discount: -'+c+disc2.toFixed(2),130,y);y+=6;}
+  pdf.text('Tax ('+tx+'%): '+c+tax2.toFixed(2),130,y);y+=6;
+  pdf.setFont(undefined,'bold');pdf.setFontSize(11);pdf.setTextColor(211,84,0);
+  pdf.text('TOTAL: '+c+tot.toFixed(2),130,y);y+=15;
+  pdf.setFont(undefined,'normal');pdf.setFontSize(9);pdf.setTextColor(0);
+  var notes=document.getElementById('notes').value.trim();
+  if(notes){pdf.text('Notes: '+notes,14,y);}
+  pdf.setFontSize(8);pdf.setTextColor(150);pdf.text('Generated by OnlineQrs.com',105,285,{align:'center'});
+  pdf.save('quotation-'+document.getElementById('qno').value+'.pdf');
+}
+addI();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

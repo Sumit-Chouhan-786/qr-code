@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Converter | OnlineQrs</title>
+<meta name="description" content="Text ko UPPER, lower, Title, Sentence case mein convert karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-type" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Case Converter</h1>
+<p class="mb-0">Text ko UPPER, lower, Title, Sentence case mein convert karo</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Text enter karo:</label>
+<textarea class="form-control cartoon-input" id="ccIn" rows="6" placeholder="Apna text yahan likho..."></textarea></div>
+<div class="d-flex flex-wrap gap-2 mb-3">
+<button class="btn cartoon-btn btn-sm" onclick="conv('upper')">UPPER CASE</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('lower')">lower case</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('title')">Title Case</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('sentence')">Sentence case</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('camel')">camelCase</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('snake')">snake_case</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('kebab')">kebab-case</button>
+<button class="btn cartoon-btn btn-sm" onclick="conv('alt')">aLtErNaTe</button>
+</div>
+<div class="mb-3"><label class="form-label fw-bold">Result:</label>
+<textarea class="form-control cartoon-input" id="ccOut" rows="6" readonly></textarea></div>
+<button class="btn btn-primary cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('ccOut').value)"><i class="bi bi-copy me-1"></i>Copy Result</button>
+</div></div></div>
+<script>
+function conv(type){
+  var t=document.getElementById('ccIn').value,r='';
+  if(type==='upper')r=t.toUpperCase();
+  else if(type==='lower')r=t.toLowerCase();
+  else if(type==='title')r=t.replace(/\w\S*/g,function(w){return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();});
+  else if(type==='sentence')r=t.toLowerCase().replace(/(^|[.!?]\s+)([a-z])/g,function(m,p,c){return p+c.toUpperCase();});
+  else if(type==='camel')r=t.toLowerCase().split(/[\s_-]+/).map(function(w,i){return i?w.charAt(0).toUpperCase()+w.slice(1):w;}).join('');
+  else if(type==='snake')r=t.toLowerCase().replace(/\s+/g,'_');
+  else if(type==='kebab')r=t.toLowerCase().replace(/\s+/g,'-');
+  else if(type==='alt')r=t.split('').map(function(c,i){return i%2?c.toUpperCase():c.toLowerCase();}).join('');
+  document.getElementById('ccOut').value=r;
+}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

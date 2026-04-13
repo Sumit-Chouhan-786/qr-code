@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent Receipt Generator | OnlineQrs</title>
+<meta name="description" content="HRA claim ke liye professional rent receipts PDF mein banao">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-house-door" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Rent Receipt Generator</h1>
+<p class="mb-0">HRA claim ke liye professional rent receipts PDF mein banao</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">Tenant Name *</label><input type="text" class="form-control cartoon-input" id="ten" placeholder="Rahul Sharma"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Landlord Name *</label><input type="text" class="form-control cartoon-input" id="ll" placeholder="Suresh Kumar"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Monthly Rent (Rs.) *</label><input type="number" class="form-control cartoon-input" id="rent" placeholder="15000"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Property Address *</label><input type="text" class="form-control cartoon-input" id="addr" placeholder="Flat 4B, MG Road, Mumbai"></div>
+<div class="col-md-6"><label class="form-label fw-bold">From Month</label><input type="month" class="form-control cartoon-input" id="frm"></div>
+<div class="col-md-6"><label class="form-label fw-bold">To Month</label><input type="month" class="form-control cartoon-input" id="tom"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Landlord PAN (optional)</label><input type="text" class="form-control cartoon-input" id="pan" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Payment Mode</label>
+<select class="form-select cartoon-input" id="mode"><option>Cash</option><option>Bank Transfer</option><option>UPI</option><option>Cheque</option></select></div>
+</div>
+<button class="btn cartoon-btn w-100" onclick="gen()"><i class="bi bi-file-pdf me-2"></i>Generate Rent Receipts PDF</button>
+<div id="msg" class="alert alert-success mt-3" style="display:none;"><i class="bi bi-check-circle-fill me-2"></i>PDF downloaded!</div>
+</div></div></div>
+<script>
+var d=new Date();
+document.getElementById('frm').value=d.getFullYear()+'-04';
+document.getElementById('tom').value=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+function nw(n){var a=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'],b=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];if(!n)return'Zero';function h(x){if(!x)return'';if(x<20)return a[x]+' ';if(x<100)return b[Math.floor(x/10)]+(x%10?' '+a[x%10]+' ':' ');return a[Math.floor(x/100)]+' Hundred '+(x%100?h(x%100):'');}var r='';var cr=Math.floor(n/10000000);n%=10000000;var lac=Math.floor(n/100000);n%=100000;var th=Math.floor(n/1000);n%=1000;if(cr)r+=h(cr)+'Crore ';if(lac)r+=h(lac)+'Lakh ';if(th)r+=h(th)+'Thousand ';return r+h(n);}
+function gen(){
+  var ten=document.getElementById('ten').value.trim(),ll=document.getElementById('ll').value.trim();
+  var rent=parseFloat(document.getElementById('rent').value)||0,addr=document.getElementById('addr').value.trim();
+  var frm=document.getElementById('frm').value,tom=document.getElementById('tom').value;
+  if(!ten||!ll||!rent||!addr||!frm||!tom){alert('Saare required fields fill karo.');return;}
+  var pan=document.getElementById('pan').value.trim(),mode=document.getElementById('mode').value;
+  var jsPDF=window.jspdf.jsPDF,pdf=new jsPDF();
+  var fd=new Date(frm+'-01'),td=new Date(tom+'-01'),months=[],cur=new Date(fd);
+  while(cur<=td){months.push(new Date(cur));cur.setMonth(cur.getMonth()+1);}
+  var sH=130,yO=10;
+  months.forEach(function(m,i){
+    if(i>0&&i%2===0)pdf.addPage();
+    var yo=(i%2)*(sH+5)+yO;
+    var mn=m.toLocaleString('default',{month:'long',year:'numeric'});
+    pdf.setDrawColor(211,84,0);pdf.setLineWidth(0.5);pdf.rect(10,yo,190,sH-5);
+    pdf.setFontSize(13);pdf.setFont(undefined,'bold');pdf.setTextColor(211,84,0);
+    pdf.text('RENT RECEIPT',105,yo+10,{align:'center'});
+    pdf.setFontSize(9);pdf.setTextColor(0);pdf.setFont(undefined,'normal');
+    pdf.text('Month: '+mn,14,yo+20);pdf.text('No: RR-'+String(i+1).padStart(3,'0'),160,yo+20);
+    pdf.line(10,yo+24,200,yo+24);
+    pdf.text('Received from: '+ten,14,yo+33);
+    pdf.text('Amount: Rs.'+rent.toLocaleString('en-IN')+' ('+nw(rent).trim()+' Only)',14,yo+41);
+    pdf.text('Property: '+addr,14,yo+49);
+    pdf.text('Mode: '+mode,14,yo+57);
+    if(pan)pdf.text("Landlord PAN: "+pan,14,yo+65);
+    pdf.line(10,yo+sH-22,200,yo+sH-22);
+    pdf.text("Landlord Signature: _________________",14,yo+sH-10);pdf.text('Name: '+ll,130,yo+sH-10);
+    if(i%2===0&&i<months.length-1){pdf.setLineDashPattern([3,3],0);pdf.line(10,yo+sH,200,yo+sH);pdf.setLineDashPattern([],0);}
+  });
+  pdf.save('rent-receipts.pdf');
+  document.getElementById('msg').style.display='';
+}
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

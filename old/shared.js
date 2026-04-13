@@ -1,0 +1,115 @@
+var TOOLS=[
+  {name:"QR Generator",    file:"index.html",                   icon:"bi-qr-code",        cat:"QR Tools",   root:true},
+  {name:"QR Scanner",      file:"tools/qr-scanner.html",        icon:"bi-qr-code-scan",   cat:"QR Tools"},
+  {name:"Bulk QR",         file:"tools/bulk-qr.html",           icon:"bi-grid-3x3",       cat:"QR Tools"},
+  {name:"Barcode Generator",file:"tools/barcode.html",          icon:"bi-upc-scan",       cat:"QR Tools"},
+  {name:"vCard QR",        file:"tools/vcard-qr.html",          icon:"bi-person-vcard",   cat:"QR Tools"},
+  {name:"Image to QR",     file:"tools/image-to-qr.html",       icon:"bi-image",          cat:"QR Tools"},
+  {name:"Image Compressor",file:"tools/image-compressor.html",  icon:"bi-file-earmark-zip",cat:"Image Tools"},
+  {name:"Image Resizer",   file:"tools/image-resizer.html",     icon:"bi-aspect-ratio",   cat:"Image Tools"},
+  {name:"Image to PDF",    file:"tools/image-to-pdf.html",      icon:"bi-file-pdf",       cat:"Image Tools"},
+  {name:"JPG to PNG",      file:"tools/jpg-to-png.html",        icon:"bi-arrow-left-right",cat:"Image Tools"},
+  {name:"Color Picker",    file:"tools/color-picker.html",      icon:"bi-palette",        cat:"Image Tools"},
+  {name:"Word Counter",    file:"tools/word-counter.html",      icon:"bi-fonts",          cat:"Text Tools"},
+  {name:"Case Converter",  file:"tools/case-converter.html",    icon:"bi-type",           cat:"Text Tools"},
+  {name:"Lorem Ipsum",     file:"tools/lorem-ipsum.html",       icon:"bi-paragraph",      cat:"Text Tools"},
+  {name:"Password Generator",file:"tools/password-generator.html",icon:"bi-shield-lock", cat:"Text Tools"},
+  {name:"URL Encoder",     file:"tools/url-encoder.html",       icon:"bi-link-45deg",     cat:"Text Tools"},
+  {name:"JSON Formatter",  file:"tools/json-formatter.html",    icon:"bi-braces",         cat:"Text Tools"},
+  {name:"GST Calculator",  file:"tools/gst-calculator.html",    icon:"bi-percent",        cat:"Business"},
+  {name:"EMI Calculator",  file:"tools/emi-calculator.html",    icon:"bi-cash-stack",     cat:"Business"},
+  {name:"Invoice Generator",file:"tools/invoice-generator.html",icon:"bi-receipt",        cat:"Business"},
+  {name:"UPI Deep Link",   file:"tools/upi-deeplink.html",      icon:"bi-phone",          cat:"Business"},
+  {name:"IFSC Finder",     file:"tools/ifsc-finder.html",       icon:"bi-bank",           cat:"Business"},
+  {name:"Pincode Lookup",  file:"tools/pincode-lookup.html",    icon:"bi-geo-alt",        cat:"Business"},
+  {name:"Age Calculator",  file:"tools/age-calculator.html",    icon:"bi-calendar-date",  cat:"Business"}
+];
+
+function _base(){return window.location.pathname.includes('/tools/')? '../':'./'}
+
+function _buildNav(){
+  var b=_base(), cats=[],seen={};
+  TOOLS.forEach(function(t){if(!seen[t.cat]){seen[t.cat]=1;cats.push(t.cat);}});
+  var dds=cats.map(function(cat){
+    var items=TOOLS.filter(function(t){return t.cat===cat;});
+    var lis=items.map(function(t){
+      return '<li><a class="dropdown-item" href="'+b+t.file+'"><i class="bi '+t.icon+' me-2"></i>'+t.name+'</a></li>';
+    }).join('');
+    return '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">'+cat+'</a><ul class="dropdown-menu cartoon-dropdown">'+lis+'</ul></li>';
+  }).join('');
+  return '<nav class="navbar navbar-expand-lg navbar-cartoon fixed-top">'
+    +'<div class="container-fluid px-3">'
+    +'<a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="'+b+'index.html">'
+    +'<i class="bi bi-qr-code-scan" style="color:var(--primary);font-size:1.4rem;"></i>'
+    +'<span style="color:var(--primary);font-size:1.15rem;">Online<strong>Qrs</strong></span></a>'
+    +'<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button>'
+    +'<div class="collapse navbar-collapse" id="navMain">'
+    +'<ul class="navbar-nav me-auto align-items-lg-center">'+dds+'</ul>'
+    +'<ul class="navbar-nav align-items-lg-center ms-2">'
+    +'<li class="nav-item"><a class="nav-link" href="'+b+'index.html#faq">FAQ</a></li>'
+    +'<li class="nav-item"><a class="nav-link" href="'+b+'index.html#contact">Contact</a></li>'
+    +'<li class="nav-item ms-1"><button id="themeToggle" class="btn btn-sm btn-theme" aria-label="Toggle dark mode"><i class="bi bi-moon"></i></button></li>'
+    +'</ul></div></div></nav>';
+}
+
+function _buildFooter(){
+  var b=_base();
+  var links=TOOLS.slice(0,8).map(function(t){
+    return '<a href="'+b+t.file+'" class="btn btn-link">'+t.name+'</a>';
+  }).join('');
+  return '<footer class="site-footer py-4 mt-5">'
+    +'<div class="container">'
+    +'<div class="row align-items-center">'
+    +'<div class="col-md-4 mb-3 mb-md-0">'
+    +'<div class="d-flex align-items-center gap-2"><i class="bi bi-qr-code-scan" style="color:var(--primary);font-size:1.4rem;"></i>'
+    +'<span style="color:var(--primary);font-weight:800;font-size:1.1rem;">OnlineQrs</span></div>'
+    +'<p class="text-muted small mt-1 mb-0">Privacy-first. No signup. 100% browser-based.</p></div>'
+    +'<div class="col-md-8"><div class="d-flex flex-wrap justify-content-md-end">'+links+'</div></div>'
+    +'</div><hr class="my-3">'
+    +'<div class="text-center"><p class="mb-0 small">&copy; 2026 OnlineQrs. All rights reserved.</p></div>'
+    +'</div></footer>';
+}
+
+function _buildOtherTools(){
+  var b=_base(), curr=window.location.pathname.split('/').pop();
+  var tiles=TOOLS.filter(function(t){return t.file.split('/').pop()!==curr;}).slice(0,12)
+    .map(function(t){
+      return '<a class="tool-tile" href="'+b+t.file+'"><i class="bi '+t.icon+'"></i><span>'+t.name+'</span></a>';
+    }).join('');
+  return '<section class="container py-4"><h5 class="mb-3" style="color:var(--primary);">Other Tools</h5>'
+    +'<div class="tools-grid">'+tiles+'</div></section>';
+}
+
+function _initTheme(){
+  try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');}catch(e){}
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('#themeToggle');
+    if(!btn)return;
+    var d=!document.body.classList.contains('dark');
+    document.body.classList.toggle('dark',d);
+    var ic=btn.querySelector('i');
+    if(ic)ic.className=d?'bi bi-sun':'bi bi-moon';
+    try{localStorage.setItem('theme',d?'dark':'light');}catch(e){}
+  });
+}
+
+function _initBackToTop(){
+  window.addEventListener('scroll',function(){
+    var b=document.getElementById('backToTop');
+    if(b)b.style.display=window.scrollY>400?'block':'none';
+  },{passive:true});
+  var b=document.getElementById('backToTop');
+  if(b)b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  document.body.insertAdjacentHTML('afterbegin',_buildNav());
+  var wa='<div class="whatsapp-float"><a href="https://wa.me/918221077926" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a></div>';
+  var btt='<button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>';
+  document.body.insertAdjacentHTML('afterbegin',wa+btt);
+  var other=document.getElementById('other-tools-placeholder');
+  if(other)other.outerHTML=_buildOtherTools();
+  document.body.insertAdjacentHTML('beforeend',_buildFooter());
+  _initTheme();
+  _initBackToTop();
+});

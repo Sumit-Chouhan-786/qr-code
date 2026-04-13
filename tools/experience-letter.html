@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience Letter Generator | OnlineQrs</title>
+<meta name="description" content="Professional experience letter PDF banao — HR ke liye free">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-briefcase" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Experience Letter Generator</h1>
+<p class="mb-0">Professional experience letter PDF banao — HR ke liye free</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="row g-3">
+<div class="col-md-6"><label class="form-label fw-bold">Company Name *</label><input type="text" class="form-control cartoon-input" id="co" placeholder="ABC Technologies Pvt Ltd"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Company Address</label><input type="text" class="form-control cartoon-input" id="ca" placeholder="MG Road, Mumbai"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Employee Name *</label><input type="text" class="form-control cartoon-input" id="en" placeholder="Rahul Sharma"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Designation *</label><input type="text" class="form-control cartoon-input" id="des" placeholder="Senior Developer"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Department</label><input type="text" class="form-control cartoon-input" id="dept" placeholder="Engineering"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Employee ID</label><input type="text" class="form-control cartoon-input" id="eid" placeholder="EMP-001"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Date of Joining *</label><input type="date" class="form-control cartoon-input" id="doj"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Last Working Day *</label><input type="date" class="form-control cartoon-input" id="lwd"></div>
+<div class="col-md-6"><label class="form-label fw-bold">HR Name</label><input type="text" class="form-control cartoon-input" id="hr" placeholder="Priya Singh"></div>
+<div class="col-md-6"><label class="form-label fw-bold">HR Designation</label><input type="text" class="form-control cartoon-input" id="hrd" placeholder="HR Manager"></div>
+</div>
+<button class="btn cartoon-btn w-100 mt-3" onclick="gen()"><i class="bi bi-file-pdf me-2"></i>Generate Experience Letter PDF</button>
+</div></div></div>
+<script>
+function gen(){
+  var co=document.getElementById('co').value.trim(),en=document.getElementById('en').value.trim(),des=document.getElementById('des').value.trim();
+  var doj=document.getElementById('doj').value,lwd=document.getElementById('lwd').value;
+  if(!co||!en||!des||!doj||!lwd){alert('Required fields fill karo.');return;}
+  var opts={day:'numeric',month:'long',year:'numeric'};
+  var dojS=new Date(doj).toLocaleDateString('en-IN',opts),lwdS=new Date(lwd).toLocaleDateString('en-IN',opts);
+  var hr=document.getElementById('hr').value.trim()||'HR Manager';
+  var hrd=document.getElementById('hrd').value.trim()||'Human Resources';
+  var jsPDF=window.jspdf.jsPDF,pdf=new jsPDF();
+  pdf.setFillColor(211,84,0);pdf.rect(0,0,210,20,'F');
+  pdf.setTextColor(255);pdf.setFontSize(13);pdf.setFont(undefined,'bold');pdf.text(co.toUpperCase(),105,13,{align:'center'});
+  var ca=document.getElementById('ca').value.trim();
+  pdf.setTextColor(0);pdf.setFontSize(10);pdf.setFont(undefined,'normal');
+  if(ca)pdf.text(ca,105,28,{align:'center'});
+  pdf.setFontSize(14);pdf.setFont(undefined,'bold');pdf.setTextColor(211,84,0);
+  pdf.text('EXPERIENCE LETTER',105,43,{align:'center'});
+  pdf.setFontSize(10);pdf.setTextColor(0);pdf.setFont(undefined,'normal');
+  pdf.text('Date: '+new Date().toLocaleDateString('en-IN',opts),14,56);
+  var eid=document.getElementById('eid').value.trim();if(eid)pdf.text('Ref: '+eid,160,56);
+  var dept=document.getElementById('dept').value.trim();
+  var body='To Whomsoever It May Concern
+
+This certifies that '+en+' has been employed with '+co+(dept?' in '+dept+' department':'')+' as '+des+'.
+
+Date of Joining: '+dojS+'
+Last Working Day: '+lwdS+'
+
+During the tenure, '+en+' has demonstrated excellent professional skills and has been a valuable member of our team. We wish '+en+' all the best for future endeavors.
+
+This letter is issued on request for employment/reference purpose only.';
+  var lines=pdf.splitTextToSize(body,175);pdf.text(lines,14,70);
+  var y=70+lines.length*6+15;
+  pdf.text('Yours sincerely,',14,y);y+=20;pdf.line(14,y,80,y);y+=6;
+  pdf.setFont(undefined,'bold');pdf.text(hr,14,y);y+=6;pdf.setFont(undefined,'normal');pdf.text(hrd,14,y);y+=6;pdf.text(co,14,y);
+  pdf.setFontSize(8);pdf.setTextColor(150);pdf.text('Generated by OnlineQrs.com',105,285,{align:'center'});
+  pdf.save('experience-letter-'+en.replace(/ /g,'-')+'.pdf');
+}
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

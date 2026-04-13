@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Palette Generator | OnlineQrs</title>
+<meta name="description" content="Beautiful color palettes generate karo — HEX + CSS ke saath">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-palette2" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Color Palette Generator</h1>
+<p class="mb-0">Beautiful color palettes generate karo — HEX + CSS ke saath</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">Base Color:</label><input type="color" class="form-control cartoon-input" id="bc" value="#d35400" style="height:46px;" onchange="gen()"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Type:</label>
+<select class="form-select cartoon-input" id="pt" onchange="gen()">
+<option value="mono">Monochromatic</option><option value="anal">Analogous</option><option value="comp">Complementary</option><option value="tri">Triadic</option><option value="shade">Shades</option>
+</select></div>
+</div>
+<div id="palOut" class="row g-2 mb-3"></div>
+<div id="cssOut" style="display:none;"><label class="form-label fw-bold">CSS Variables:</label>
+<textarea class="form-control cartoon-input" id="cssV" rows="5" readonly style="font-family:monospace;font-size:.85rem;"></textarea>
+<button class="btn btn-primary cartoon-btn btn-sm mt-2" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('cssV').value)"><i class="bi bi-copy me-1"></i>Copy CSS</button>
+</div></div></div></div>
+<script>
+function h2hsl(hex){var r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h,s,l=(mx+mn)/2;if(mx===mn){h=s=0;}else{var d=mx-mn;s=l>.5?d/(2-mx-mn):d/(mx+mn);h=mx===r?((g-b)/d+(g<b?6:0))/6:mx===g?((b-r)/d+2)/6:((r-g)/d+4)/6;}return[Math.round(h*360),Math.round(s*100),Math.round(l*100)];}
+function hsl2h(h,s,l){h/=360;s/=100;l/=100;var r,g,b;if(!s){r=g=b=l;}else{function hq(p,q,t){if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<.5)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p;}var q=l<.5?l*(1+s):l+s-l*s,p=2*l-q;r=hq(p,q,h+1/3);g=hq(p,q,h);b=hq(p,q,h-1/3);}return'#'+[r,g,b].map(function(x){return Math.round(x*255).toString(16).padStart(2,'0');}).join('');}
+function gen(){
+  var hex=document.getElementById('bc').value,t=document.getElementById('pt').value;
+  var hsl=h2hsl(hex),h=hsl[0],s=hsl[1],l=hsl[2],cols=[];
+  if(t==='mono')cols=[hsl2h(h,s,Math.max(l-30,5)),hsl2h(h,s,Math.max(l-15,10)),hex,hsl2h(h,s,Math.min(l+15,90)),hsl2h(h,s,Math.min(l+30,95))];
+  else if(t==='anal')cols=[hsl2h((h-30+360)%360,s,l),hsl2h((h-15+360)%360,s,l),hex,hsl2h((h+15)%360,s,l),hsl2h((h+30)%360,s,l)];
+  else if(t==='comp')cols=[hex,hsl2h((h+30)%360,s,l),hsl2h((h+150)%360,s,l),hsl2h((h+180)%360,s,l),hsl2h((h+210)%360,s,l)];
+  else if(t==='tri')cols=[hex,hsl2h((h+120)%360,s,l),hsl2h((h+240)%360,s,l),hsl2h(h,s,Math.min(l+20,90)),hsl2h((h+120)%360,s,Math.min(l+20,90))];
+  else cols=[hsl2h(h,s,15),hsl2h(h,s,30),hsl2h(h,s,45),hsl2h(h,s,60),hsl2h(h,s,75)];
+  var out=document.getElementById('palOut');out.innerHTML='';var css=':root {
+';
+  cols.forEach(function(c,i){
+    var col=document.createElement('div');col.className='col';
+    col.innerHTML='<div style="height:90px;background:'+c+';border-radius:12px;cursor:pointer;border:3px solid var(--primary);" onclick="navigator.clipboard&&navigator.clipboard.writeText(''+c+'')" title="Click to copy '+c+'"></div><p class="text-center mt-1 fw-bold" style="font-size:.8rem;">'+c.toUpperCase()+'</p>';
+    out.appendChild(col);css+='  --color-'+(i+1)+': '+c+';
+';
+  });
+  document.getElementById('cssV').value=css+'}';document.getElementById('cssOut').style.display='';
+}
+gen();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

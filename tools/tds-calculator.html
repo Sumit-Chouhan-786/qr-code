@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDS Calculator India | OnlineQrs</title>
+<meta name="description" content="Freelancers ke liye TDS calculate karo — all sections covered">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-calculator" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">TDS Calculator India</h1>
+<p class="mb-0">Freelancers ke liye TDS calculate karo — all sections covered</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Payment Section:</label>
+<select class="form-select cartoon-input" id="ts" onchange="ct()">
+<option value="10">194J — Professional Services (10%)</option>
+<option value="1">194C — Contractor Individual (1%)</option>
+<option value="2">194C — Contractor Company (2%)</option>
+<option value="10">194I — Rent Land/Building (10%)</option>
+<option value="2">194I — Rent Machinery (2%)</option>
+<option value="5">194H — Commission/Brokerage (5%)</option>
+<option value="10">194A — Interest (10%)</option>
+<option value="0">192 — Salary (custom)</option>
+</select></div>
+<div id="cr" style="display:none;" class="mb-3"><label class="form-label fw-bold">Custom Rate (%):</label><input type="number" class="form-control cartoon-input" id="crate" placeholder="10" oninput="ct()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Gross Payment Amount (Rs.):</label>
+<input type="number" class="form-control cartoon-input" id="amt" placeholder="100000" oninput="ct()"></div>
+<div class="form-check mb-3"><input type="checkbox" class="form-check-input" id="nopan" onchange="ct()"><label class="form-check-label fw-bold" for="nopan">PAN not available (double TDS rate)</label></div>
+<div id="res" class="result-box" style="display:none;">
+<div class="row g-3 text-center">
+<div class="col-4"><div class="cartoon-card p-2"><small>Gross</small><div class="h5 mb-0" style="color:var(--primary);" id="rg">Rs.0</div></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><small>TDS Deducted</small><div class="h5 mb-0" style="color:var(--danger);" id="rt">Rs.0</div></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><small>Net Payment</small><div class="h5 mb-0" style="color:var(--success);" id="rn">Rs.0</div></div></div>
+</div>
+<p class="text-muted small mt-2 mb-0" id="rn2"></p>
+</div>
+</div></div></div>
+<script>
+function ct(){
+  var sel=document.getElementById('ts');
+  var isC=sel.value==='0';
+  document.getElementById('cr').style.display=isC?'':'none';
+  var rate=isC?parseFloat(document.getElementById('crate').value)||0:parseFloat(sel.value);
+  if(document.getElementById('nopan').checked)rate=Math.min(rate*2,20);
+  var amt=parseFloat(document.getElementById('amt').value)||0;
+  var tds=amt*rate/100;
+  document.getElementById('rg').textContent='Rs.'+amt.toLocaleString('en-IN');
+  document.getElementById('rt').textContent='Rs.'+tds.toFixed(2);
+  document.getElementById('rn').textContent='Rs.'+(amt-tds).toFixed(2);
+  document.getElementById('rn2').textContent='TDS Rate: '+rate+'% | Deposit by 7th of next month';
+  document.getElementById('res').style.display='';
+}
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

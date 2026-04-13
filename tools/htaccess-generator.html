@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>.htaccess Generator | OnlineQrs</title>
+<meta name="description" content="Apache .htaccess file banao — HTTPS, gzip, caching, security ke liye">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-file-code" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">.htaccess Generator</h1>
+<p class="mb-0">Apache .htaccess file banao — HTTPS, gzip, caching, security ke liye</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Your Domain:</label>
+<input type="text" class="form-control cartoon-input" id="dom" placeholder="onlineqrs.com" oninput="gh()"></div>
+<h6 style="color:var(--primary);" class="mb-2">Select Features:</h6>
+<div class="row g-2 mb-3">
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="https" checked onchange="gh()"><label class="form-check-label fw-bold" for="https">Force HTTPS redirect</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="gzip" checked onchange="gh()"><label class="form-check-label fw-bold" for="gzip">Enable Gzip compression</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="cache" checked onchange="gh()"><label class="form-check-label fw-bold" for="cache">Browser caching rules</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="dir" checked onchange="gh()"><label class="form-check-label fw-bold" for="dir">Disable directory listing</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="xss" checked onchange="gh()"><label class="form-check-label fw-bold" for="xss">Security headers (XSS)</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="www" onchange="gh()"><label class="form-check-label fw-bold" for="www">Redirect to www</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="nonwww" onchange="gh()"><label class="form-check-label fw-bold" for="nonwww">Redirect to non-www</label></div></div>
+<div class="col-md-6"><div class="form-check"><input type="checkbox" class="form-check-input" id="hot" onchange="gh()"><label class="form-check-label fw-bold" for="hot">Prevent hotlinking</label></div></div>
+</div>
+<div class="mb-3"><label class="form-label fw-bold">Custom Redirects (one per line: /old /new):</label>
+<textarea class="form-control cartoon-input" id="redir" rows="3" placeholder="/old-page /new-page" oninput="gh()"></textarea></div>
+<label class="form-label fw-bold">Generated .htaccess:</label>
+<textarea class="form-control cartoon-input" id="out" rows="16" readonly style="font-family:monospace;font-size:.82rem;"></textarea>
+<div class="d-flex gap-2 mt-3">
+<button class="btn cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('out').value)"><i class="bi bi-copy me-1"></i>Copy</button>
+<button class="btn btn-success cartoon-btn" onclick="dl()"><i class="bi bi-download me-1"></i>Download .htaccess</button>
+</div>
+</div></div></div>
+<script>
+function gh(){
+  var dom=document.getElementById('dom').value.trim()||'yourdomain.com';
+  var o='# .htaccess by OnlineQrs.com
+# '+new Date().toLocaleDateString('en-IN')+'
+
+';
+  if(document.getElementById('dir').checked)o+='Options -Indexes
+
+';
+  if(document.getElementById('https').checked)o+='# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+';
+  if(document.getElementById('www').checked)o+='# Redirect to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.'+dom+'/$1 [L,R=301]
+
+';
+  if(document.getElementById('nonwww').checked)o+='# Redirect to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+';
+  if(document.getElementById('gzip').checked)o+='# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
+</IfModule>
+
+';
+  if(document.getElementById('cache').checked)o+='# Browser caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access 1 year"
+  ExpiresByType image/png "access 1 year"
+  ExpiresByType text/css "access 1 month"
+  ExpiresByType application/javascript "access 1 month"
+</IfModule>
+
+';
+  if(document.getElementById('xss').checked)o+='# Security headers
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+';
+  if(document.getElementById('hot').checked)o+='# Prevent hotlinking
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://(www\.)?'+dom.replace('.','\.')+'/ [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,L]
+
+';
+  var redir=document.getElementById('redir').value.trim();
+  if(redir){o+='# Custom Redirects
+RewriteEngine On
+';redir.split('
+').forEach(function(l){var p=l.trim().split(' ');if(p.length>=2)o+='Redirect 301 '+p[0]+' https://'+dom+p[1]+'
+';});o+='
+';}
+  document.getElementById('out').value=o;
+}
+function dl(){var b=new Blob([document.getElementById('out').value],{type:'text/plain'});var a=document.createElement('a');a.download='.htaccess';a.href=URL.createObjectURL(b);a.click();}
+gh();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Pincode Lookup | OnlineQrs</title>
+<meta name="description" content="Pincode se city, district aur state nikalo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-geo-alt" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">India Pincode Lookup</h1>
+<p class="mb-0">Pincode se city, district aur state nikalo</p>
+</div>
+</header>
+<main class="container pb-5">
+
+<div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Pincode enter karo (6 digits):</label>
+<input type="text" class="form-control cartoon-input" id="pinIn" placeholder="400001" maxlength="6" oninput="this.value=this.value.replace(/\D/g,'')"></div>
+<button class="btn cartoon-btn w-100" onclick="findPin()"><i class="bi bi-search me-2"></i>Find Pincode Details</button>
+<div id="pinResult" class="result-box mt-3" style="display:none;"></div>
+<div id="pinError" class="alert alert-danger mt-3" style="display:none;"></div>
+</div></div></div>
+<script>
+function findPin(){
+  var pin=document.getElementById('pinIn').value.trim();
+  if(pin.length!==6){alert('Valid 6-digit pincode enter karo.');return;}
+  document.getElementById('pinError').style.display='none';
+  document.getElementById('pinResult').style.display='none';
+  fetch('https://api.postalpincode.in/pincode/'+pin)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data||data[0].Status!=='Success'){throw new Error('not found');}
+      var posts=data[0].PostOffice;
+      var html='<h5 style="color:var(--primary);">Pincode: '+pin+'</h5>'
+        +'<p><strong>State:</strong> '+posts[0].State+' | <strong>District:</strong> '+posts[0].District+'</p>'
+        +'<p><strong>Taluk:</strong> '+posts[0].Taluk+'</p>'
+        +'<h6>Post Offices ('+posts.length+'):</h6><ul class="list-unstyled">';
+      posts.forEach(function(p){html+='<li><i class="bi bi-geo-alt-fill me-1" style="color:var(--primary);"></i>'+p.Name+' ('+p.BranchType+')</li>';});
+      html+='</ul>';
+      document.getElementById('pinResult').innerHTML=html;
+      document.getElementById('pinResult').style.display='';
+    })
+    .catch(function(){
+      document.getElementById('pinError').textContent='Pincode details nahi mili. Dobara try karo.';
+      document.getElementById('pinError').style.display='';
+    });
+}
+</script>
+
+</main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

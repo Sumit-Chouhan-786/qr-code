@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Gradient Generator | OnlineQrs</title>
+<meta name="description" content="Beautiful CSS gradients visually banao aur code copy karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-brush" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">CSS Gradient Generator</h1>
+<p class="mb-0">Beautiful CSS gradients visually banao aur code copy karo</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-4"><label class="form-label fw-bold">Color 1</label><input type="color" class="form-control cartoon-input" id="c1" value="#d35400" style="height:46px;" oninput="upd()"></div>
+<div class="col-md-4"><label class="form-label fw-bold">Color 2</label><input type="color" class="form-control cartoon-input" id="c2" value="#ffda77" style="height:46px;" oninput="upd()"></div>
+<div class="col-md-4"><label class="form-label fw-bold">Color 3 (optional)</label><input type="color" class="form-control cartoon-input" id="c3" value="#ffffff" style="height:46px;" oninput="upd()"></div>
+<div class="col-md-4"><label class="form-label fw-bold">Type</label>
+<select class="form-select cartoon-input" id="gt" onchange="upd()"><option value="linear">Linear</option><option value="radial">Radial</option><option value="conic">Conic</option></select></div>
+<div class="col-md-4"><label class="form-label fw-bold">Angle: <span id="gav">135</span>deg</label>
+<input type="range" class="form-range" id="ga" min="0" max="360" value="135" oninput="document.getElementById('gav').textContent=this.value;upd()"></div>
+<div class="col-md-4 d-flex align-items-end"><div class="form-check"><input type="checkbox" class="form-check-input" id="g3" onchange="upd()"><label class="form-check-label fw-bold" for="g3">Use 3rd color</label></div></div>
+</div>
+<div id="prev" style="height:180px;border-radius:14px;border:3px solid var(--primary);margin-bottom:16px;"></div>
+<div class="mb-3"><label class="form-label fw-bold">CSS Code:</label>
+<textarea class="form-control cartoon-input" id="out" rows="3" readonly style="font-family:monospace;font-size:.88rem;"></textarea></div>
+<button class="btn cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('out').value)"><i class="bi bi-copy me-1"></i>Copy CSS</button>
+</div></div></div>
+<script>
+function upd(){
+  var c1=document.getElementById('c1').value,c2=document.getElementById('c2').value,c3=document.getElementById('c3').value;
+  var type=document.getElementById('gt').value,a=document.getElementById('ga').value,u3=document.getElementById('g3').checked;
+  var stops=u3?c1+', '+c2+', '+c3:c1+', '+c2;
+  var css=type==='linear'?'linear-gradient('+a+'deg, '+stops+')':type==='radial'?'radial-gradient(circle, '+stops+')':'conic-gradient(from '+a+'deg, '+stops+')';
+  document.getElementById('prev').style.background=css;
+  document.getElementById('out').value='background: '+css+';';
+}
+upd();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

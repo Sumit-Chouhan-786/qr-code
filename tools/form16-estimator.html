@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form 16 Tax Estimator | OnlineQrs</title>
+<meta name="description" content="Annual salary se income tax estimate karo FY2024-25">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-file-earmark-text" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Form 16 Tax Estimator</h1>
+<p class="mb-0">Annual salary se income tax estimate karo FY2024-25</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Annual Basic Salary (Rs.):</label><input type="number" class="form-control cartoon-input" id="b" placeholder="600000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">HRA Received (Rs./year):</label><input type="number" class="form-control cartoon-input" id="h" placeholder="120000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Other Allowances (Rs./year):</label><input type="number" class="form-control cartoon-input" id="o" placeholder="60000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">80C Investments (Rs., max 1.5L):</label><input type="number" class="form-control cartoon-input" id="s80c" placeholder="150000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">80D Health Insurance (Rs., max 25K):</label><input type="number" class="form-control cartoon-input" id="s80d" placeholder="25000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Tax Regime:</label>
+<select class="form-select cartoon-input" id="reg" onchange="calc()">
+<option value="new">New Regime (2024-25)</option><option value="old">Old Regime</option>
+</select></div>
+<div id="res" class="result-box" style="display:none;"></div>
+</div></div></div>
+<script>
+function calc(){
+  var b=+document.getElementById('b').value||0,h=+document.getElementById('h').value||0,o=+document.getElementById('o').value||0;
+  var s80c=Math.min(+document.getElementById('s80c').value||0,150000);
+  var s80d=Math.min(+document.getElementById('s80d').value||0,25000);
+  var reg=document.getElementById('reg').value;
+  var gross=b+h+o,tax=0,taxable;
+  if(reg==='new'){
+    taxable=Math.max(0,gross-75000);
+    if(taxable<=300000)tax=0;
+    else if(taxable<=700000)tax=(taxable-300000)*.05;
+    else if(taxable<=1000000)tax=20000+(taxable-700000)*.10;
+    else if(taxable<=1200000)tax=50000+(taxable-1000000)*.15;
+    else if(taxable<=1500000)tax=80000+(taxable-1200000)*.20;
+    else tax=140000+(taxable-1500000)*.30;
+  }else{
+    taxable=Math.max(0,gross-50000-s80c-s80d);
+    if(taxable<=250000)tax=0;
+    else if(taxable<=500000)tax=(taxable-250000)*.05;
+    else if(taxable<=1000000)tax=12500+(taxable-500000)*.20;
+    else tax=112500+(taxable-1000000)*.30;
+  }
+  var cess=tax*.04,total=tax+cess;
+  document.getElementById('res').innerHTML=
+    '<div class="row g-3 text-center">'
+    +'<div class="col-6"><div class="cartoon-card p-2"><small>Gross Income</small><div class="h5 mb-0" style="color:var(--primary);">Rs.'+Math.round(gross).toLocaleString('en-IN')+'</div></div></div>'
+    +'<div class="col-6"><div class="cartoon-card p-2"><small>Taxable Income</small><div class="h5 mb-0" style="color:var(--primary);">Rs.'+Math.round(taxable).toLocaleString('en-IN')+'</div></div></div>'
+    +'<div class="col-6"><div class="cartoon-card p-2"><small>Income Tax</small><div class="h5 mb-0" style="color:var(--danger);">Rs.'+Math.round(tax).toLocaleString('en-IN')+'</div></div></div>'
+    +'<div class="col-6"><div class="cartoon-card p-2"><small>Monthly TDS</small><div class="h5 mb-0" style="color:var(--danger);">Rs.'+Math.round(total/12).toLocaleString('en-IN')+'</div></div></div>'
+    +'</div><p class="text-muted small mt-2 mb-0">Cess: Rs.'+Math.round(cess).toLocaleString('en-IN')+' | Total Annual Tax: Rs.'+Math.round(total).toLocaleString('en-IN')+'</p>';
+  document.getElementById('res').style.display='';
+}
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

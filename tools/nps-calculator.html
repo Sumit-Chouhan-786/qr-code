@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPS Calculator | OnlineQrs</title>
+<meta name="description" content="National Pension Scheme corpus aur monthly pension calculate karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-graph-up" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">NPS Calculator</h1>
+<p class="mb-0">National Pension Scheme corpus aur monthly pension calculate karo</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-7">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Monthly Contribution (Rs.):</label><input type="number" class="form-control cartoon-input" id="mc" placeholder="5000" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Current Age:</label><input type="number" class="form-control cartoon-input" id="age" placeholder="30" oninput="calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Expected Return: <span id="rv">10%</span></label>
+<input type="range" class="form-range" id="rr" min="6" max="14" value="10" step="0.5" oninput="document.getElementById('rv').textContent=this.value+'%';calc()"></div>
+<div class="mb-3"><label class="form-label fw-bold">Annuity Rate: <span id="av">6%</span></label>
+<input type="range" class="form-range" id="ar" min="4" max="9" value="6" step="0.5" oninput="document.getElementById('av').textContent=this.value+'%';calc()"></div>
+<div id="res" class="result-box" style="display:none;">
+<div class="row g-3 text-center">
+<div class="col-6"><div class="cartoon-card p-2"><small>Total Corpus at 60</small><div class="h5 mb-0" style="color:var(--primary);" id="rc">Rs.0</div></div></div>
+<div class="col-6"><div class="cartoon-card p-2"><small>Lump Sum (60%)</small><div class="h5 mb-0" style="color:var(--success);" id="rl">Rs.0</div></div></div>
+<div class="col-6"><div class="cartoon-card p-2"><small>Monthly Pension</small><div class="h5 mb-0" style="color:var(--primary);" id="rp">Rs.0</div></div></div>
+<div class="col-6"><div class="cartoon-card p-2"><small>Years to Retire</small><div class="h5 mb-0" style="color:var(--primary);" id="ry">0</div></div></div>
+</div></div>
+</div></div></div>
+<script>
+function calc(){
+  var P=parseFloat(document.getElementById('mc').value)||0;
+  var age=parseInt(document.getElementById('age').value)||30;
+  var r=parseFloat(document.getElementById('rr').value)/100/12;
+  var ann=parseFloat(document.getElementById('ar').value)/100;
+  var n=(60-age)*12;if(n<=0)return;
+  var corpus=P*(Math.pow(1+r,n)-1)/r*(1+r);
+  var lump=corpus*0.6,annC=corpus*0.4,pension=annC*ann/12;
+  document.getElementById('rc').textContent='Rs.'+Math.round(corpus).toLocaleString('en-IN');
+  document.getElementById('rl').textContent='Rs.'+Math.round(lump).toLocaleString('en-IN');
+  document.getElementById('rp').textContent='Rs.'+Math.round(pension).toLocaleString('en-IN');
+  document.getElementById('ry').textContent=(60-age)+' yrs';
+  document.getElementById('res').style.display='';
+}
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marksheet Generator | OnlineQrs</title>
+<meta name="description" content="School / college marksheet PDF banao — teachers ke liye free">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-bar-chart-line" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Marksheet Generator</h1>
+<p class="mb-0">School / college marksheet PDF banao — teachers ke liye free</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-9">
+<div class="cartoon-card p-4">
+<div class="row g-3 mb-3">
+<div class="col-md-6"><label class="form-label fw-bold">School Name *</label><input type="text" class="form-control cartoon-input" id="sc" placeholder="ABC Public School"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Exam Name *</label><input type="text" class="form-control cartoon-input" id="ex" placeholder="Half Yearly Exam 2024"></div>
+<div class="col-md-6"><label class="form-label fw-bold">Student Name *</label><input type="text" class="form-control cartoon-input" id="sn" placeholder="Rahul Sharma"></div>
+<div class="col-md-3"><label class="form-label fw-bold">Class</label><input type="text" class="form-control cartoon-input" id="cls" placeholder="10-A"></div>
+<div class="col-md-3"><label class="form-label fw-bold">Roll No</label><input type="text" class="form-control cartoon-input" id="rn" placeholder="15"></div>
+</div>
+<h6 style="color:var(--primary);">Subject Marks</h6>
+<div id="subjs"></div>
+<button class="btn btn-outline-success cartoon-btn btn-sm mb-3" onclick="addS()"><i class="bi bi-plus-circle me-1"></i>Add Subject</button>
+<div id="msum" class="result-box mb-3" style="display:none;"></div>
+<button class="btn cartoon-btn w-100" onclick="gen()"><i class="bi bi-file-pdf me-2"></i>Generate Marksheet PDF</button>
+</div></div></div>
+<script>
+var ss=[];
+function addS(){
+  var id=ss.length;ss.push({name:'',max:100,obt:0});
+  var div=document.createElement('div');div.className='row g-2 mb-2 align-items-center';div.id='ss'+id;
+  div.innerHTML='<div class="col-5"><input type="text" class="form-control cartoon-input" placeholder="Subject name" oninput="ss['+id+'].name=this.value"></div>'
+    +'<div class="col-3"><input type="number" class="form-control cartoon-input" placeholder="Max" value="100" oninput="ss['+id+'].max=+this.value;cals()"></div>'
+    +'<div class="col-3"><input type="number" class="form-control cartoon-input" placeholder="Obtained" oninput="ss['+id+'].obt=+this.value;cals()"></div>'
+    +'<div class="col-1"><button class="btn btn-danger btn-sm cartoon-btn" onclick="document.getElementById('ss'+id+'').remove();ss['+id+']={max:0,obt:0};cals()"><i class="bi bi-trash"></i></button></div>';
+  document.getElementById('subjs').appendChild(div);
+}
+function cals(){
+  var tot=ss.reduce(function(s,i){return s+i.obt;},0),mx=ss.reduce(function(s,i){return s+i.max;},0);
+  if(!mx)return;var pct=(tot/mx*100).toFixed(1);var g=pct>=90?'A+':pct>=80?'A':pct>=70?'B+':pct>=60?'B':pct>=50?'C':'F';
+  document.getElementById('msum').innerHTML='<div class="row g-3 text-center"><div class="col-4"><div class="cartoon-card p-2"><small>Total</small><div class="h5 mb-0" style="color:var(--primary);">'+tot+'/'+mx+'</div></div></div><div class="col-4"><div class="cartoon-card p-2"><small>Percentage</small><div class="h5 mb-0" style="color:var(--primary);">'+pct+'%</div></div></div><div class="col-4"><div class="cartoon-card p-2"><small>Grade</small><div class="h5 mb-0" style="color:var(--success);">'+g+'</div></div></div></div>';
+  document.getElementById('msum').style.display='';
+}
+function gen(){
+  var sc=document.getElementById('sc').value.trim(),sn=document.getElementById('sn').value.trim();
+  if(!sc||!sn){alert('School aur student name required.');return;}
+  var jsPDF=window.jspdf.jsPDF,pdf=new jsPDF();
+  pdf.setFillColor(211,84,0);pdf.rect(0,0,210,20,'F');pdf.setTextColor(255);pdf.setFontSize(13);pdf.setFont(undefined,'bold');pdf.text(sc.toUpperCase(),105,13,{align:'center'});
+  pdf.setTextColor(0);pdf.setFontSize(11);pdf.setFont(undefined,'bold');pdf.text(document.getElementById('ex').value,105,32,{align:'center'});
+  pdf.setFontSize(10);pdf.setFont(undefined,'normal');
+  pdf.text('Name: '+sn,14,45);pdf.text('Class: '+document.getElementById('cls').value,100,45);pdf.text('Roll No: '+document.getElementById('rn').value,160,45);
+  var y=57;pdf.setFillColor(211,84,0);pdf.rect(14,y,182,7,'F');pdf.setTextColor(255);pdf.setFont(undefined,'bold');
+  pdf.text('Subject',16,y+5);pdf.text('Max',100,y+5,{align:'right'});pdf.text('Obtained',140,y+5,{align:'right'});pdf.text('%',162,y+5,{align:'right'});pdf.text('Grade',183,y+5,{align:'right'});y+=11;
+  pdf.setTextColor(0);pdf.setFont(undefined,'normal');
+  var tot=0,mx=0;
+  ss.forEach(function(s,i){
+    if(!s.name&&!s.max)return;var pct=(s.obt/s.max*100).toFixed(0);var g=pct>=90?'A+':pct>=80?'A':pct>=70?'B+':pct>=60?'B':pct>=50?'C':'F';
+    if(i%2===0){pdf.setFillColor(255,248,240);pdf.rect(14,y-5,182,7,'F');}
+    pdf.text(s.name,16,y);pdf.text(String(s.max),100,y,{align:'right'});pdf.text(String(s.obt),140,y,{align:'right'});pdf.text(pct+'%',162,y,{align:'right'});pdf.text(g,183,y,{align:'right'});
+    tot+=s.obt;mx+=s.max;y+=8;
+  });
+  y+=4;pdf.line(14,y,196,y);y+=7;pdf.setFont(undefined,'bold');
+  var tp=(tot/mx*100).toFixed(1),tg=tp>=90?'A+':tp>=80?'A':tp>=70?'B+':tp>=60?'B':tp>=50?'C':'F';
+  pdf.text('TOTAL',16,y);pdf.text(String(mx),100,y,{align:'right'});pdf.text(String(tot),140,y,{align:'right'});pdf.text(tp+'%',162,y,{align:'right'});pdf.setTextColor(211,84,0);pdf.text(tg,183,y,{align:'right'});
+  y+=15;pdf.setTextColor(0);pdf.setFont(undefined,'normal');pdf.setFontSize(9);
+  pdf.text("Principal's Signature: ___________________",14,y);pdf.text("Class Teacher: ___________________",120,y);
+  pdf.setFontSize(8);pdf.setTextColor(150);pdf.text('Generated by OnlineQrs.com',105,285,{align:'center'});
+  pdf.save('marksheet-'+sn.replace(/ /g,'-')+'.pdf');
+}
+['English','Hindi','Mathematics','Science','Social Science'].forEach(function(s,i){addS();ss[i].name=s;document.querySelector('#ss'+i+' input').value=s;});
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Study Timer | OnlineQrs</title>
+<meta name="description" content="25-5 minute focus timer — best productivity tool for students">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-stopwatch" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Pomodoro Study Timer</h1>
+<p class="mb-0">25-5 minute focus timer — best productivity tool for students</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-6">
+<div class="cartoon-card p-4 text-center">
+<div id="mode" class="h5 mb-2" style="color:var(--primary);">Focus Time</div>
+<div id="timer" style="font-size:5rem;font-weight:700;color:var(--primary);font-family:monospace;line-height:1;">25:00</div>
+<div class="progress mt-3 mb-4" style="height:12px;border-radius:10px;">
+<div id="bar" class="progress-bar" style="width:100%;background:var(--primary);border-radius:10px;transition:width 1s linear;"></div>
+</div>
+<div class="d-flex gap-3 justify-content-center mb-4">
+<button class="btn cartoon-btn" id="startBtn" onclick="tog()"><i class="bi bi-play-fill me-1"></i>Start</button>
+<button class="btn btn-outline-success cartoon-btn" onclick="rst()"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset</button>
+<button class="btn btn-outline-success cartoon-btn" onclick="skp()"><i class="bi bi-skip-forward me-1"></i>Skip</button>
+</div>
+<div class="row g-3 mb-3">
+<div class="col-4"><div class="cartoon-card p-2"><div class="h4 mb-0" id="sess" style="color:var(--primary);">0</div><small>Sessions</small></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><div class="h4 mb-0" id="foc" style="color:var(--success);">0m</div><small>Focused</small></div></div>
+<div class="col-4"><div class="cartoon-card p-2"><div class="h4 mb-0" id="brk" style="color:var(--primary);">0</div><small>Breaks</small></div></div>
+</div>
+<div class="row g-2 mb-3">
+<div class="col-4"><label class="form-label fw-bold" style="font-size:.8rem;">Focus (min)</label><input type="number" class="form-control cartoon-input" id="fl" value="25" min="1" max="60" style="text-align:center;"></div>
+<div class="col-4"><label class="form-label fw-bold" style="font-size:.8rem;">Short Break</label><input type="number" class="form-control cartoon-input" id="sl" value="5" min="1" max="30" style="text-align:center;"></div>
+<div class="col-4"><label class="form-label fw-bold" style="font-size:.8rem;">Long Break</label><input type="number" class="form-control cartoon-input" id="ll" value="15" min="1" max="60" style="text-align:center;"></div>
+</div>
+<input type="text" class="form-control cartoon-input" placeholder="Current task... e.g. Chapter 3 Physics">
+</div></div></div>
+<script>
+var s={mode:'focus',run:false,sec:25*60,sess:0,brk:0,foc:0,iv:null,tot:25*60};
+function gl(m){return parseInt(m==='focus'?document.getElementById('fl').value:m==='short'?document.getElementById('sl').value:document.getElementById('ll').value)*60;}
+function upd(){
+  var m=Math.floor(s.sec/60),sc=s.sec%60;
+  document.getElementById('timer').textContent=String(m).padStart(2,'0')+':'+String(sc).padStart(2,'0');
+  document.getElementById('bar').style.width=(s.sec/s.tot*100)+'%';
+  document.getElementById('sess').textContent=s.sess;
+  document.getElementById('foc').textContent=Math.round(s.foc/60)+'m';
+  document.getElementById('brk').textContent=s.brk;
+}
+function tick(){
+  if(s.sec<=0){
+    if(s.mode==='focus'){s.sess++;s.foc+=s.tot;s.mode=s.sess%4===0?'long':'short';}
+    else{s.brk++;s.mode='focus';}
+    s.tot=gl(s.mode);s.sec=s.tot;
+    document.getElementById('mode').textContent=s.mode==='focus'?'Focus Time':s.mode==='short'?'Short Break':'Long Break';
+    return;
+  }
+  s.sec--;upd();
+}
+function tog(){
+  if(s.run){clearInterval(s.iv);s.run=false;document.getElementById('startBtn').innerHTML='<i class="bi bi-play-fill me-1"></i>Resume';}
+  else{s.iv=setInterval(tick,1000);s.run=true;document.getElementById('startBtn').innerHTML='<i class="bi bi-pause-fill me-1"></i>Pause';}
+}
+function rst(){clearInterval(s.iv);s.run=false;s.mode='focus';s.sec=gl('focus');s.tot=s.sec;document.getElementById('startBtn').innerHTML='<i class="bi bi-play-fill me-1"></i>Start';document.getElementById('mode').textContent='Focus Time';upd();}
+function skp(){s.sec=0;tick();}
+upd();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>

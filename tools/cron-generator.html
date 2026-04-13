@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cron Expression Generator | OnlineQrs</title>
+<meta name="description" content="Cron job expressions visually banao aur understand karo">
+<link rel="icon" type="image/x-icon" href="../assets/logo.webp">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7565474923776604" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="tool-hero">
+<div class="container text-center">
+<i class="bi bi-clock-history" style="font-size:2.5rem;color:#000;"></i>
+<h1 class="mt-2 mb-1">Cron Expression Generator</h1>
+<p class="mb-0">Cron job expressions visually banao aur understand karo</p>
+</div>
+</header>
+<main class="container pb-5"><div class="row justify-content-center"><div class="col-lg-8">
+<div class="cartoon-card p-4">
+<div class="mb-3"><label class="form-label fw-bold">Quick Presets:</label>
+<div class="d-flex flex-wrap gap-2 mb-3">
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('* * * * *')">Every minute</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 * * * *')">Every hour</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 0 * * *')">Daily midnight</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 9 * * *')">Daily 9 AM</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 0 * * 0')">Every Sunday</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 0 1 * *')">Monthly 1st</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('*/5 * * * *')">Every 5 min</button>
+<button class="btn btn-sm btn-outline-success cartoon-btn" onclick="sc('0 9-17 * * 1-5')">Business hours</button>
+</div></div>
+<div class="row g-2 mb-3">
+<div class="col"><label class="form-label fw-bold text-center d-block" style="font-size:.85rem;">Minute</label><input type="text" class="form-control cartoon-input text-center" id="cm" value="*" oninput="pc()"></div>
+<div class="col"><label class="form-label fw-bold text-center d-block" style="font-size:.85rem;">Hour</label><input type="text" class="form-control cartoon-input text-center" id="ch" value="*" oninput="pc()"></div>
+<div class="col"><label class="form-label fw-bold text-center d-block" style="font-size:.85rem;">Day</label><input type="text" class="form-control cartoon-input text-center" id="cd" value="*" oninput="pc()"></div>
+<div class="col"><label class="form-label fw-bold text-center d-block" style="font-size:.85rem;">Month</label><input type="text" class="form-control cartoon-input text-center" id="cmo" value="*" oninput="pc()"></div>
+<div class="col"><label class="form-label fw-bold text-center d-block" style="font-size:.85rem;">Weekday</label><input type="text" class="form-control cartoon-input text-center" id="cw" value="*" oninput="pc()"></div>
+</div>
+<div class="result-box mb-3">
+<div class="d-flex justify-content-between align-items-center mb-2">
+<code id="expr" style="font-size:1.3rem;color:var(--primary);font-weight:bold;">* * * * *</code>
+<button class="btn btn-sm btn-primary cartoon-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('expr').textContent)"><i class="bi bi-copy"></i></button>
+</div>
+<p id="desc" class="mb-0 fw-bold" style="color:var(--success);">Runs every minute</p>
+</div>
+</div></div></div>
+<script>
+function sc(e){var p=e.split(' ');['cm','ch','cd','cmo','cw'].forEach(function(id,i){document.getElementById(id).value=p[i]||'*';});pc();}
+function pc(){
+  var m=document.getElementById('cm').value,h=document.getElementById('ch').value;
+  var d=document.getElementById('cd').value,mo=document.getElementById('cmo').value,w=document.getElementById('cw').value;
+  var e=m+' '+h+' '+d+' '+mo+' '+w;document.getElementById('expr').textContent=e;
+  var desc='Custom schedule: '+e;
+  if(m==='*'&&h==='*'&&d==='*'&&mo==='*'&&w==='*')desc='Runs every minute';
+  else if(m==='0'&&h==='*')desc='Runs at start of every hour';
+  else if(m==='0'&&h==='0'&&d==='*'&&mo==='*'&&w==='*')desc='Runs daily at midnight';
+  else if(d==='*'&&mo==='*'&&w==='*')desc='Runs at '+h+':'+m.padStart(2,'0')+' every day';
+  else if(d==='*'&&mo==='*')desc='Runs on weekday '+w+' at '+h+':'+m.padStart(2,'0');
+  document.getElementById('desc').textContent=desc;
+}
+pc();
+</script></main>
+<div id="other-tools-placeholder"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../shared.js"></script>
+</body>
+</html>
